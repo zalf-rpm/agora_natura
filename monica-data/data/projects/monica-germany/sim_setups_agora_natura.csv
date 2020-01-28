@@ -1,0 +1,3 @@
+run-id,crop-id,sim.json,crop.json,site.json,climate_data,climate_model,climate_scenario,climate_region,start_year,end_year,groundwater-level,impenetrable-layer,elevation,slope,latitude,sowing-date,harvest-date,landcover,fertilization,NitrogenResponseOn,irrigation,WaterDeficitResponseOn,EmergenceMoistureControlOn,EmergenceFloodingControlOn,LeafExtensionModifier,CO2,O3
+1,SM,sim.json,crop.json,site.json,dwd,,,germany,1990,2017,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,auto,TRUE,TRUE,FALSE,FALSE,TRUE,FALSE,FALSE,FALSE,360,
+2,WRa,sim.json,crop.json,site.json,dwd,,,germany,1990,2017,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,auto,FALSE,TRUE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,360,

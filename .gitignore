@@ -1,3 +1,10 @@
+
+out
+debug_out
+csv-out
+.RData
+.RHistory
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -123,3 +130,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+out/
+csv-out/
+monica-data/climate-data/isimip/
