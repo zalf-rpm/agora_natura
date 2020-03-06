@@ -57,6 +57,11 @@ PATHS = {
         "path-to-data-dir": "D:/awork/zalf/monica/monica_example/monica-data/data/",
         "path-to-output-dir": "D:/awork/zalf/monica/monica_example/out/",
         "path-to-csv-output-dir": "D:/awork/zalf/monica/monica_example/csv-out/"
+    },
+    "remoteConsumer-remoteMonica": {
+        "path-to-data-dir": "./monica-data/data/",
+        "path-to-output-dir": "/out/out/",
+        "path-to-csv-output-dir": "/out/csv-out/"
     }
 }
 DEFAULT_HOST = "login01.cluster.zalf.de" # "localhost" 
@@ -272,13 +277,14 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
     "collect data from workers"
 
     config = {
-        "user": "ah-local-remote",
+        "mode": "ah-local-remote",
         "port": server["port"] if server["port"] else DEFAULT_PORT,
         "server": server["server"] if server["server"] else DEFAULT_HOST, 
         "start-row": "0",
         "end-row": "-1",
         "shared_id": shared_id,
-        "no-of-setups": 2 #None
+        "no-of-setups": 2,
+        "timeout": 600000 # 10 minutes
     }
 
     if len(sys.argv) > 1 and __name__ == "__main__":
@@ -287,7 +293,7 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
             if k in config:
                 config[k] = v
 
-    paths = PATHS[config["user"]]
+    paths = PATHS[config["mode"]]
 
     if not "out" in config:
         config["out"] = paths["path-to-output-dir"]
@@ -304,7 +310,7 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
         socket = context.socket(zmq.PULL)
 
     socket.connect("tcp://" + config["server"] + ":" + config["port"])
-
+    socket.RCVTIMEO = config["timeout"]
     leave = False
     write_normal_output_files = False
 
@@ -504,6 +510,9 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
             leave = process_message(msg)
             #elapsed = timeit.default_timer() - start_time_proc
             #print("time to process message" + str(elapsed))
+        except zmq.error.Again as _e:
+            print('no response from the server (with "timeout"=%d ms) ' % socket.RCVTIMEO)
+            return
         except Exception as e:
             print("Exception:", e)
             #continue

@@ -87,10 +87,10 @@ PATHS = {
         "path-to-projects-dir": "/monica_data/project/", # needs to be mounted there
     },
     "remoteProducer-remoteMonica": {
-        "include-file-base-path": "/beegfs/common/GitHub/zalf-rpm/monica-parameters/", # path to monica-parameters
-        "path-to-climate-dir": "/monica_data/climate-data/", # mounted path to archive or hard drive with climate data 
+        "include-file-base-path": "/project/monica-parameters/", # path to monica-parameters
+        "path-to-climate-dir": "/data/", # mounted path to archive or hard drive with climate data 
         "monica-path-to-climate-dir": "/monica_data/climate-data/", # mounted path to archive accessable by monica executable
-        "path-to-data-dir": "./monica-data/data/germany/", # mounted path to archive or hard drive with data 
+        "path-to-data-dir": "./monica-data/data/", # mounted path to archive or hard drive with data 
         "path-to-projects-dir": "./monica-data/data/projects/", # mounted path to archive or hard drive with project data 
     }
 }
@@ -131,8 +131,8 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
     #config_and_no_data_socket = context.socket(zmq.PUSH)
 
     config = {
-        "user": "ah-local-remote",
-        "port": server["port"] if server["port"] else DEFAULT_PORT,
+        "mode": "ah-local-remote",
+        "server-port": server["port"] if server["port"] else DEFAULT_PORT,
         "server": server["server"] if server["server"] else DEFAULT_HOST,
         "start-row": "0", 
         "end-row": "-1",
@@ -154,12 +154,12 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
     print("config:", config)
 
     # select paths 
-    paths = PATHS[config["user"]]
+    paths = PATHS[config["mode"]]
     # open soil db connection
     soil_db_con = sqlite3.connect(paths["path-to-data-dir"] + DATA_SOIL_DB)
     #soil_db_con = cas_sq3.connect(paths["path-to-data-dir"] + DATA_SOIL_DB) #CAS.
     # connect to monica proxy (if local, it will try to connect to a locally started monica)
-    socket.connect("tcp://" + config["server"] + ":" + str(config["port"]))
+    socket.connect("tcp://" + config["server"] + ":" + str(config["server-port"]))
 
     # read setup from csv file
     setups = Mrunlib.read_sim_setups(paths["path-to-projects-dir"] + PROJECT_FOLDER + config["setups-file"])
