@@ -49,7 +49,7 @@ PATHS = {
         "path-to-csv-output-dir": "C:/Users/hampf/Documents/GitHub/agora_natura/csv-out/"
     },
     "hpc-remote": {
-        "path-to-data-dir": "/beegfs/common/data/",
+        "path-to-data-dir": "/beegfs/hampf/Github/agora_natura/monica-data/data/",
         "path-to-output-dir": "./out/",
         "path-to-csv-output-dir": "./csv-out/"
     },
@@ -59,11 +59,13 @@ PATHS = {
         "path-to-csv-output-dir": "D:/awork/zalf/monica/monica_example/csv-out/"
     }
 }
-DEFAULT_HOST = "login01.cluster.zalf.de" # "localhost"  #
+DEFAULT_HOST = "login01.cluster.zalf.de" # "localhost" 
 DEFAULT_PORT = "7780"
 TEMPLATE_SOIL_PATH = "{local_path_to_data_dir}germany/buek1000_1000_gk5.asc"
+#TEMPLATE_CORINE_PATH = "{local_path_to_data_dir}germany/corine2006_1000_gk5.asc"
 #TEMPLATE_SOIL_PATH = "{local_path_to_data_dir}germany/BUEK250_1000_gk5.asc"
 #DATA_SOIL_DB = "germany/buek250.sqlite"
+#USE_CORINE = True
 
 def create_output(result):
     "create output structure for single run"
@@ -102,7 +104,7 @@ def create_output(result):
                 cm_count_to_vals[vals["CM-count"]].update(vals)
 
     for cmc in sorted(cm_count_to_vals.keys()):
-        if cm_count_to_vals[cmc]["last-doy"] >= 365:
+        if "last-doy" in cm_count_to_vals[cmc] and cm_count_to_vals[cmc]["last-doy"] >= 365:
             del cm_count_to_vals[cmc]
 
     return cm_count_to_vals
@@ -118,7 +120,8 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
 
             if not os.path.isfile(path_to_row_file):
                 with open(path_to_row_file, "w") as _:
-                    _.write("CM-count,row,col,Crop,Year,LAI-max,Yield-last,NLeach-sum,Cycle-length\n")
+                    _.write("CM-count,row,col,Crop,SowDOY,HarvDOY,Year,LAI-max,Yield-last,TraDef-avg,NDef-avg,Cycle-length\n")
+                    #_.write("CM-count,row,col,yearly-avg-tavg\n")
 
             with open(path_to_row_file, 'a') as _:
                 writer = csv.writer(_, delimiter=",")
@@ -130,6 +133,8 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
                             cell_data = rcd_val[0]
 
                             for cm_count, data in cell_data.items():
+                                if "Crop" not in data:
+                                    continue
                                 row_ = [
                                     cm_count,
                                     row,
@@ -138,11 +143,11 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
                                     data["Year"],
                                     data["LAI-max"],
                                     data["Yield-last"],
-                                    data["NLeach-sum"],
-                                    data["Cycle-length"]#,
-
+                                    data["TraDef-avg"],
+                                    data["NDef-avg"],
+                                    data["Cycle-length"],
+                                    
                                     #data["AbBiom-final"],
-                                    #data["TraDef-avg"],
                                     #data["Stage-harv"]
                                 ]
                                 writer.writerow(row_)
@@ -160,14 +165,17 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
      #   "Precip-sum": {"data" : make_dict_nparr(), "cast-to": "int"},
         "LAI-max": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         "Yield-last": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-        "NLeach-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
+        "TraDef-avg": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
+        "NDef-avg": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
+        "Cycle-length": {"data" : make_dict_nparr(), "cast-to": "int"},
      #   "NPP-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-     #   "NEP-sum": {"data" : make_dict_nparr(), "cast-to": "int"},
+        "yearly-avg-tavg": {"data" : make_dict_nparr(), "cast-to": "int"},
+        "yearly-sum-precip": {"data" : make_dict_nparr(), "cast-to": "int"},
+        "yearly-sum-nleach": {"data" : make_dict_nparr(), "cast-to": "int"}
      #   "Ra-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
      #   "Rh-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
      #   "G-iso": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
      #   "G-mono": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-        "Cycle-length": {"data" : make_dict_nparr(), "cast-to": "int"},
     }
 
     cmc_to_crop = {}
@@ -187,13 +195,13 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
                     for cell_data in rcd_val:
                         for cm_count, data in cell_data.items():
                             for key, val in output_grids.items():
-                                if cm_count not in cmc_to_crop:
+                                if cm_count not in cmc_to_crop and "Crop" in data:
                                     cmc_to_crop[cm_count] = data["Crop"]
 
                                 if key in data:
                                     cmc_and_year_to_vals[(cm_count, data["Year"])][key].append(data[key])
-                                else:
-                                    cmc_and_year_to_vals[(cm_count, data["Year"])][key] #just make sure at least an empty list is in there
+                                #else:
+                                #    cmc_and_year_to_vals[(cm_count, data["Year"])][key] #just make sure at least an empty list is in there
 
                     for (cm_count, year), key_to_vals in cmc_and_year_to_vals.items():
                         for key, vals in key_to_vals.items():
@@ -224,8 +232,10 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
             mold = lambda x: str(round(x, digits))
 
         for (cm_count, year), row_arr in y2d.items():
+            #if int(row_arr.min()) == -9999 and int(row_arr.max() == -9999):
+            #    continue
 
-            crop = cmc_to_crop[cm_count]    
+            crop = cmc_to_crop[cm_count] if cm_count in cmc_to_crop else "none"    
             crop = crop.replace("/", "").replace(" ", "")
             path_to_file = path_to_output_dir + crop + "_" + key + "_" + str(year) + "_" + str(cm_count) + ".asc"
 
@@ -301,9 +311,41 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
     path_to_soil_grid = TEMPLATE_SOIL_PATH.format(local_path_to_data_dir=paths["path-to-data-dir"])
     soil_metadata, header = Mrunlib.read_header(path_to_soil_grid)
     soil_grid_template = np.loadtxt(path_to_soil_grid, dtype=int, skiprows=6)
+
     #set invalid soils / water to no-data
     soil_grid_template[soil_grid_template < 1] = -9999
     soil_grid_template[soil_grid_template > 71] = -9999
+    
+    #if USE_CORINE:
+        #path_to_corine_grid = TEMPLATE_CORINE_PATH.format(local_path_to_data_dir=paths["path-to-data-dir"])
+        #corine_meta, _ = Mrunlib.read_header(path_to_corine_grid)
+        #corine_grid = np.loadtxt(path_to_corine_grid, dtype=int, skiprows=6)
+        #corine_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(corine_grid, corine_meta)
+
+        #scols = int(soil_metadata["ncols"])
+        #srows = int(soil_metadata["nrows"])
+        #scellsize = int(soil_metadata["cellsize"])
+        #xllcorner = int(soil_metadata["xllcorner"])
+        #yllcorner = int(soil_metadata["yllcorner"])
+
+        #for srow in range(0, srows):
+            #print(srow)
+           # for scol in range(0, scols):
+             #   soil_id = soil_grid_template[srow, scol]
+               # if soil_id == -9999:
+                   # continue
+
+                #get coordinate of clostest climate element of real soil-cell
+                #sh_gk5 = yllcorner + (scellsize / 2) + (srows - srow - 1) * scellsize
+                #sr_gk5 = xllcorner + (scellsize / 2) + scol * scellsize
+
+                # check if current grid cell is used for agriculture                
+                #corine_id = corine_gk5_interpolate(sr_gk5, sh_gk5)
+                #if corine_id not in [200, 210, 211, 212, 240, 241, 242, 243, 244]:
+                   # soil_grid_template[srow, scol] = -9999
+
+        #print("filtered through CORINE")
+
     #set all data values to one, to count them later
     soil_grid_template[soil_grid_template != -9999] = 1
     #set all no-data values to 0, to ignore them while counting
@@ -464,7 +506,7 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
             #print("time to process message" + str(elapsed))
         except Exception as e:
             print("Exception:", e)
-            continue
+            #continue
 
     print("exiting run_consumer()")
     #debug_file.close()
