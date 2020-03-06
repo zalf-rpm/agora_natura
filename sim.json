@@ -59,18 +59,43 @@
 
 		"events": [			
 			"crop", [
-				["CM-count", "LAST"],
-				["DOY|last-doy", "LAST"],
+				["CM-count", "FIRST"],
 				["Crop", "LAST"],
+				["DOY|last-doy", "LAST"],
+				["DOY|SowDOY", "FIRST"],
+				["DOY|HarvDOY", "LAST"],
 				["Year", "LAST"],
 				["LAI|LAI-max", "MAX"],
 				["Yield|Yield-last", "LAST"],
-				["NLeach|NLeach-sum", "SUM"],
-				["Count|Cycle-length", "SUM"]
+				["Count|Cycle-length", "SUM"],
+				["TraDef|TraDef-avg", "AVG"],
+				["NDef|NDef-avg", "AVG"]
+			],
+			"yearly", [
+				["Year|CM-count", "FIRST"],
+				["Year", "FIRST"],
+				["Tavg|yearly-avg-tavg", "AVG"],
+				["Precip|yearly-sum-precip", "SUM"],
+				["NLeach|yearly-sum-nleach", "SUM"]
 			]
-
 		],
-		
+
+		"_events": [			
+			"crop", [
+				["CM-count", "FIRST"],
+				["Crop", "LAST"],
+				["DOY|last-doy", "LAST"],
+				["DOY|SowDOY", "FIRST"],
+				["DOY|HarvDOY", "LAST"],
+				["Year", "LAST"],
+				["LAI|LAI-max", "MAX"],
+				["Yield|Yield-last", "LAST"],
+				["Count|Cycle-length", "SUM"],
+				["TraDef|TraDef-avg", "AVG"],
+				["NDef|NDef-avg", "AVG"]
+			]
+		],
+
 
 		"voc orig events": [
 			"crop", [

@@ -1,0 +1,138 @@
+  {
+	"crops": {
+		"WW": {
+			"is-winter-crop": true,
+			"cropParams": {
+				"species": {
+					"=": ["include-from-file", "projects/sustag/wheat.json"],
+					"TransitionStageLeafExp": 2
+				},
+				"cultivar": {
+					"=": ["include-from-file", "projects/sustag/winter-wheat.json"],
+					"OrganIdsForSecondaryYield": [
+						{
+							"organId": 2,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 3,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 4,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 0.15
+						}
+					],
+					"EarlyRefLeafExp": 8,
+					"RefLeafExp": 16
+				}
+			},
+			"residueParams": ["include-from-file", "crop-residues/wheat.json"]
+		},
+		"WRa": {
+			"is-winter-crop": true,
+			"cropParams": {
+				"species": ["include-from-file", "projects/sustag/rape.json"],
+				"cultivar": {
+					"=": ["include-from-file", "projects/sustag/winter-rape.json"],
+					"OrganIdsForSecondaryYield": [
+						{
+							"organId": 2,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.35,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 3,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.35,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 4,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.91,
+							"yieldPercentage": 0.45
+						}
+					]
+				}
+			},
+			"residueParams": ["include-from-file", "crop-residues/rape.json"]
+		}
+	},
+	
+	"fert-params": {
+		"AN": ["include-from-file", "mineral-fertilisers/AN.json"],
+		"urea": ["include-from-file", "mineral-fertilisers/U.json"],
+		"org_fert": ["include-from-file", "organic-fertilisers/CADLM.json"]
+	}, 	
+
+	"cropRotation": [
+		{
+			"worksteps": [
+			  { "date": "0000-08-20", "type": "Sowing", "crop": ["ref", "crops", "WRa"] },
+			  {
+				"date": "0001-04-03",
+				"type": "MineralFertilization",
+				"amount": [40.0, "kg N"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			  },
+			  {
+				"date": "0001-05-07",
+				"type": "MineralFertilization",
+				"amount": [40.0, "kg N"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			  },
+			  { "date": "0001-07-20", "type": "Harvest", "crop": ["ref", "crops", "WRa"] }
+			]
+		  },
+		  {
+			"worksteps": [
+			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
+			  {
+				"date": "0001-04-03",
+				"type": "MineralFertilization",
+				"amount": [40.0, "kg N"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			  },
+			  {
+				"date": "0001-05-07",
+				"type": "MineralFertilization",
+				"amount": [40.0, "kg N"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			  },
+			  { "date": "0001-08-04", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
+			]
+		  },
+		  {
+			"worksteps": [
+			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
+			  {
+				"date": "0001-04-03",
+				"type": "MineralFertilization",
+				"amount": [40.0, "kg N"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			  },
+			  {
+				"date": "0001-05-07",
+				"type": "MineralFertilization",
+				"amount": [40.0, "kg N"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			  },
+			  { "date": "0001-08-04", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
+			]
+		  }
+	  ],
+	
+	  "CropParameters": {
+		"DEFAULT": ["include-from-file", "general/crop.json"]
+	  }
+	}
+
+
