@@ -174,8 +174,8 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
         "NDef-avg": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         "Cycle-length": {"data" : make_dict_nparr(), "cast-to": "int"},
      #   "NPP-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-        "yearly-avg-tavg": {"data" : make_dict_nparr(), "cast-to": "int"},
-        "yearly-sum-precip": {"data" : make_dict_nparr(), "cast-to": "int"},
+        #"yearly-avg-tavg": {"data" : make_dict_nparr(), "cast-to": "int"},
+        #"yearly-sum-precip": {"data" : make_dict_nparr(), "cast-to": "int"},
         "yearly-sum-nleach": {"data" : make_dict_nparr(), "cast-to": "int"}
      #   "Ra-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
      #   "Rh-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
