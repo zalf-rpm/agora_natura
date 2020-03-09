@@ -39,11 +39,11 @@
 			"is-winter-crop": true,
 			"cropParams": {
 				"species": {
-					"=": ["include-from-file", "crops/rye.json"],
+					"=": ["include-from-file", "projects/sustag/rye.json"],
 					"TransitionStageLeafExp": 2
 				},
 				"cultivar": {
-					"=": ["include-from-file", "crops/rye/winter-rye.json"],
+					"=": ["include-from-file", "projects/sustag/winter-rye.json"],
 					"OrganIdsForSecondaryYield": [
 						{
 							"organId": 2,
