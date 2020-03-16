@@ -116,19 +116,19 @@
 				"date": "0001-04-03",
 				"type": "OrganicFertilization",
 				"amount": [30.0, "kg N"],
-				"partition": ["include-from-file", "organic-fertilisers/CADLM.json"]
+				"partition": ["include-from-file", "mineral-fertilisers/urea.json"]
 			  },
 			  {
 				"date": "0001-05-07",
 				"type": "OrganicFertilization",
 				"amount": [50.0, "kg N"],
-				"partition": ["include-from-file", "organic-fertilisers/CADLM.json"]
+				"partition": ["include-from-file", "mineral-fertilisers/urea.json"]
 			  },
 			  {
 				"date": "0001-06-07",
 				"type": "OrganicFertilization",
 				"amount": [30.0, "kg N"],
-				"partition": ["include-from-file", "organic-fertilisers/CADLM.json"]
+				"partition": ["include-from-file", "mineral-fertilisers/urea.json"]
 			  },
 			  { "date": "0001-08-04", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
 			]
@@ -140,13 +140,13 @@
 				"date": "0001-04-03",
 				"type": "OrganicFertilization",
 				"amount": [30.0, "kg N"],
-				"partition": ["include-from-file", "organic-fertilisers/CADLM.json"]
+				"partition": ["include-from-file", "mineral-fertilisers/urea.json"]
 			  },
 			  {
 				"date": "0001-05-07",
 				"type": "OrganicFertilization",
 				"amount": [50.0, "kg N"],
-				"partition": ["include-from-file", "organic-fertilisers/CADLM.json"]
+				"partition": ["include-from-file", "mineral-fertilisers/urea.json"]
 			  },
 			  { "date": "0001-07-29", "type": "Harvest", "crop": ["ref", "crops", "WR"] }
 			]
@@ -158,13 +158,13 @@
 				"date": "0001-04-03",
 				"type": "OrganicFertilization",
 				"amount": [30.0, "kg N"],
-				"partition": ["include-from-file", "organic-fertilisers/CADLM.json"]
+				"partition": ["include-from-file", "mineral-fertilisers/urea.json"]
 			  },
 			  {
 				"date": "0001-05-07",
 				"type": "OrganicFertilization",
 				"amount": [50.0, "kg N"],
-				"partition": ["include-from-file", "organic-fertilisers/CADLM.json"]
+				"partition": ["include-from-file", "mineral-fertilisers/urea.json"]
 			  },
 			  { "date": "0001-07-25", "type": "Harvest", "crop": ["ref", "crops", "WB"] }
 			]
