@@ -1,0 +1,79 @@
+  {
+	"__UNDERSCORES IN FRONT MEANS IGNORE THE KEY, this is just to keep a valid JSON file": "",
+	"__!!! check and beautify JSON files with http://codebeautify.org/jsonviewer !!!": "",
+	
+	"__this is the path which is prepended to 'include-from-file' paths, if they are relative paths": "",
+	"_include-file-base-path": "../",
+	
+	"__user defined crops section to be used via references": "",
+	"crops": {
+		"CLV": {
+			"is-winter-crop": false,
+			"cropParams": {
+				"species": {
+					"=": ["include-from-file", "crops/clover-grass-ley.json"],
+					"OrganMaintenanceRespiration":[  
+						0,
+						0.029999999999999999,
+						0.01,
+						0.014999999999999999
+					]
+				},
+				"cultivar": ["include-from-file", "crops/clover-grass-ley/.json"]
+			},
+			"residueParams": ["include-from-file", "crop-residues/clover-grass-ley.json"]
+		},
+		"ALF": {
+			"is-winter-crop": false,
+			"cropParams": {
+				"species": ["include-from-file", "crops/alfalfa.json"],
+				"cultivar": ["include-from-file", "crops/alfalfa/.json"]
+			},
+			"residueParams": ["include-from-file", "crop-residues/alfalfa.json"]
+		},
+		"SM": {
+			"is-winter-crop": false,
+			"cropParams": {
+				"species": ["include-from-file", "crops/maize.json"],
+				"cultivar": ["include-from-file", "crops/maize/silage-maize.json"]
+			},
+			"residueParams": ["include-from-file", "crop-residues/maize.json"]
+		}
+	},
+	
+	"__user defined fertilizer parameteres section to be used via references": "",
+	"fert-params": {
+		"AN": ["include-from-file", "mineral-fertilisers/AN.json"],
+		"CADLM": ["include-from-file", "organic-fertilisers/CADLM.json"]
+	}, 
+
+	"__relative date crop rotation example": "",
+	"cropRotation": [
+		{
+			"worksteps": [
+				{"date": "1995-03-15", "type": "Sowing", "crop": ["ref", "crops", "CLV"] }
+			]
+		},
+		{
+			"worksteps": [
+				{	
+					"date": "0000-05-15", 
+					"type": "Cutting",
+					"organs": {"Leaf": [85, "%"], "Shoot": [80, "%"], "Fruit": [100, "%"]},
+					"export": {"Leaf": [85, "%"], "Shoot": [80, "%"], "Fruit": [100, "%"]}
+				},		
+				{
+					"date": "0000-09-30", 
+					"type": "Cutting",
+					"organs": {"Leaf": [85, "%"], "Shoot": [80, "%"], "Fruit": [100, "%"]},
+					"export": {"Leaf": [85, "%"], "Shoot": [80, "%"], "Fruit": [100, "%"]}
+				}
+			]
+		}
+	],
+	"__general crop parameters for the monica model": "",
+	"CropParameters": {
+		"=": ["include-from-file", "general/crop.json"],
+		"__enable_hourly_FvCB_photosynthesis__": false
+	}
+}

@@ -1,0 +1,386 @@
+  {
+	"crops": {
+		"SM": {
+			"cropParams": {
+				"species": ["include-from-file", "projects/sustag/maize.json"],
+				"cultivar": {
+					"=": ["include-from-file", "projects/sustag/silage-maize.json"],
+					"OrganIdsForSecondaryYield": [
+						{
+							"organId": 2,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.32,
+							"yieldPercentage": 0.1
+						},
+						{
+							"organId": 3,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.32,
+							"yieldPercentage": 0.1
+						}
+					]
+				}
+			},
+			"residueParams": ["include-from-file", "crop-residues/maize.json"]
+		},
+		"WW": {
+			"is-winter-crop": true,
+			"cropParams": {
+				"species": {
+					"=": ["include-from-file", "projects/sustag/wheat.json"],
+					"TransitionStageLeafExp": 2
+				},
+				"cultivar": {
+					"=": ["include-from-file", "projects/sustag/winter-wheat.json"],
+					"OrganIdsForSecondaryYield": [
+						{
+							"organId": 2,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 3,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 4,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 0.15
+						}
+					],
+					"EarlyRefLeafExp": 8,
+					"RefLeafExp": 16
+				}
+			},
+			"residueParams": ["include-from-file", "crop-residues/wheat.json"]
+		},
+		"WR": {
+			"is-winter-crop": true,
+			"cropParams": {
+				"species": {
+					"=": ["include-from-file", "crops/rye.json"],
+					"TransitionStageLeafExp": 2
+				},
+				"cultivar": {
+					"=": ["include-from-file", "crops/rye/winter-rye.json"],
+					"OrganIdsForSecondaryYield": [
+						{
+							"organId": 2,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 3,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 4,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 0.15
+						}
+					],
+					"EarlyRefLeafExp": 8,
+					"RefLeafExp": 16
+				}
+			},
+			"residueParams": ["include-from-file", "crop-residues/rye.json"]
+		},
+		"WB": {
+			"is-winter-crop": true,
+			"cropParams": {
+				"species": ["include-from-file", "projects/sustag/barley.json"],
+				"cultivar": {
+					"=": ["include-from-file", "projects/sustag/winter-barley.json"],
+					"OrganIdsForSecondaryYield": [
+							{
+								"organId": 2,
+								"type": "YieldComponent",
+								"yieldDryMatter": 0.86,
+								"yieldPercentage": 1
+							},
+							{
+								"organId": 3,
+								"type": "YieldComponent",
+								"yieldDryMatter": 0.86,
+								"yieldPercentage": 1
+							},
+							{
+								"organId": 4,
+								"type": "YieldComponent",
+								"yieldDryMatter": 0.86,
+								"yieldPercentage": 0.15
+							}
+					]
+				}
+			},
+			"residueParams": ["include-from-file", "crop-residues/barley.json"]
+		},
+		"SB": {
+			"cropParams": {
+				"species": ["include-from-file", "projects/sustag/barley.json"],
+				"cultivar": {
+					"=": ["include-from-file", "projects/sustag/spring-barley.json"],
+					"OrganIdsForSecondaryYield": [
+						{
+							"organId": 2,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 3,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 4,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 0.05
+						}
+					]
+				}
+			},
+			"residueParams": ["include-from-file", "crop-residues/barley.json"]
+		},
+		"WRa": {
+			"is-winter-crop": true,
+			"cropParams": {
+				"species": ["include-from-file", "projects/sustag/rape.json"],
+				"cultivar": {
+					"=": ["include-from-file", "projects/sustag/winter-rape.json"],
+					"OrganIdsForSecondaryYield": [
+						{
+							"organId": 2,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.35,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 3,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.35,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 4,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.91,
+							"yieldPercentage": 0.45
+						}
+					]
+				}
+			},
+			"residueParams": ["include-from-file", "crop-residues/rape.json"]
+		},
+		"PO": {			
+			"cropParams": {
+				"species": ["include-from-file", "projects/sustag/potato.json"],
+				"cultivar": {
+					"=": ["include-from-file", "projects/sustag/moderately-early-potato.json"],
+					"OrganIdsForSecondaryYield": [
+						{
+							"organId": 2,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.16,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 3,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						}
+					]
+				}
+			},			
+			"residueParams": ["include-from-file", "crop-residues/potato.json"]
+		},
+		"SBee": {			
+			"cropParams": {
+				"species": ["include-from-file", "projects/sustag/sugar-beet.json"],
+				"cultivar": {
+					"=": ["include-from-file", "projects/sustag/sugar-beet-cv.json"],
+					"OrganIdsForSecondaryYield": [
+						{
+							"organId": 2,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.16,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 3,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						}
+					]
+				}
+			},			
+			"residueParams": ["include-from-file", "crop-residues/beet.json"]
+		},
+		"WTr": {	
+			"is-winter-crop": true,		
+			"cropParams": {
+				"species": ["include-from-file", "projects/sustag/triticale.json"],
+				"cultivar": {
+					"=": ["include-from-file", "projects/sustag/winter-triticale.json"],
+					"OrganIdsForSecondaryYield": [
+						{
+							"organId": 2,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 3,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 4,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 0.15
+						}
+					]
+				}
+			},			
+			"residueParams": ["include-from-file", "crop-residues/triticale.json"]
+		},
+		"GM": {			
+			"cropParams": {
+				"species": ["include-from-file", "projects/sustag/maize.json"],
+				"cultivar": {
+					"=": ["include-from-file", "projects/sustag/grain-maize.json"],
+					"OrganIdsForSecondaryYield": [
+						{
+							"organId": 2,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 3,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 4,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 0.22
+						}
+					]
+				}
+			},			
+			"residueParams": ["include-from-file", "crop-residues/maize.json"]
+		},
+		"CLV": {
+			"is-winter-crop": false,
+			"cropParams": {
+				"species": {
+					"=": ["include-from-file", "crops/clover-grass-ley.json"],
+					"OrganMaintenanceRespiration":[  
+						0,
+						0.029999999999999999,
+						0.01,
+						0.014999999999999999
+					]
+				},
+				"cultivar": ["include-from-file", "crops/clover-grass-ley/.json"]
+			},
+			"residueParams": ["include-from-file", "crop-residues/clover-grass-ley.json"]
+		}
+	},
+	
+	"fert-params": {
+		"AN": ["include-from-file", "mineral-fertilisers/AN.json"],
+		"urea": ["include-from-file", "mineral-fertilisers/U.json"],
+		"org_fert": ["include-from-file", "organic-fertilisers/CADLM.json"]
+	}, 	
+
+	"cropRotation": [
+		{
+			"worksteps": [
+			  {
+				"date": "0000-04-23",
+				"type": "MineralFertilization",
+				"amount": [125, "kg N"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			  },
+			  { "date": "0000-04-27", "type": "Tillage", "depth": [0.15, "m"] },
+			  { "date": "0000-05-04", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
+			  {
+				"date": "0000-05-10",
+				"type": "MineralFertilization",
+				"amount": [60, "kg N"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			  },
+			  { "date": "0000-09-23", "type": "Harvest", "crop": ["ref", "crops", "SM"] },
+			  {
+				"date": "0000-12-16",
+				"type": "OrganicFertilization",
+				"amount": [30000, "kg N"],
+				"parameters": ["include-from-file", "organic-fertilisers/CADLM.json"],
+				"incorporation": true
+			  },
+			  { "date": "0000-12-22", "type": "Tillage", "depth": [0.1, "m"] }
+			]
+		  },
+		  {
+			"worksteps": [
+			  {
+				"date": "0000-04-23",
+				"type": "MineralFertilization",
+				"amount": [125, "kg N"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			  },
+			  { "date": "0000-04-27", "type": "Tillage", "depth": [0.15, "m"] },
+			  { "date": "0000-05-04", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
+			  {
+				"date": "0000-05-10",
+				"type": "MineralFertilization",
+				"amount": [60, "kg N"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			  },
+			  { "date": "0000-09-23", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
+			]
+		  },
+		{
+			"worksteps": [
+			  { "date": "0000-09-25", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
+			  {
+				"date": "0001-04-03",
+				"type": "MineralFertilization",
+				"amount": [40.0, "kg N"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			  },
+			  {
+				"date": "0001-05-07",
+				"type": "MineralFertilization",
+				"amount": [40.0, "kg N"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			  },
+			  { "date": "0001-07-27", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
+			]
+		  }
+	  ],
+	
+	  "CropParameters": {
+		"DEFAULT": ["include-from-file", "general/crop.json"]
+	  }
+	}
+
+
