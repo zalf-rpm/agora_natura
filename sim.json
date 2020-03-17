@@ -70,6 +70,7 @@
 				["Count|Cycle-length", "SUM"],
 				["TraDef|TraDef-avg", "AVG"],
 				["NDef|NDef-avg", "AVG"]
+				["NFert|crop-sum-nfert", "SUM"]
 			],
 			"yearly", [
 				["Year|CM-count", "FIRST"],

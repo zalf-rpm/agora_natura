@@ -151,8 +151,7 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
                                     data["TraDef-avg"],
                                     data["NDef-avg"],
                                     data["Cycle-length"],
-                                    
-                                    #data["AbBiom-final"],
+                                    data["crop-sum-nfert"],
                                     #data["Stage-harv"]
                                 ]
                                 writer.writerow(row_)
@@ -177,6 +176,7 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
         #"yearly-avg-tavg": {"data" : make_dict_nparr(), "cast-to": "int"},
         #"yearly-sum-precip": {"data" : make_dict_nparr(), "cast-to": "int"},
         "yearly-sum-nleach": {"data" : make_dict_nparr(), "cast-to": "int"}
+        "crop-sum-nfert": {"data" : make_dict_nparr(), "cast-to": "int"}
      #   "Ra-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
      #   "Rh-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
      #   "G-iso": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
