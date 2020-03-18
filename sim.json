@@ -69,7 +69,7 @@
 				["Yield|Yield-last", "LAST"],
 				["Count|Cycle-length", "SUM"],
 				["TraDef|TraDef-avg", "AVG"],
-				["NDef|NDef-avg", "AVG"]
+				["NDef|NDef-avg", "AVG"],
 				["NFert|crop-sum-nfert", "SUM"]
 			],
 			"yearly", [
