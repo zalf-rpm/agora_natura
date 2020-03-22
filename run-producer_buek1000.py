@@ -97,7 +97,7 @@ PATHS = {
 
 DEFAULT_HOST = "login01.cluster.zalf.de" # "localhost" #
 DEFAULT_PORT = "6669"
-RUN_SETUP = "[3,4,5]"
+RUN_SETUP = "[5]"
 SETUP_FILE = "sim_setups_agora_natura.csv"
 PROJECT_FOLDER = "monica-germany/"
 DATA_SOIL_DB = "germany/buek1000.sqlite"
