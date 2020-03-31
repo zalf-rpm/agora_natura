@@ -125,7 +125,7 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
 
             if not os.path.isfile(path_to_row_file):
                 with open(path_to_row_file, "w") as _:
-                    _.write("CM-count,row,col,Crop,SowDOY,HarvDOY,Year,LAI-max,Yield-last,TraDef-avg,NDef-avg,Cycle-length\n")
+                    _.write("CM-count,row,col,Crop,Year,SowDOY,HarvDOY,Cycle-length,Yield-last,LAI-max,TraDef-avg,NDef-avg,crop-sum-nfert,yearly-sum-nleach\n")
                     #_.write("CM-count,row,col,yearly-avg-tavg\n")
 
             with open(path_to_row_file, 'a') as _:
@@ -146,12 +146,15 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
                                     col,
                                     data["Crop"],
                                     data["Year"],
-                                    data["LAI-max"],
+                                    data["SowDOY"],
+                                    data["HarvDOY"],
+                                    data["Cycle-length"],
                                     data["Yield-last"],
+                                    data["LAI-max"],
                                     data["TraDef-avg"],
                                     data["NDef-avg"],
-                                    data["Cycle-length"],
                                     data["crop-sum-nfert"],
+                                    data["yearly-sum-nleach"]
                                     #data["Stage-harv"]
                                 ]
                                 writer.writerow(row_)
@@ -167,14 +170,13 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
      #   "Globrad-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
      #   "Tavg": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
      #   "Precip-sum": {"data" : make_dict_nparr(), "cast-to": "int"},
+        "SowDOY": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
+        "HarvDOY": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
+        "Cycle-length": {"data" : make_dict_nparr(), "cast-to": "int"},
         "LAI-max": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         "Yield-last": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         "TraDef-avg": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         "NDef-avg": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-        "Cycle-length": {"data" : make_dict_nparr(), "cast-to": "int"},
-     #   "NPP-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-        #"yearly-avg-tavg": {"data" : make_dict_nparr(), "cast-to": "int"},
-        #"yearly-sum-precip": {"data" : make_dict_nparr(), "cast-to": "int"},
         "yearly-sum-nleach": {"data" : make_dict_nparr(), "cast-to": "int"},
         "crop-sum-nfert": {"data" : make_dict_nparr(), "cast-to": "int"}
      #   "Ra-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
