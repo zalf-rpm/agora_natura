@@ -1,7 +1,9 @@
 run-id,crop-ids,sim.json,crop.json,site.json,climate_data,climate_model,climate_scenario,climate_region,start_year,end_year,groundwater-level,impenetrable-layer,elevation,slope,latitude,sowing-date,harvest-date,landcover,fertilization,NitrogenResponseOn,irrigation,WaterDeficitResponseOn,EmergenceMoistureControlOn,EmergenceFloodingControlOn,LeafExtensionModifier,CO2,O3
-1,SM_SM_WW,sim.json,crop_SM_SM_WW.json,site.json,dwd,,,germany,1990,2017,FALSE,FALSE,TRUE,TRUE,TRUE,auto,auto,FALSE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,360,
+1,SM_SM_WW,sim.json,crop_SM_SM_WW_test.json,site.json,dwd,,,germany,1990,2017,FALSE,FALSE,TRUE,TRUE,TRUE,auto,auto,FALSE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,360,
 2,SM_SM_WR,sim.json,crop_SM_SM_WR.json,site.json,dwd,,,germany,1990,2017,FALSE,FALSE,TRUE,TRUE,TRUE,auto,auto,FALSE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,360,
 3,WRa_WW_WW,sim.json,crop_WRa_WW_WW.json,site.json,dwd,,,germany,1990,2017,FALSE,FALSE,TRUE,TRUE,TRUE,auto,auto,FALSE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,360,
 4,WRa_WR_WB,sim.json,crop_WRa_WR_WB.json,site.json,dwd,,,germany,1990,2017,FALSE,FALSE,TRUE,TRUE,TRUE,auto,auto,FALSE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,360,
 5,WW_WR_WB,sim.json,crop_WW_WR_WB.json,site.json,dwd,,,germany,1990,2017,FALSE,FALSE,TRUE,TRUE,TRUE,auto,auto,FALSE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,360,
-6,WW_WR_WB,sim.json,crop_SM_SM_WW_LUZ_LUZ_LUZ.json,site.json,dwd,,,germany,1990,2017,FALSE,FALSE,TRUE,TRUE,TRUE,auto,auto,FALSE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,360,
+6,WR_WB_WW,sim.json,crop_WR_WB_WW.json,site.json,dwd,,,germany,1990,2017,FALSE,FALSE,TRUE,TRUE,TRUE,auto,auto,FALSE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,360,
+7,WB_WW_WR,sim.json,crop_WB_WW_WR.json,site.json,dwd,,,germany,1990,2017,FALSE,FALSE,TRUE,TRUE,TRUE,auto,auto,FALSE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,360,
+8,SM_SM_WW_LUZ,sim.json,crop_SM_SM_WW_LUZ_LUZ_LUZ.json,site.json,dwd,,,germany,1990,2017,FALSE,FALSE,TRUE,TRUE,TRUE,auto,auto,FALSE,FALSE,TRUE,FALSE,TRUE,TRUE,FALSE,FALSE,360
