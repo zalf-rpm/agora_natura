@@ -97,7 +97,7 @@ PATHS = {
 
 DEFAULT_HOST = "login01.cluster.zalf.de" # "localhost" #
 DEFAULT_PORT = "6669"
-RUN_SETUP = "[5,6]"
+RUN_SETUP = "[1,2]"
 SETUP_FILE = "sim_setups_agora_natura.csv"
 PROJECT_FOLDER = "monica-germany/"
 DATA_SOIL_DB = "germany/buek1000.sqlite"
@@ -224,7 +224,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
     # rNfactor data
     path_to_rnf_grid = paths["path-to-data-dir"] + DATA_GRID_RNFACTOR
     rnf_meta, _ = Mrunlib.read_header(path_to_rnf_grid)
-    rnf_grid = np.loadtxt(path_to_rnf_grid, dtype=int, skiprows=6)
+    rnf_grid = np.loadtxt(path_to_rnf_grid, dtype=float, skiprows=6)
     rnf_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(rnf_grid, rnf_meta)
     print("read: ", path_to_rnf_grid)
 
