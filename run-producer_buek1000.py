@@ -106,6 +106,7 @@ DATA_GRID_SLOPE = "germany/slope_1000_gk5.asc"
 #DATA_GRID_LAND_USE = "germany/CropLandcoverMap_DE2016_resampled_1000.asc"
 DATA_GRID_LAND_USE = "germany/corine2006_1000_gk5.asc"
 DATA_GRID_SOIL = "germany/buek1000_1000_gk5.asc"
+DATA_GRID_RNFACTOR = "germany/rNfactor_1000_gk5.asc"
 TEMPLATE_PATH_LATLON = "{path_to_climate_dir}{climate_data}/csvs/latlon-to-rowcol.json"
 TEMPLATE_PATH_HARVEST = "{path_to_projects_dir}{project_folder}ILR_SEED_HARVEST_doys_{crop_id}.csv"
 TEMPLATE_PATH_CLIMATE_CSV = "{climate_data}/csvs/{climate_model_folder}{climate_scenario_folder}{climate_region}/row-{crow}/col-{ccol}.csv"
@@ -219,6 +220,13 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
     soil_metadata, _ = Mrunlib.read_header(path_to_soil_grid)
     soil_grid = np.loadtxt(path_to_soil_grid, dtype=int, skiprows=6)
     print("read: ", path_to_soil_grid)
+
+    # rNfactor data
+    path_to_rnf_grid = paths["path-to-data-dir"] + DATA_GRID_RNFACTOR
+    rnf_meta, _ = Mrunlib.read_header(path_to_rnf_grid)
+    rnf_grid = np.loadtxt(path_to_rnf_grid, dtype=int, skiprows=6)
+    rnf_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(rnf_grid, rnf_meta)
+    print("read: ", path_to_rnf_grid)
 
     cdict = {}
     climate_data_to_gk5_interpolator = {}
@@ -336,6 +344,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                     if corine_id not in [200, 210, 211, 212, 240, 241, 242, 243, 244]:
                         continue
 
+                rNfactor = rnf_gk5_interpolate(sr_gk5, sh_gk5)
                 height_nn = dem_gk5_interpolate(sr_gk5, sh_gk5)
                 slope = slope_gk5_interpolate(sr_gk5, sh_gk5)
 
@@ -348,6 +357,13 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
 
                     print("scol:", scol, "crow/col:", (crow, ccol), "crop_id:", crop_id, "soil_id:", soil_id, "height_nn:", height_nn, "slope:", slope, "seed_harvest_cs:", seed_harvest_cs)
 
+                    # multiply rNFactor onto mineral nitrogen fertilizer amounts
+                    for workstep in worksteps:
+                        if workstep["type"] == "MineralFertilization":
+                            if type(workstep["amount"]) == list:
+                                workstep["amount"][0] = workstep["amount"][0] * rNfactor
+                            elif type(workstep["amount"]) == float:
+                                workstep["amount"] = workstep["amount"] * rNfactor
                     
                     # set external seed/harvest dates
                     if seed_harvest_cs:
