@@ -178,6 +178,7 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
         "TraDef-avg": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         "NDef-avg": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         "yearly-sum-nleach": {"data" : make_dict_nparr(), "cast-to": "int"},
+        "crop-sum-nleach": {"data" : make_dict_nparr(), "cast-to": "int"},
         "crop-sum-nfert": {"data" : make_dict_nparr(), "cast-to": "int"}
      #   "Ra-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
      #   "Rh-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},

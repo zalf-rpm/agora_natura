@@ -34,7 +34,7 @@
 				}
 			},
 			"residueParams": ["include-from-file", "crop-residues/wheat.json"]
-		},
+		},	
 		"WR": {
 			"is-winter-crop": true,
 			"cropParams": {
