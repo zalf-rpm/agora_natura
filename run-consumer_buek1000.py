@@ -48,6 +48,11 @@ PATHS = {
         "path-to-output-dir": "C:/Users/hampf/Documents/GitHub/agora_natura/out/",
         "path-to-csv-output-dir": "C:/Users/hampf/Documents/GitHub/agora_natura/csv-out/"
     },
+    "mbm-local-remote": {
+        "path-to-data-dir": "C:/Users/berg.ZALF-AD/GitHub/agora_natura/monica-data/data/",
+        "path-to-output-dir": "C:/Users/berg.ZALF-AD/GitHub/agora_natura/out/",
+        "path-to-csv-output-dir": "C:/Users/berg.ZALF-AD/GitHub/agora_natura/csv-out/"
+    },
     "hpc-remote": {
         "path-to-data-dir": "/beegfs/hampf/Github/agora_natura/monica-data/data/",
         "path-to-output-dir": "./out/",

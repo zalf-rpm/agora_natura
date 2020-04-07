@@ -71,7 +71,8 @@ PATHS = {
         "include-file-base-path": "C:/Users/berg.ZALF-AD/GitHub/monica-parameters/", # path to monica-parameters
         "path-to-climate-dir": "W:/FOR/FPM/data/climate/", # mounted path to archive or hard drive with climate data 
         "monica-path-to-climate-dir": "/monica_data/climate-data/", # mounted path to archive accessable by monica executable
-        "path-to-data-dir": "C:/Users/berg.ZALF-AD/GitHub/sattgruen-germany/monica-data/data/" # mounted path to archive or hard drive with data 
+        "path-to-data-dir": "./monica-data/data/", # mounted path to archive or hard drive with data 
+        "path-to-projects-dir": "./monica-data/data/projects/",
     },
     "hpc-remote": {
         "include-file-base-path": "/beegfs/common/GitHub/zalf-rpm/monica-parameters/",
