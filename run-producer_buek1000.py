@@ -286,6 +286,8 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
         if config["shared_id"]:
             env_template["sharedId"] = config["shared_id"]
 
+        crop_rotation_copy = copy.deepcopy(env_template["cropRotation"])
+
                # create crop rotation according to setup
         # clear crop rotation and get its template
       #  crop_rotation_templates = env_template.pop("cropRotation")
@@ -352,6 +354,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                 for i, crop_id in enumerate(crop_ids):
 
                     worksteps = env_template["cropRotation"][i]["worksteps"]
+                    worksteps_copy = crop_rotation_copy[i]["worksteps"]
 
                     ilr_interpolate = ilr_seed_harvest_data[crop_id]["interpolate"]
                     seed_harvest_cs = ilr_interpolate(sr_gk5, sh_gk5) if ilr_interpolate else None
@@ -359,12 +362,13 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                     print("scol:", scol, "crow/col:", (crow, ccol), "crop_id:", crop_id, "soil_id:", soil_id, "height_nn:", height_nn, "slope:", slope, "seed_harvest_cs:", seed_harvest_cs)
 
                     # multiply rNFactor onto mineral nitrogen fertilizer amounts
-                    for workstep in worksteps:
+                    for k, workstep in enumerate(worksteps):
+                        workstep_copy = worksteps_copy[k]
                         if workstep["type"] == "MineralFertilization":
                             if type(workstep["amount"]) == list:
-                                workstep["amount"][0] = workstep["amount"][0] * rNfactor
+                                workstep["amount"][0] = workstep_copy["amount"][0] * rNfactor
                             elif type(workstep["amount"]) == float:
-                                workstep["amount"] = workstep["amount"] * rNfactor
+                                workstep["amount"] = workstep_copy["amount"] * rNfactor
                     
                     # set external seed/harvest dates
                     if seed_harvest_cs:
