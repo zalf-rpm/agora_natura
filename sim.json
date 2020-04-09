@@ -65,13 +65,20 @@
 				["DOY|SowDOY", "FIRST"],
 				["DOY|HarvDOY", "LAST"],
 				["Year", "LAST"],
+				["RelDev", "LAST"],
 				["LAI|LAI-max", "MAX"],
 				["Yield|Yield-last", "LAST"],
 				["Count|Cycle-length", "SUM"],
 				["TraDef|TraDef-avg", "AVG"],
 				["NDef|NDef-avg", "AVG"],
 				["NFert|crop-sum-nfert", "SUM"],
-				["NLeach|crop-sum-nleach", "SUM"]
+				["NLeach|crop-sum-nleach", "SUM"],
+				["Nmin", "SUM"],
+				["ActNup", "SUM"],
+				["NO3", "SUM"],
+				["NH4", "SUM"],
+				["NO2", "SUM"]
+
 			],
 			"yearly", [
 				["Year|CM-count", "FIRST"],
