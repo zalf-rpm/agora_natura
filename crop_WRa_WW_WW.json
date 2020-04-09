@@ -76,7 +76,7 @@
 	"cropRotation": [
 		{
 			"worksteps": [
-				{ "date": "0000-08-20", "type": "Sowing", "crop": ["ref", "crops", "WRa"] },
+				{ "date": "0000-08-26", "type": "Sowing", "crop": ["ref", "crops", "WRa"] },
 				{
 				  "date": "0001-03-03",
 				  "type": "MineralFertilization",
@@ -95,12 +95,12 @@
 				  "amount": [25.0, "kg N"],
 				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
-				{ "date": "0001-07-20", "type": "Harvest", "crop": ["ref", "crops", "WRa"] }
+				{ "date": "0001-08-22", "type": "Harvest", "crop": ["ref", "crops", "WRa"] }
 			  ]
 			},
 		  {
 			"worksteps": [
-				{ "date": "0000-09-25", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
+				{ "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
 				{
 				  "date": "0001-04-03",
 				  "type": "MineralFertilization",
@@ -119,12 +119,12 @@
 				  "amount": [30.0, "kg N"],
 				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
-			  { "date": "0001-08-04", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
+			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
 			]
 		  },
 		  {
 			"worksteps": [
-				{ "date": "0000-09-25", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
+				{ "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
 				{
 				  "date": "0001-04-03",
 				  "type": "MineralFertilization",
@@ -143,7 +143,7 @@
 				  "amount": [30.0, "kg N"],
 				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
-			  { "date": "0001-08-04", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
+			  { "date": "0001-08-20", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
 			]
 		  }
 	  ],

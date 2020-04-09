@@ -73,16 +73,16 @@
 			  {
 				"date": "0000-05-10",
 				"type": "MineralFertilization",
-				"amount": [120, "kg N"],
+				"amount": [100, "kg N"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			  },
 			  {
 				"date": "0000-06-10",
 				"type": "MineralFertilization",
-				"amount": [120, "kg N"],
+				"amount": [100, "kg N"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			  },
-			  { "date": "0000-09-23", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
+			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
 			]
 		  },
 		  {
@@ -91,21 +91,21 @@
 			  {
 				"date": "0000-05-10",
 				"type": "MineralFertilization",
-				"amount": [120, "kg N"],
+				"amount": [100, "kg N"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			  },
 			  {
 				"date": "0000-06-10",
 				"type": "MineralFertilization",
-				"amount": [120, "kg N"],
+				"amount": [100, "kg N"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			  },
-			  { "date": "0000-09-23", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
+			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
 			]
 		  },
 		{
 			"worksteps": [
-			  { "date": "0000-09-25", "type": "Sowing", "crop": ["ref", "crops", "WR"] },
+			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WR"] },
 			  {
 				"date": "0001-04-03",
 				"type": "MineralFertilization",
@@ -118,7 +118,7 @@
 				"amount": [50.0, "kg N"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			  },
-			  { "date": "0001-07-29", "type": "Harvest", "crop": ["ref", "crops", "WR"] }
+			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WR"] }
 			]
 		  }
 	  ],
