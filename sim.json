@@ -73,11 +73,15 @@
 				["NDef|NDef-avg", "AVG"],
 				["NFert|crop-sum-nfert", "SUM"],
 				["NLeach|crop-sum-nleach", "SUM"],
-				["Nmin", "SUM"],
-				["ActNup", "SUM"],
-				["NO3", "SUM"],
-				["NH4", "SUM"],
-				["NO2", "SUM"]
+				["Nmin | Nmin-sum", "SUM"],
+				["ActNup | ActNup-sum", "SUM"],
+				["NO3 | NO3-sum", "SUM"],
+				["NH4 | NH4-sum", "SUM"],
+				["NO2 | NO2-sum" , "SUM"],
+				["Sand|avg-30cm-sand", [1,3, "AVG"]],
+				["Clay|avg-30cm-clay", [1,3, "AVG"]],
+				["Silt|avg-30cm-silt", [1,3, "AVG"]],
+				["Stone|avg-30cm-stone", [1,3, "AVG"]]
 
 			],
 			"yearly", [

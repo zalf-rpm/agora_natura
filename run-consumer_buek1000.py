@@ -130,7 +130,7 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
 
             if not os.path.isfile(path_to_row_file):
                 with open(path_to_row_file, "w") as _:
-                    _.write("CM-count,row,col,Crop,Year,SowDOY,HarvDOY,Cycle-length,RelDev, Yield-last,LAI-max,TraDef-avg,NDef-avg,crop-sum-nfert,crop-sum-nleach,Nmin,ActNup,NO3,NH4,NO2\n")
+                    _.write("CM-count,row,col,Crop,Year,SowDOY,HarvDOY,Cycle-length,RelDev, Yield-last,LAI-max,TraDef-avg,NDef-avg,crop-sum-nfert,Nmin-sum,ActNup-sum,NO3-sum,NH4-sum,NO2-sum, avg-30cm-sand, avg-30cm-clay, avg-30cm-silt, avg-30cm-stone, crop-sum-nleach\n")
                     #_.write("CM-count,row,col,yearly-avg-tavg\n")
 
             with open(path_to_row_file, 'a') as _:
@@ -161,11 +161,14 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
                                     data["NDef-avg"],
                                     data["crop-sum-nfert"],
                                     data["crop-sum-nleach"],
-                                    data["Nmin"],
-                                    data["ActNup"],
-                                    data["NO3"],
-                                    data["NH4"],
-                                    data["NO2"]
+                                    data["Nmin-sum"],
+                                    data["ActNup-sum"],
+                                    data["NO3-sum"],
+                                    data["NH4-sum"],
+                                    data["avg-30cm-sand"],
+                                    data["avg-30cm-silt"],
+                                    data["avg-30cm-clay"],
+                                    data["avg-30cm-stone"]
                                     #data["Stage-harv"]
                                 ]
                                 writer.writerow(row_)
