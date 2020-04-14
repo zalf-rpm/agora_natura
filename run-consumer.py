@@ -57,6 +57,11 @@ PATHS = {
         "path-to-data-dir": "D:/awork/zalf/monica/monica_example/monica-data/data/",
         "path-to-output-dir": "D:/awork/zalf/monica/monica_example/out/",
         "path-to-csv-output-dir": "D:/awork/zalf/monica/monica_example/csv-out/"
+    },
+    "remoteConsumer-remoteMonica": {
+        "path-to-data-dir": "./monica-data/data/",
+        "path-to-output-dir": "/out/out/",
+        "path-to-csv-output-dir": "/out/csv-out/"
     }
 }
 DEFAULT_HOST = "login01.cluster.zalf.de" # "localhost"  #
@@ -118,7 +123,7 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
 
             if not os.path.isfile(path_to_row_file):
                 with open(path_to_row_file, "w") as _:
-                    _.write("CM-count,row,col,Crop,Year,LAI-max,Yield-last,NLeach-sum,Cycle-length\n")
+                    _.write("CM-count,row,col,Crop,Year,SowDOY,HarvDOY,Cycle-length,RelDev, Yield-last,LAI-max,TraDef-avg,NDef-avg,crop-sum-nfert,Nmin-sum,ActNup-sum,NO3-sum,NH4-sum,NO2-sum, avg-30cm-sand, avg-30cm-clay, avg-30cm-silt, avg-30cm-stone, crop-sum-nleach\n")
 
             with open(path_to_row_file, 'a') as _:
                 writer = csv.writer(_, delimiter=",")
@@ -136,10 +141,24 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
                                     col,
                                     data["Crop"],
                                     data["Year"],
-                                    data["LAI-max"],
+                                    data["SowDOY"],
+                                    data["HarvDOY"],
+                                    data["Cycle-length"],
+                                    data["RelDev"],
                                     data["Yield-last"],
-                                    data["NLeach-sum"],
-                                    data["Cycle-length"]#,
+                                    data["LAI-max"],
+                                    data["TraDef-avg"],
+                                    data["NDef-avg"],
+                                    data["crop-sum-nfert"],
+                                    data["crop-sum-nleach"],
+                                    data["Nmin-sum"],
+                                    data["ActNup-sum"],
+                                    data["NO3-sum"],
+                                    data["NH4-sum"],
+                                    data["avg-30cm-sand"],
+                                    data["avg-30cm-silt"],
+                                    data["avg-30cm-clay"],
+                                    data["avg-30cm-stone"]
 
                                     #data["AbBiom-final"],
                                     #data["TraDef-avg"],
@@ -158,16 +177,16 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
      #   "Globrad-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
      #   "Tavg": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
      #   "Precip-sum": {"data" : make_dict_nparr(), "cast-to": "int"},
+        "SowDOY": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
+        "HarvDOY": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
+        "Cycle-length": {"data" : make_dict_nparr(), "cast-to": "int"},
         "LAI-max": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         "Yield-last": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-        "NLeach-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-     #   "NPP-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-     #   "NEP-sum": {"data" : make_dict_nparr(), "cast-to": "int"},
-     #   "Ra-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-     #   "Rh-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-     #   "G-iso": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-     #   "G-mono": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-        "Cycle-length": {"data" : make_dict_nparr(), "cast-to": "int"},
+        "TraDef-avg": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
+        "NDef-avg": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
+        "yearly-sum-nleach": {"data" : make_dict_nparr(), "cast-to": "int"},
+        "crop-sum-nleach": {"data" : make_dict_nparr(), "cast-to": "int"},
+        "crop-sum-nfert": {"data" : make_dict_nparr(), "cast-to": "int"},
     }
 
     cmc_to_crop = {}
@@ -494,5 +513,3 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
 
 if __name__ == "__main__":
     run_consumer()
-
-
