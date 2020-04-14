@@ -184,7 +184,6 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
         "Yield-last": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         "TraDef-avg": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         "NDef-avg": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-        "yearly-sum-nleach": {"data" : make_dict_nparr(), "cast-to": "int"},
         "crop-sum-nleach": {"data" : make_dict_nparr(), "cast-to": "int"},
         "crop-sum-nfert": {"data" : make_dict_nparr(), "cast-to": "int"},
     }
@@ -243,8 +242,10 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
             mold = lambda x: str(round(x, digits))
 
         for (cm_count, year), row_arr in y2d.items():
+            #if int(row_arr.min()) == -9999 and int(row_arr.max() == -9999):
+            #    continue
 
-            crop = cmc_to_crop[cm_count]    
+            crop = cmc_to_crop[cm_count] if cm_count in cmc_to_crop else "none"    
             crop = crop.replace("/", "").replace(" ", "")
             path_to_file = path_to_output_dir + crop + "_" + key + "_" + str(year) + "_" + str(cm_count) + ".asc"
 

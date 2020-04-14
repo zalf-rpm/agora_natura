@@ -177,7 +177,8 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
     # add crop id from setup file
     crops_in_setups = set()
     for setup_id, setup in setups.items():
-        crops_in_setups.add(setup["crop-id"])
+        for crop_id in setup["crop-ids"].split("_"):
+            crops_in_setups.add(crop_id)
 
     for crop_id in crops_in_setups:
         try:
@@ -246,7 +247,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
         climate_model = setup["climate_model"]
         climate_scenario = setup["climate_scenario"]
         climate_region = setup["climate_region"]
-        crop_id = setup["crop-id"]
+        crop_ids = setup["crop-ids"].split("_")
 
         # read template sim.json 
         with open(setup.get("sim.json", config["sim.json"])) as _:
@@ -276,20 +277,22 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
         if config["shared_id"]:
             env_template["sharedId"] = config["shared_id"]
 
+        crop_rotation_copy = copy.deepcopy(env_template["cropRotation"])
+
                # create crop rotation according to setup
         # clear crop rotation and get its template
-        crop_rotation_templates = env_template.pop("cropRotation")
-        env_template["cropRotation"] = []
+        #crop_rotation_templates = env_template.pop("cropRotation")
+        #env_template["cropRotation"] = []
         # get correct template
-        env_template["cropRotation"] = crop_rotation_templates[crop_id]
+        #env_template["cropRotation"] = crop_rotation_templates[crop_id]
 
         # we just got one cultivation method in our rotation
-        worksteps_templates_dict = env_template["cropRotation"][0].pop("worksteps")
+        #worksteps_templates_dict = env_template["cropRotation"][0].pop("worksteps")
 
         # clear the worksteps array and rebuild it out of the setup      
-        worksteps = env_template["cropRotation"][0]["worksteps"] = []
-        worksteps.append(worksteps_templates_dict["sowing"][setup["sowing-date"]])
-        worksteps.append(worksteps_templates_dict["harvest"][setup["harvest-date"]])
+        #worksteps = env_template["cropRotation"][0]["worksteps"] = []
+        #worksteps.append(worksteps_templates_dict["sowing"][setup["sowing-date"]])
+        #worksteps.append(worksteps_templates_dict["harvest"][setup["harvest-date"]])
 
         scols = int(soil_metadata["ncols"])
         srows = int(soil_metadata["nrows"])
@@ -339,12 +342,23 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                 height_nn = dem_gk5_interpolate(sr_gk5, sh_gk5)
                 slope = slope_gk5_interpolate(sr_gk5, sh_gk5)
 
-                ilr_interpolate = ilr_seed_harvest_data[crop_id]["interpolate"]
-                seed_harvest_cs = ilr_interpolate(sr_gk5, sh_gk5) if ilr_interpolate else None
+                for i, crop_id in enumerate(crop_ids):
+
+                    worksteps = env_template["cropRotation"][i]["worksteps"]
+                    worksteps_copy = crop_rotation_copy[i]["worksteps"]
+
+                    ilr_interpolate = ilr_seed_harvest_data[crop_id]["interpolate"]
+                    seed_harvest_cs = ilr_interpolate(sr_gk5, sh_gk5) if ilr_interpolate else None
+
+                    print("scol:", scol, "crow/col:", (crow, ccol), "crop_id:", crop_id, "soil_id:", soil_id, "height_nn:", height_nn, "slope:", slope, "seed_harvest_cs:", seed_harvest_cs)
+
+
+                #ilr_interpolate = ilr_seed_harvest_data[crop_id]["interpolate"]
+                #seed_harvest_cs = ilr_interpolate(sr_gk5, sh_gk5) if ilr_interpolate else None
 
                 #print("scol:", scol, "crow/col:", (crow, ccol), "soil_id:", soil_id, "height_nn:", height_nn, "slope:", slope, "seed_harvest_cs:", seed_harvest_cs)
 
-                clat, _ = cdict[(crow, ccol)]
+                #clat, _ = cdict[(crow, ccol)]
                 # set external seed/harvest dates
                 if seed_harvest_cs:
                     seed_harvest_data = ilr_seed_harvest_data[crop_id]["data"][seed_harvest_cs]
