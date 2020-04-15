@@ -71,7 +71,7 @@ PATHS = {
 }
 DEFAULT_HOST = "login01.cluster.zalf.de" # "localhost" 
 DEFAULT_PORT = "7780"
-TEMPLATE_SOIL_PATH = "{local_path_to_data_dir}germany/buek1000_1000_gk5.asc"
+TEMPLATE_SOIL_PATH = "{local_path_to_data_dir}germany/BUEK200_1000_gk5.asc"
 #TEMPLATE_CORINE_PATH = "{local_path_to_data_dir}germany/corine2006_1000_gk5.asc"
 #TEMPLATE_SOIL_PATH = "{local_path_to_data_dir}germany/BUEK250_1000_gk5.asc"
 #DATA_SOIL_DB = "germany/buek250.sqlite"
