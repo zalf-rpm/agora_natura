@@ -288,7 +288,8 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
         "start-row": "0",
         "end-row": "-1",
         "shared_id": shared_id,
-        "no-of-setups": 1 #None
+        "no-of-setups": 1, #None
+        "timeout": 600000 # 10 minutes
     }
 
     if len(sys.argv) > 1 and __name__ == "__main__":
@@ -314,7 +315,7 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
         socket = context.socket(zmq.PULL)
 
     socket.connect("tcp://" + config["server"] + ":" + config["port"])
-
+    socket.RCVTIMEO = config["timeout"]
     leave = False
     write_normal_output_files = False
 
