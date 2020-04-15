@@ -98,7 +98,7 @@ PATHS = {
 
 DEFAULT_HOST = "login01.cluster.zalf.de" # "localhost" #
 DEFAULT_PORT = "6669"
-RUN_SETUP = "[3]"
+RUN_SETUP = "[1]"
 SETUP_FILE = "sim_setups_agora_natura.csv"
 PROJECT_FOLDER = "monica-germany/"
 DATA_SOIL_DB = "germany/buek200.sqlite"
@@ -330,10 +330,10 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                 soil_id = soil_grid[srow, scol]
                 if soil_id == -9999:
                     continue
-                if soil_id < 1 or soil_id > 71:
+                #if soil_id < 1 or soil_id > 71:
                     #print("row/col:", srow, "/", scol, "has unknown soil_id:", soil_id)
                     #unknown_soil_ids.add(soil_id)
-                    continue
+                    #continue
                 
                 #get coordinate of clostest climate element of real soil-cell
                 sh_gk5 = yllcorner + (scellsize / 2) + (srows - srow - 1) * scellsize

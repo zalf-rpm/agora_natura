@@ -300,7 +300,7 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
         "start-row": "0",
         "end-row": "-1",
         "shared_id": shared_id,
-        "no-of-setups": 2,
+        "no-of-setups": 1,
         "timeout": 600000 # 10 minutes
     }
 
@@ -336,8 +336,8 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
     soil_grid_template = np.loadtxt(path_to_soil_grid, dtype=int, skiprows=6)
 
     #set invalid soils / water to no-data
-    soil_grid_template[soil_grid_template < 1] = -9999
-    soil_grid_template[soil_grid_template > 71] = -9999
+    #soil_grid_template[soil_grid_template < 1] = -9999
+    #soil_grid_template[soil_grid_template > 71] = -9999
     
     #if USE_CORINE:
         #path_to_corine_grid = TEMPLATE_CORINE_PATH.format(local_path_to_data_dir=paths["path-to-data-dir"])
