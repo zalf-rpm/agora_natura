@@ -132,7 +132,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
 
     config = {
         "mode": "remoteProducer-remoteMonica",
-        "port": server["port"] if server["port"] else DEFAULT_PORT,
+        "server-port": server["port"] if server["port"] else DEFAULT_PORT,
         "server": server["server"] if server["server"] else DEFAULT_HOST,
         "start-row": "0", 
         "end-row": "-1",
