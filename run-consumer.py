@@ -67,8 +67,8 @@ PATHS = {
 DEFAULT_HOST = "login01.cluster.zalf.de" # "localhost"  #
 DEFAULT_PORT = "7780"
 #TEMPLATE_SOIL_PATH = "{local_path_to_data_dir}germany/buek1000_1000_gk5.asc"
-TEMPLATE_SOIL_PATH = "{local_path_to_data_dir}germany/BUEK250_1000_gk5.asc"
-DATA_SOIL_DB = "germany/buek250.sqlite"
+TEMPLATE_SOIL_PATH = "{local_path_to_data_dir}germany/BUEK200_1000_gk5.asc"
+DATA_SOIL_DB = "germany/buek200.sqlite"
 
 def create_output(result):
     "create output structure for single run"
@@ -288,7 +288,7 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
         "start-row": "0",
         "end-row": "-1",
         "shared_id": shared_id,
-        "no-of-setups": 2 #None
+        "no-of-setups": 1 #None
     }
 
     if len(sys.argv) > 1 and __name__ == "__main__":
