@@ -309,26 +309,26 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
         xllcorner = int(soil_metadata["xllcorner"])
         yllcorner = int(soil_metadata["yllcorner"])
 
-        #unknown_soil_ids = Set()
+        unknown_soil_ids = set()
 
         print("All Rows x Cols: " + str(srows) + "x" + str(scols))
         for srow in range(0, srows):
+            print(srow,)
             
-            try:
-                print(srow,)
-            except Exception:
-                # no out
-                print(srow,)
-
             if srow < int(config["start-row"]):
                 continue
             elif int(config["end-row"]) > 0 and srow > int(config["end-row"]):
                 break
 
             for scol in range(0, scols):
-
                 soil_id = soil_grid[srow, scol]
                 if soil_id == -9999:
+                    continue
+
+                sp_json = soil_io3.soil_parameters(soil_db_con, int(soil_id))
+                if len(sp_json) == 0:
+                    print("row/col:", srow, "/", scol, "has unknown soil_id:", soil_id)
+                    unknown_soil_ids.add(soil_id)
                     continue
                 #if soil_id < 1 or soil_id > 71:
                     #print("row/col:", srow, "/", scol, "has unknown soil_id:", soil_id)
@@ -550,7 +550,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                                 _.write(json.dumps(env_template))
                         else:
                             print("WARNING: Row ", (sent_env_count-1), " already exists")
-            #print("unknown_soil_ids:", unknown_soil_ids)
+            print("unknown_soil_ids:", unknown_soil_ids)
 
             #print("crows/cols:", crows_cols)
         stop_setup_time = time.clock()

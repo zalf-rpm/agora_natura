@@ -27,13 +27,13 @@ import timeit
 from datetime import datetime
 from collections import defaultdict, OrderedDict
 import numpy as np
-#import sqlite3
+import sqlite3
 
 import zmq
 #print "pyzmq version: ", zmq.pyzmq_version(), " zmq version: ", zmq.zmq_version()
 
 import monica_io3
-#import soil_io3
+import soil_io3
 #print "path to monica_io: ", monica_io.__file__
 import monica_run_lib as Mrunlib
 
@@ -74,7 +74,7 @@ DEFAULT_PORT = "7780"
 TEMPLATE_SOIL_PATH = "{local_path_to_data_dir}germany/BUEK200_1000_gk5.asc"
 #TEMPLATE_CORINE_PATH = "{local_path_to_data_dir}germany/corine2006_1000_gk5.asc"
 #TEMPLATE_SOIL_PATH = "{local_path_to_data_dir}germany/BUEK250_1000_gk5.asc"
-#DATA_SOIL_DB = "germany/buek250.sqlite"
+DATA_SOIL_DB = "germany/buek200.sqlite"
 #USE_CORINE = True
 
 def create_output(result):
@@ -338,6 +338,27 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
     #set invalid soils / water to no-data
     #soil_grid_template[soil_grid_template < 1] = -9999
     #soil_grid_template[soil_grid_template > 71] = -9999
+    
+    unknown_soil_ids = {}
+    soil_db_con = sqlite3.connect(paths["path-to-data-dir"] + DATA_SOIL_DB)
+    for row in range(soil_grid_template.shape[0]):
+        print(row)
+        for col in range(soil_grid_template.shape[1]):
+            soil_id = int(soil_grid_template[row, col])
+            if soil_id == -9999:
+                continue
+            if soil_id in unknown_soil_ids:
+                if unknown_soil_ids[soil_id]:
+                    soil_grid_template[row, col] = -9999
+                else:
+                    continue
+            else:
+                sp_json = soil_io3.soil_parameters(soil_db_con, soil_id)
+                if len(sp_json) == 0:
+                    unknown_soil_ids[soil_id] = True
+                    soil_grid_template[row, col] = -9999
+                else:
+                    unknown_soil_ids[soil_id] = False
     
     #if USE_CORINE:
         #path_to_corine_grid = TEMPLATE_CORINE_PATH.format(local_path_to_data_dir=paths["path-to-data-dir"])

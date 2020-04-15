@@ -359,6 +359,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                 #print("scol:", scol, "crow/col:", (crow, ccol), "soil_id:", soil_id, "height_nn:", height_nn, "slope:", slope, "seed_harvest_cs:", seed_harvest_cs)
 
                 #clat, _ = cdict[(crow, ccol)]
+
                 # set external seed/harvest dates
                 if seed_harvest_cs:
                     seed_harvest_data = ilr_seed_harvest_data[crop_id]["data"][seed_harvest_cs]
@@ -432,7 +433,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                 env_template["params"]["userCropParameters"]["__enable_T_response_leaf_expansion__"] = setup["LeafExtensionModifier"]
 
                 # set soil-profile
-                #sp_json = soil_io3.soil_parameters(soil_db_con, int(soil_id))
+                sp_json = soil_io3.soil_parameters(soil_db_con, int(soil_id))
                 soil_profile = monica_io3.find_and_replace_references(sp_json, sp_json)["result"]
                     
                 #print("soil:", soil_profile)
