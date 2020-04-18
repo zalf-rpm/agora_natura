@@ -1,4 +1,4 @@
-Climate Station,lat,long,Crop,Seed Doy,# Values,Harvest DOY,,Earliest Seed DOY,Latest Seed DOY,Earliest Harvest DOY,Latest Harvest DOY
+climate station,lat,long,crop,avg sowing doy,# values sowing,avg harvest doy,# values harvest,earliest sowing doy,latest sowing doy,earliest harvest doy,latest harvest doy
 140,52.6861,11.4272,WW,271,16,211,,260,288,197,227
 164,53.0316,13.9907,WW,262,5,201,,248,285,171,218
 183,54.6792,13.4343,WW,264,16,223,,247,280,205,236
