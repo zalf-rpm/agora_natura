@@ -448,7 +448,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                 env_template["params"]["userCropParameters"]["__enable_T_response_leaf_expansion__"] = setup["LeafExtensionModifier"]
 
                 # set soil-profile
-                sp_json = soil_io3.soil_parameters(soil_db_con, int(soil_id))
+                #sp_json = soil_io3.soil_parameters(soil_db_con, int(soil_id))
                 soil_profile = monica_io3.find_and_replace_references(sp_json, sp_json)["result"]
                     
                 #print("soil:", soil_profile)
