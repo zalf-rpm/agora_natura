@@ -111,7 +111,7 @@ DATA_GRID_RNFACTOR = "germany/rNfactor_1000_gk5.asc"
 TEMPLATE_PATH_LATLON = "{path_to_climate_dir}{climate_data}/csvs/latlon-to-rowcol.json"
 TEMPLATE_PATH_HARVEST = "{path_to_projects_dir}{project_folder}ILR_SEED_HARVEST_doys_{crop_id}.csv"
 TEMPLATE_PATH_CLIMATE_CSV = "{climate_data}/csvs/{climate_model_folder}{climate_scenario_folder}{climate_region}/row-{crow}/col-{ccol}.csv"
-GEO_TARGET_GRID="epsg:5835" #proj4 -> 3-degree gauss-kruger zone 5 (=Germany) https://epsg.io/5835 ###https://epsg.io/31469
+GEO_TARGET_GRID="epsg:31469" #proj4 -> 3-degree gauss-kruger zone 5 (=Germany) https://epsg.io/5835 ###https://epsg.io/31469
 
 DEBUG_DONOT_SEND = False
 DEBUG_WRITE = True
@@ -309,7 +309,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
         xllcorner = int(soil_metadata["xllcorner"])
         yllcorner = int(soil_metadata["yllcorner"])
 
-        unknown_soil_ids = set()
+        #unknown_soil_ids = set()
 
         print("All Rows x Cols: " + str(srows) + "x" + str(scols))
         for srow in range(0, srows):
@@ -550,7 +550,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                                 _.write(json.dumps(env_template))
                         else:
                             print("WARNING: Row ", (sent_env_count-1), " already exists")
-            print("unknown_soil_ids:", unknown_soil_ids)
+            #print("unknown_soil_ids:", unknown_soil_ids)
 
             #print("crows/cols:", crows_cols)
         stop_setup_time = time.clock()
