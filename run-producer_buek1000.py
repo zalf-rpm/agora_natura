@@ -311,6 +311,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
 
         #unknown_soil_ids = set()
 
+        soil_id_cache = {}
         print("All Rows x Cols: " + str(srows) + "x" + str(scols))
         for srow in range(0, srows):
             print(srow,)
@@ -321,11 +322,16 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                 break
 
             for scol in range(0, scols):
-                soil_id = soil_grid[srow, scol]
+                soil_id = int(soil_grid[srow, scol])
                 if soil_id == -9999:
                     continue
 
-                sp_json = soil_io3.soil_parameters(soil_db_con, int(soil_id))
+                if soil_id in soil_id_cache:
+                    sp_json = soil_id_cache[soil_id]
+                else:
+                    sp_json = soil_io3.soil_parameters(soil_db_con, soil_id)
+                    soil_id_cache[soil_id] = sp_json
+
                 if len(sp_json) == 0:
                     print("row/col:", srow, "/", scol, "has unknown soil_id:", soil_id)
                     unknown_soil_ids.add(soil_id)
@@ -528,7 +534,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                     "setup_id": setup_id,
                     "srow": srow, "scol": scol,
                     "crow": int(crow), "ccol": int(ccol),
-                    "soil_id": int(soil_id)
+                    "soil_id": soil_id
                 }
 
                 if not DEBUG_DONOT_SEND :
