@@ -310,7 +310,6 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
         yllcorner = int(soil_metadata["yllcorner"])
 
         #unknown_soil_ids = set()
-
         soil_id_cache = {}
         print("All Rows x Cols: " + str(srows) + "x" + str(scols))
         for srow in range(0, srows):
@@ -334,12 +333,8 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
 
                 if len(sp_json) == 0:
                     print("row/col:", srow, "/", scol, "has unknown soil_id:", soil_id)
-                    unknown_soil_ids.add(soil_id)
-                    continue
-                #if soil_id < 1 or soil_id > 71:
-                    #print("row/col:", srow, "/", scol, "has unknown soil_id:", soil_id)
                     #unknown_soil_ids.add(soil_id)
-                    #continue
+                    continue
                 
                 #get coordinate of clostest climate element of real soil-cell
                 sh_gk5 = yllcorner + (scellsize / 2) + (srows - srow - 1) * scellsize
