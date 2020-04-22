@@ -59,6 +59,7 @@ PATHS = {
         "monica-path-to-climate-dir": "//archiv/archiv-worm/FOR/FPM/data/climate/", # mounted path to archive accessable by monica executable
         "path-to-data-dir": "C:/Users/hampf/Documents/GitHub/agora_natura/monica-data/data/", # mounted path to archive or hard drive with data 
         "path-to-projects-dir": "C:/Users/hampf/Documents/GitHub/agora_natura/monica-data/data/projects/", # mounted path to archive or hard drive with project data 
+        "path-debug-write-folder": "./debug-out/",
     },
     "ah-local-remote": {
         "include-file-base-path": "C:/Users/hampf/MONICA/monica-parameters/", # path to monica-parameters
@@ -66,6 +67,7 @@ PATHS = {
         "monica-path-to-climate-dir": "/monica_data/climate-data/", # mounted path to archive accessable by monica executable
         "path-to-data-dir": "C:/Users/hampf/Documents/GitHub/agora_natura/monica-data/data/", # mounted path to archive or hard drive with data 
         "path-to-projects-dir": "C:/Users/hampf/Documents/GitHub/agora_natura/monica-data/data/projects/", # mounted path to archive or hard drive with project data 
+        "path-debug-write-folder": "./debug-out/",
     },
     "mbm-local-remote": {
         "include-file-base-path": "C:/Users/berg.ZALF-AD/GitHub/monica-parameters/", # path to monica-parameters
@@ -73,12 +75,14 @@ PATHS = {
         "monica-path-to-climate-dir": "/monica_data/climate-data/", # mounted path to archive accessable by monica executable
         "path-to-data-dir": "./monica-data/data/", # mounted path to archive or hard drive with data 
         "path-to-projects-dir": "./monica-data/data/projects/",
+        "path-debug-write-folder": "./debug-out/",
     },
     "hpc-remote": {
         "include-file-base-path": "/beegfs/common/GitHub/zalf-rpm/monica-parameters/",
         "path-to-climate-dir": "/beegfs/common/data/climate/", 
         "monica-path-to-climate-dir": "/monica_data/climate-data/", 
-        "path-to-data-dir": "/beegfs/common/data/" 
+        "path-to-data-dir": "/beegfs/common/data/",
+        "path-debug-write-folder": "./debug-out/",
     },
     "container": {
         "include-file-base-path": "/home/monica-parameters/", # monica parameter location in docker image
@@ -86,6 +90,7 @@ PATHS = {
         "path-to-climate-dir": "/monica_data/climate-data/", # needs to be mounted there
         "path-to-data-dir": "/monica_data/data/", # needs to be mounted there
         "path-to-projects-dir": "/monica_data/project/", # needs to be mounted there
+        "path-debug-write-folder": "./debug-out/",
     },
     "remoteProducer-remoteMonica": {
         "include-file-base-path": "/project/monica-parameters/", # path to monica-parameters
@@ -93,6 +98,7 @@ PATHS = {
         "monica-path-to-climate-dir": "/monica_data/climate-data/", # mounted path to archive accessable by monica executable
         "path-to-data-dir": "./monica-data/data/", # mounted path to archive or hard drive with data 
         "path-to-projects-dir": "./monica-data/data/projects/", # mounted path to archive or hard drive with project data 
+        "path-debug-write-folder": "/out/debug-out/",
     }
 }
 
@@ -129,7 +135,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
     "main"
 
     context = zmq.Context()
-    socket = context.socket(zmq.PUSH)
+    socket = context.socket(zmq.PUSH) # pylint: disable=no-member
     #config_and_no_data_socket = context.socket(zmq.PUSH)
 
     config = {
@@ -540,11 +546,12 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
 
                 # write debug output, as json file
                 if DEBUG_WRITE:
-                    if not os.path.exists(DEBUG_WRITE_FOLDER):
-                        os.makedirs(DEBUG_WRITE_FOLDER)
+                    debug_write_folder = paths["path-debug-write-folder"]
+                    if not os.path.exists(debug_write_folder):
+                        os.makedirs(debug_write_folder)
                     if sent_env_count < DEBUG_ROWS  :
 
-                        path_to_debug_file = DEBUG_WRITE_FOLDER + "/row_" + str(sent_env_count-1) + "_" + str(setup_id) + ".json" 
+                        path_to_debug_file = debug_write_folder + "/row_" + str(sent_env_count-1) + "_" + str(setup_id) + ".json" 
 
                         if not os.path.isfile(path_to_debug_file):
                             with open(path_to_debug_file, "w") as _ :
@@ -561,10 +568,11 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
 
     # write summary of used json files
     if DEBUG_WRITE_CLIMATE:
-        if not os.path.exists(DEBUG_WRITE_FOLDER):
-            os.makedirs(DEBUG_WRITE_FOLDER)
+        debug_write_folder = paths["path-debug-write-folder"]
+        if not os.path.exists(debug_write_folder):
+            os.makedirs(debug_write_folder)
 
-        path_to_climate_summary = DEBUG_WRITE_FOLDER + "/climate_file_list" + ".csv"
+        path_to_climate_summary = debug_write_folder + "/climate_file_list" + ".csv"
         with open(path_to_climate_summary, "w") as _:
             _.write('\n'.join(listOfClimateFiles))
 
