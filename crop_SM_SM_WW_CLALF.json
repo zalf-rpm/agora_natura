@@ -178,7 +178,7 @@
 						"Fruit": [0, "%"]	
 					}
 				},	
-				{"date": "0000-08-02", "type": "SetValue", "var": "Stage", "value": 2},	
+				{"date": "0001-08-02", "type": "SetValue", "var": "Stage", "value": 2},	
 				{
 					"date": "0002-04-01",
 					"type": "MineralFertilization",	
