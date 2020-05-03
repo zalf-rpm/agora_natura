@@ -80,13 +80,13 @@
 			  {
 				"date": "0000-05-10",
 				"type": "MineralFertilization",
-				"amount": [120, "kg N"],
+				"amount": [110, "kg N"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			  },
 			  {
 				"date": "0000-06-10",
 				"type": "MineralFertilization",
-				"amount": [120, "kg N"],
+				"amount": [105, "kg N"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			  },
 			  { "date": "0000-09-23", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
@@ -98,13 +98,13 @@
 			  {
 				"date": "0000-05-10",
 				"type": "MineralFertilization",
-				"amount": [120, "kg N"],
+				"amount": [110, "kg N"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			  },
 			  {
 				"date": "0000-06-10",
 				"type": "MineralFertilization",
-				"amount": [120, "kg N"],
+				"amount": [105, "kg N"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			  },
 			  { "date": "0000-09-23", "type": "Harvest", "crop": ["ref", "crops", "SM"] }

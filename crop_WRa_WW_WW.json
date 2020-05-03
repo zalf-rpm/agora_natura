@@ -80,19 +80,19 @@
 				{
 				  "date": "0001-03-03",
 				  "type": "MineralFertilization",
-				  "amount": [70.0, "kg N"],
+				  "amount": [55.0, "kg N"],
 				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
 				{
 				  "date": "0001-04-07",
 				  "type": "MineralFertilization",
-				  "amount": [100.0, "kg N"],
+				  "amount": [75.0, "kg N"],
 				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
 				{
 				  "date": "0001-05-07",
 				  "type": "MineralFertilization",
-				  "amount": [50.0, "kg N"],
+				  "amount": [40.0, "kg N"],
 				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
 				{ "date": "0001-08-22", "type": "Harvest", "crop": ["ref", "crops", "WRa"] }
@@ -104,19 +104,19 @@
 				{
 				  "date": "0001-04-03",
 				  "type": "MineralFertilization",
-				  "amount": [60.0, "kg N"],
+				  "amount": [40.0, "kg N"],
 				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
 				{
 				  "date": "0001-05-07",
 				  "type": "MineralFertilization",
-				  "amount": [100.0, "kg N"],
+				  "amount": [80.0, "kg N"],
 				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
 				{
 				  "date": "0001-06-07",
 				  "type": "MineralFertilization",
-				  "amount": [60.0, "kg N"],
+				  "amount": [40.0, "kg N"],
 				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
 			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
@@ -128,19 +128,19 @@
 				{
 				  "date": "0001-04-03",
 				  "type": "MineralFertilization",
-				  "amount": [60.0, "kg N"],
+				  "amount": [40.0, "kg N"],
 				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
 				{
 				  "date": "0001-05-07",
 				  "type": "MineralFertilization",
-				  "amount": [100.0, "kg N"],
+				  "amount": [80.0, "kg N"],
 				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
 				{
 				  "date": "0001-06-07",
 				  "type": "MineralFertilization",
-				  "amount": [60.0, "kg N"],
+				  "amount": [40.0, "kg N"],
 				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
 			  { "date": "0001-08-20", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
