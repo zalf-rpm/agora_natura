@@ -140,7 +140,7 @@
 			  { "date": "0001-07-29", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
 			]
 		  },
-		  {
+		{
 			"worksteps": [
 			  { "date": "0000-05-04", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
 			  {
@@ -158,7 +158,7 @@
 			  { "date": "0000-09-23", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
 			]
 		  },
-		  {
+		{
 			"worksteps": [
 				{"date": "0000-02-06", "type": "Sowing", "crop": ["ref", "crops", "CLALF"] },	
 				{
@@ -183,7 +183,7 @@
 				},	
 				{"date": "0000-08-10", "type": "Harvest", "crop": ["ref", "crops", "CLALF"] }
 			]
-		},
+			},
 		{
 			"worksteps": [
 			  { "date": "0000-09-25", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
@@ -208,7 +208,7 @@
 			  { "date": "0001-07-29", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
 			]
 		  },
-		  {
+		{
 			"worksteps": [
 			  { "date": "0000-05-04", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
 			  {
@@ -226,7 +226,7 @@
 			  { "date": "0000-09-23", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
 			]
 		  },
-		  {
+		{
 			"worksteps": [
 			  { "date": "0000-05-04", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
 			  {
@@ -244,7 +244,7 @@
 			  { "date": "0000-09-23", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
 			]
 		  },
-		  {
+		{
 			"worksteps": [
 				{"date": "0000-02-06", "type": "Sowing", "crop": ["ref", "crops", "CLALF"] },	
 				{
@@ -267,9 +267,9 @@
 						"Fruit": [0, "%"]	
 					}
 				},	
-				{"date": "0001-08-10", "type": "Harvest", "crop": ["ref", "crops", "CLALF"] }
+				{"date": "0000-08-10", "type": "Harvest", "crop": ["ref", "crops", "CLALF"] }
 			]
-		},
+			},
 		{
 			"worksteps": [
 			  { "date": "0000-05-04", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
@@ -288,7 +288,7 @@
 			  { "date": "0000-09-23", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
 			]
 		  },
-		  {
+		{
 			"worksteps": [
 			  { "date": "0000-05-04", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
 			  {
@@ -306,7 +306,7 @@
 			  { "date": "0000-09-23", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
 			]
 		  },
-		  {
+		{
 			"worksteps": [
 			  { "date": "0000-09-25", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
 			  {
