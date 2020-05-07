@@ -61,8 +61,8 @@
         "CLALF": {
 			"is-winter-crop": false,
 			"cropParams": {
-				"species":   ["include-from-file", "projects/sattgruen/crops/clover-grass-leyC.json"],
-				"cultivar":  ["include-from-file", "projects/sattgruen/crops/clover-grass-ley/C4.json"]
+				"species":   ["include-from-file", "projects/sattgruen/crops/clover-grass-ley.json"],
+				"cultivar":  ["include-from-file", "projects/sattgruen/crops/clover-grass-ley/.json"]
 			},
 			"residueParams": ["include-from-file", "crop-residues/clover-grass-ley.json"]
 		}
