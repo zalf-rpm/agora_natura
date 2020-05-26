@@ -104,7 +104,7 @@ PATHS = {
 
 DEFAULT_HOST = "login01.cluster.zalf.de" # "localhost" #
 DEFAULT_PORT = "6669"
-RUN_SETUP = "[7,8]"
+RUN_SETUP = "[1]"
 SETUP_FILE = "sim_setups_agora_natura.csv"
 PROJECT_FOLDER = "monica-germany/"
 DATA_SOIL_DB = "germany/buek200.sqlite"
@@ -117,7 +117,7 @@ DATA_GRID_RNFACTOR = "germany/rNfactor_1000_gk5.asc"
 TEMPLATE_PATH_LATLON = "{path_to_climate_dir}{climate_data}/csvs/latlon-to-rowcol.json"
 TEMPLATE_PATH_HARVEST = "{path_to_projects_dir}{project_folder}ILR_SEED_HARVEST_doys_{crop_id}.csv"
 TEMPLATE_PATH_CLIMATE_CSV = "{climate_data}/csvs/{climate_model_folder}{climate_scenario_folder}{climate_region}/row-{crow}/col-{ccol}.csv"
-GEO_TARGET_GRID="epsg:5835" #proj4 -> 3-degree gauss-kruger zone 5 (=Germany) https://epsg.io/5835 ###https://epsg.io/31469
+GEO_TARGET_GRID="epsg:31469" #proj4 -> 3-degree gauss-kruger zone 5 (=Germany) https://epsg.io/5835 ###https://epsg.io/31469
 
 DEBUG_DONOT_SEND = False
 DEBUG_WRITE = True
@@ -139,7 +139,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
     #config_and_no_data_socket = context.socket(zmq.PUSH)
 
     config = {
-        "mode": "ah-local-remote",
+        "mode": "remoteProducer-remoteMonica",
         "server-port": server["port"] if server["port"] else DEFAULT_PORT,
         "server": server["server"] if server["server"] else DEFAULT_HOST,
         "start-row": "0", 
@@ -321,12 +321,19 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
         for srow in range(0, srows):
             print(srow,)
             
+            if srow != 224:
+                continue
+
             if srow < int(config["start-row"]):
                 continue
             elif int(config["end-row"]) > 0 and srow > int(config["end-row"]):
                 break
 
             for scol in range(0, scols):
+
+                if scol != 116:
+                    continue    
+
                 soil_id = int(soil_grid[srow, scol])
                 if soil_id == -9999:
                     continue
