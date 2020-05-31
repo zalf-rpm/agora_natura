@@ -65,7 +65,6 @@
 				["DOY|SowDOY", "FIRST"],
 				["DOY|HarvDOY", "LAST"],
 				["Year|SowYear", "FIRST"],
-				["Year|HarvYear", "LAST"],
 				["RelDev", "LAST"],
 				["LAI|LAI-max", "MAX"],
 				["Yield|Yield-last", "LAST"],
