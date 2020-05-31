@@ -130,7 +130,7 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
 
             if not os.path.isfile(path_to_row_file):
                 with open(path_to_row_file, "w") as _:
-                    _.write("CM-count,row,col,Crop,Year,SowDOY,HarvDOY,Cycle-length,RelDev, Yield-last,LAI-max,TraDef-avg,NDef-avg,crop-sum-nfert,Nmin-sum,ActNup-sum,NO3-sum,NH4-sum,NO2-sum, avg-30cm-sand, avg-30cm-clay, avg-30cm-silt, avg-30cm-stone, crop-sum-nleach\n")
+                    _.write("CM-count,row,col,Crop,Year,SowDOY,HarvDOY,SowYear,HarvYear,Cycle-length,RelDev, Yield-last,LAI-max,TraDef-avg,NDef-avg,crop-sum-nfert,Nmin-sum,ActNup-sum,NO3-sum,NH4-sum,NO2-sum, avg-30cm-sand, avg-30cm-clay, avg-30cm-silt, avg-30cm-stone, crop-sum-nleach\n")
                     #_.write("CM-count,row,col,yearly-avg-tavg\n")
 
             with open(path_to_row_file, 'a') as _:
@@ -153,6 +153,8 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
                                     data["Year"],
                                     data["SowDOY"],
                                     data["HarvDOY"],
+                                    data["SowYear"],
+                                    data["HarvYear"],
                                     data["Cycle-length"],
                                     data["RelDev"],
                                     data["Yield-last"],
