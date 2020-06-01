@@ -438,8 +438,8 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                         #print("dates: ", int(seed_harvest_cs), ":", worksteps[0]["earliest-date"], "<", worksteps[0]["latest-date"] )
                         #print("dates: ", int(seed_harvest_cs), ":", worksteps[1]["latest-date"], "<", worksteps[0]["earliest-date"], "<", worksteps[0]["latest-date"] )
                         
-                        #print("dates: ", int(seed_harvest_cs), ":", worksteps[0]["date"])
-                        #print("dates: ", int(seed_harvest_cs), ":", worksteps[-1]["date"])
+                        print("dates: ", int(seed_harvest_cs), ":", worksteps[0]["date"])
+                        print("dates: ", int(seed_harvest_cs), ":", worksteps[-1]["date"])
 
                 #print("sowing:", worksteps[0], "harvest:", worksteps[1])
                 
