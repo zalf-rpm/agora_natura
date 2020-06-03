@@ -125,13 +125,6 @@
 				"amount": [80.0, "kg N"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
-			{
-				"type": "MineralFertilization",
-				"days": 45,
-				"after": "Sowing",
-				"amount": [40.0, "kg N"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			},
 			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
 			]
 		  }

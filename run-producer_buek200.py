@@ -142,8 +142,8 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
         "mode": "ah-local-remote",
         "server-port": server["port"] if server["port"] else DEFAULT_PORT,
         "server": server["server"] if server["server"] else DEFAULT_HOST,
-        "start-row": "0", 
-        "end-row": "-1",
+        "start-row": "130", 
+        "end-row": "140",
         "sim.json": TEMPLATE_SIM_JSON,
         "crop.json": TEMPLATE_CROP_JSON,
         "site.json": TEMPLATE_SITE_JSON,
@@ -439,6 +439,8 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                         #print("dates: ", int(seed_harvest_cs), ":", worksteps[1]["latest-date"], "<", worksteps[0]["earliest-date"], "<", worksteps[0]["latest-date"] )
                         
                         print("dates: ", int(seed_harvest_cs), ":", worksteps[0]["date"])
+                        print("dates: ", int(seed_harvest_cs), ":", worksteps[1]["date"])
+                        print("dates: ", int(seed_harvest_cs), ":", worksteps[2]["date"])
                         print("dates: ", int(seed_harvest_cs), ":", worksteps[-1]["date"])
 
                 #print("sowing:", worksteps[0], "harvest:", worksteps[1])
