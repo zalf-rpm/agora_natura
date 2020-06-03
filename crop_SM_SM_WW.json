@@ -72,35 +72,47 @@
 			"worksteps": [
 			  { "date": "0000-05-04", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
 			  {
-				"date": "0000-05-10",
 				"type": "MineralFertilization",
-				"amount": [110, "kg N"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			  },
-			  {
-				"date": "0000-06-10",
+				"stage": 1,
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"],
+				"amount": [40.5, "kg"]
+			},
+			{
 				"type": "MineralFertilization",
-				"amount": [105, "kg N"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			  },
-			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
+				"stage": 3,
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"],
+				"amount": [81, "kg"]
+			},
+				{
+				"type": "MineralFertilization",
+				"stage": 4,
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"],
+				"amount": [40.5, "kg"]
+			},
+			{ "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }			
 			]
 		  },
 		  {
 			"worksteps": [
 			  { "date": "0000-05-04", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
 			  {
-				"date": "0000-05-10",
 				"type": "MineralFertilization",
-				"amount": [110, "kg N"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			  },
-			  {
-				"date": "0000-06-10",
+				"stage": 1,
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"],
+				"amount": [40.5, "kg"]
+			},
+			{
 				"type": "MineralFertilization",
-				"amount": [105, "kg N"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			  },
+				"stage": 3,
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"],
+				"amount": [81, "kg"]
+			},
+				{
+				"type": "MineralFertilization",
+				"stage": 4,
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"],
+				"amount": [40.5, "kg"]
+			},			
 			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
 			]
 		  },
@@ -108,23 +120,23 @@
 			"worksteps": [
 			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
 			  {
-				"date": "0001-04-03",
 				"type": "MineralFertilization",
-				"amount": [40.0, "kg N"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			  },
-			  {
-				"date": "0001-05-07",
+				"stage": 1,
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"],
+				"amount": [40.5, "kg"]
+			},
+			{
 				"type": "MineralFertilization",
-				"amount": [80.0, "kg N"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			  },
-			  {
-				"date": "0001-06-07",
+				"stage": 3,
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"],
+				"amount": [81, "kg"]
+			},
+				{
 				"type": "MineralFertilization",
-				"amount": [40.0, "kg N"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			  },
+				"stage": 4,
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"],
+				"amount": [40.5, "kg"]
+			},			
 			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
 			]
 		  }
