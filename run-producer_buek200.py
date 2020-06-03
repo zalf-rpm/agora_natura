@@ -397,7 +397,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                             elif setup["harvest-date"] == "auto":
                                 harvest_date = seed_harvest_data["latest-harvest-date"]
 
-                            #print("sowing_date:", sowing_date, "harvest_date:", harvest_date)
+                            print("sowing_date:", sowing_date, "harvest_date:", harvest_date)
 
                             hds = [int(x) for x in harvest_date.split("-")]
                             hd = date(2001, hds[1], hds[2])
@@ -408,9 +408,13 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
 
                             # sowing after harvest should probably never occur in both fixed setup!
                             if setup["sowing-date"] == "fixed" and setup["harvest-date"] == "fixed":
-                                calc_harvest_date = date(2000, 12, 31) + timedelta(days=min(hdoy, sdoy-1))
+                                #calc_harvest_date = date(2000, 12, 31) + timedelta(days=min(hdoy, sdoy-1))
+                                if is_winter_crop:
+                                    calc_harvest_date = date(2000, 12, 31) + timedelta(days=min(hdoy, sdoy-1))
+                                else:
+                                    calc_harvest_date = date(2000, 12, 31) + timedelta(days=hdoy)
                                 worksteps[0]["date"] = seed_harvest_data["sowing-date"]
-                                worksteps[1]["date"] = "{:04d}-{:02d}-{:02d}".format(hds[0], calc_harvest_date.month, calc_harvest_date.day)
+                                worksteps[-1]["date"] = "{:04d}-{:02d}-{:02d}".format(hds[0], calc_harvest_date.month, calc_harvest_date.day)
                             
                             elif setup["sowing-date"] == "fixed" and setup["harvest-date"] == "auto":
                                 if is_winter_crop:
