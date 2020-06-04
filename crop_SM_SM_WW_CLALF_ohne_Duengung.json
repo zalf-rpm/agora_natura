@@ -76,62 +76,62 @@
 	"cropRotation": [
 		{
 			"worksteps": [
-			  { "date": "0000-05-04", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
+			  { "date": "0000-05-04", "type": "Sowing", "crop": ["ref", "crops", "SM"] }, 
 			  {
-				"date": "0000-05-10",
 				"type": "MineralFertilization",
-				"amount": [0, "kg N"],
+				"at": "Stage-1",
+				"amount": [0.0, "kg N"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			  },
-			  {
-				"date": "0000-06-10",
+			},
+			{
 				"type": "MineralFertilization",
-				"amount": [0, "kg N"],
+				"at": "Stage-3",
+				"amount": [0.0, "kg N"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			  },
-			  { "date": "0000-09-23", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
+			},
+			{ "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }			
 			]
 		  },
 		  {
 			"worksteps": [
-			  { "date": "0000-05-04", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
+			  { "date": "0000-05-06", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
 			  {
-				"date": "0000-05-10",
 				"type": "MineralFertilization",
-				"amount": [0, "kg N"],
+				"at": "Stage-1",
+				"amount": [0.0, "kg N"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			  },
-			  {
-				"date": "0000-06-10",
+			},
+			{
 				"type": "MineralFertilization",
-				"amount": [0, "kg N"],
+				"at": "Stage-3",
+				"amount": [0.0, "kg N"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			  },
-			  { "date": "0000-09-23", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
+			},
+			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
 			]
 		  },
 		{
 			"worksteps": [
-			  { "date": "0000-09-25", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
+			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
 			  {
-				"date": "0001-04-03",
 				"type": "MineralFertilization",
+				"at": "Stage-1",
 				"amount": [0.0, "kg N"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			  },
-			  {
-				"date": "0001-05-07",
+			},
+			{
 				"type": "MineralFertilization",
+				"at": "Stage-2",
 				"amount": [0.0, "kg N"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			  },
-			  {
-				"date": "0001-06-07",
+			},
+			{
 				"type": "MineralFertilization",
+				"at": "Stage-3",
 				"amount": [0.0, "kg N"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			  },
-			  { "date": "0001-07-29", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
+			},
+			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
 			]
 		  },
 		  {
