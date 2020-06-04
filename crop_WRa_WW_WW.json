@@ -86,15 +86,15 @@
 				  },
 				  {
 					"type": "MineralFertilization",
-					"days": 1,
-					"after": "Stage-3",
+					"days": 120,
+					"after": "Sowing",
 					"amount": [75.0, "kg N"],
 					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				  },
 				  {
 					"type": "MineralFertilization",
-					"days": 1,
-					"after": "Stage-4",
+					"days": 150,
+					"after": "Sowing",
 					"amount": [40.0, "kg N"],
 					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				  },
@@ -113,15 +113,15 @@
 				},
 				{
 				  "type": "MineralFertilization",
-				  "days": 1,
-				  "after": "Stage-3",
+				  "days": 120,
+				  "after": "Sowing",
 				  "amount": [80.0, "kg N"],
 				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
 				{
 				  "type": "MineralFertilization",
-				  "days": 1,
-				  "after": "Stage-4",
+				  "days": 150,
+				  "after": "Sowing",
 				  "amount": [40.0, "kg N"],
 				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
@@ -140,15 +140,15 @@
 				},
 				{
 				  "type": "MineralFertilization",
-				  "days": 1,
-				  "after": "Stage-3",
+				  "days": 120,
+				  "after": "Sowing",
 				  "amount": [80.0, "kg N"],
 				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
 				{
 				  "type": "MineralFertilization",
-				  "days": 1,
-				  "after": "Stage-4",
+				  "days": 150,
+				  "after": "Sowing",
 				  "amount": [40.0, "kg N"],
 				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},

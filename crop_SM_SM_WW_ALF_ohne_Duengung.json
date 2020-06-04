@@ -77,48 +77,24 @@
 		{
 			"worksteps": [
 			  { "date": "0000-05-04", "type": "Sowing", "crop": ["ref", "crops", "SM"] }, 
-			  {
-				"type": "MineralFertilization",
-				"at": "Stage-1",
-				"amount": [110.0, "kg N"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			},
 			{ "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }			
 			]
 		  },
 		  {
 			"worksteps": [
 			  { "date": "0000-05-06", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
-			  {
-				"type": "MineralFertilization",
-				"at": "Stage-1",
-				"amount": [110.0, "kg N"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			},
 			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
 			]
 		  },
 		{
 			"worksteps": [
 			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
-			  {
-				"type": "MineralFertilization",
-				"at": "Stage-1",
-				"amount": [80.0, "kg N"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			},
 			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
 			]
 		  },
 		  {
 			"worksteps": [
-				{"date": "0000-02-06", "type": "Sowing", "crop": ["ref", "crops", "CLALF"] },	
-				{
-					"at": "Stage-1",
-					"type": "MineralFertilization",	
-					"amount": [55.0, "kg N"],	
-					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-				},					
+				{"date": "0000-02-06", "type": "Sowing", "crop": ["ref", "crops", "CLALF"] },					
 				{
 					"date": "0000-08-01", 
 					"type": "Cutting",
@@ -132,13 +108,7 @@
 						"Shoot": [100, "%"],
 						"Fruit": [0, "%"]	
 					}
-				},	
-				{
-					"date": "0001-04-01",
-					"type": "MineralFertilization",	
-					"amount": [0.0, "kg N"],	
-					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-				},					
+				},				
 				{
 					"date": "0001-08-01", 
 					"type": "Cutting",
@@ -153,12 +123,6 @@
 						"Fruit": [0, "%"]	
 					}
 				},	
-				{
-					"date": "0002-04-01",
-					"type": "MineralFertilization",	
-					"amount": [0.0, "kg N"],	
-					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-				},					
 				{
 					"date": "0002-08-01", 
 					"type": "Cutting",
