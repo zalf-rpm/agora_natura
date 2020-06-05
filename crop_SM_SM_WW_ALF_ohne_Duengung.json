@@ -58,11 +58,11 @@
 			},
 			"residueParams": ["include-from-file", "crop-residues/wheat.json"]
         },
-        "CLALF": {
+        "ALF": {
 			"is-winter-crop": false,
 			"cropParams": {
-				"species":   ["include-from-file", "projects/sattgruen/crops/clover-grass-ley.json"],
-				"cultivar":  ["include-from-file", "projects/sattgruen/crops/clover-grass-ley/.json"]
+				"species":   ["include-from-file", "crops/alfalfa.json"],
+				"cultivar":  ["include-from-file", "crops/alfalfa/.json"]
 			},
 			"residueParams": ["include-from-file", "crop-residues/clover-grass-ley.json"]
 		}
@@ -94,7 +94,7 @@
 		  },
 		  {
 			"worksteps": [
-				{"date": "0000-02-06", "type": "Sowing", "crop": ["ref", "crops", "CLALF"] },					
+				{"date": "0000-02-06", "type": "Sowing", "crop": ["ref", "crops", "ALF"] },	
 				{
 					"date": "0000-08-01", 
 					"type": "Cutting",
@@ -108,7 +108,7 @@
 						"Shoot": [100, "%"],
 						"Fruit": [0, "%"]	
 					}
-				},				
+				},						
 				{
 					"date": "0001-08-01", 
 					"type": "Cutting",
@@ -122,7 +122,7 @@
 						"Shoot": [100, "%"],
 						"Fruit": [0, "%"]	
 					}
-				},	
+				},					
 				{
 					"date": "0002-08-01", 
 					"type": "Cutting",
@@ -137,7 +137,7 @@
 						"Fruit": [0, "%"]	
 					}
 				},	
-				{"date": "0002-08-10", "type": "Harvest", "crop": ["ref", "crops", "CLALF"] }
+				{"date": "0002-08-10", "type": "Harvest", "crop": ["ref", "crops", "ALF"] }
 			]
 		}
 	  ],
