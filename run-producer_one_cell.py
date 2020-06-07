@@ -415,9 +415,12 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
 
                             # sowing after harvest should probably never occur in both fixed setup!
                             if setup["sowing-date"] == "fixed" and setup["harvest-date"] == "fixed":
-                                calc_harvest_date = date(2000, 12, 31) + timedelta(days=min(hdoy, sdoy-1))
+                                if is_winter_crop:
+                                    calc_harvest_date = date(2000, 12, 31) + timedelta(days=min(hdoy, sdoy-1))
+                                else:
+                                    calc_harvest_date = date(2000, 12, 31) + timedelta(days=hdoy)
                                 worksteps[0]["date"] = seed_harvest_data["sowing-date"]
-                                worksteps[1]["date"] = "{:04d}-{:02d}-{:02d}".format(hds[0], calc_harvest_date.month, calc_harvest_date.day)
+                                worksteps[-1]["date"] = "{:04d}-{:02d}-{:02d}".format(hds[0], calc_harvest_date.month, calc_harvest_date.day)
                             
                             elif setup["sowing-date"] == "fixed" and setup["harvest-date"] == "auto":
                                 if is_winter_crop:
