@@ -331,7 +331,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
 
             for scol in range(0, scols):
 
-                if scol != 124:
+                if scol != 123:
                     continue    
 
                 soil_id = int(soil_grid[srow, scol])
