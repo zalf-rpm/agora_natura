@@ -178,7 +178,7 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
     output_grids = {
      #   "Globrad-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         "Tavg": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-        "Precip-sum": {"data" : make_dict_nparr(), "cast-to": "int"},
+        "Precip": {"data" : make_dict_nparr(), "cast-to": "int"},
         "SowDOY": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         "HarvDOY": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         "Cycle-length": {"data" : make_dict_nparr(), "cast-to": "int"},
