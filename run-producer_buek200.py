@@ -371,7 +371,8 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                     # multiply rNFactor onto mineral nitrogen fertilizer amounts
                     for k, workstep in enumerate(worksteps):
                         workstep_copy = worksteps_copy[k]
-                        if workstep["type"] == "MineralFertilization":
+                       # if workstep["type"] == "MineralFertilization":
+                       if workstep["type"] == "NDemandFertilization":
                             if type(workstep["amount"]) == list:
                                 workstep["amount"][0] = workstep_copy["amount"][0] * rNfactor
                             elif type(workstep["amount"]) == float:
