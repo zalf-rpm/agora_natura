@@ -168,14 +168,16 @@
 					"type": "NDemandFertilization",
 					"days": 55,
 					"after": "Sowing",
-					"amount": [25.0, "kg N"],
+					"N-demand": [25.0, "kg"],
+					"depth": [0.9, "m"],
 					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				  },
 				  {
 					"type": "NDemandFertilizatio",
 					"days": 150,
 					"after": "Sowing",
-					"amount": [45.0, "kg N"],
+					"N-demand": [45.0, "kg"],
+					"depth": [0.9, "m"],
 					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				  },
 			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WB"] }
