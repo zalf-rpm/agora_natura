@@ -130,7 +130,7 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
 
             if not os.path.isfile(path_to_row_file):
                 with open(path_to_row_file, "w") as _:
-                    _.write("CM-count,row,col,Crop,SowYear,SowDOY,HarvDOY,Year,Cycle-length,RelDev,Yield-last,LAI-max,TraDef-avg,NDef-avg,crop-sum-nfert, crop-sum-nleach\n")
+                    _.write("CM-count,row,col,Crop,SowYear,SowDOY,HarvDOY,Year,Cycle-length,RelDev,Yield-last,LAI-max,TraDef-avg,NDef-avg,crop-sum-nfert,Precip,Tavg,crop-sum-nleach\n")
                     #_.write("CM-count,row,col,yearly-avg-tavg\n")
 
             with open(path_to_row_file, 'a') as _:
@@ -161,7 +161,9 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
                                     data["TraDef-avg"],
                                     data["NDef-avg"],
                                     data["crop-sum-nfert"],
-                                    data["crop-sum-nleach"]
+                                    data["crop-sum-nleach"],
+                                    data["Precip"],
+                                    data["Tavg"]
                                     #data["Stage-harv"]
                                 ]
                                 writer.writerow(row_)
@@ -175,8 +177,8 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
 
     output_grids = {
      #   "Globrad-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-     #   "Tavg": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-     #   "Precip-sum": {"data" : make_dict_nparr(), "cast-to": "int"},
+        "Tavg": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
+        "Precip-sum": {"data" : make_dict_nparr(), "cast-to": "int"},
         "SowDOY": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         "HarvDOY": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         "Cycle-length": {"data" : make_dict_nparr(), "cast-to": "int"},

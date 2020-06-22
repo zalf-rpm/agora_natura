@@ -87,7 +87,9 @@
 			"yearly", [
 				["Year|CM-count", "FIRST"],
 				["Year", "FIRST"],
-				["NLeach|yearly-sum-nleach", "SUM"]
+				["NLeach|yearly-sum-nleach", "SUM"],
+				["Tavg|Tavg", "AVG"],
+				["Precip|Precip", "SUM"]
 			]
 		],
 
