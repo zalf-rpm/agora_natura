@@ -130,7 +130,7 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
 
             if not os.path.isfile(path_to_row_file):
                 with open(path_to_row_file, "w") as _:
-                    _.write("CM-count,row,col,Crop,SowYear,SowDOY,HarvDOY,Year,Cycle-length,RelDev,Yield-last,LAI-max,TraDef-avg,NDef-avg,crop-sum-nfert,crop-sum-nleach,yearly-avg-tavg, yearly-sum-precip\n")
+                    _.write("CM-count,row,col,Crop,SowYear,SowDOY,HarvDOY,Year,Cycle-length,RelDev,Yield-last,LAI-max,TraDef-avg,NDef-avg,crop-sum-nfert,crop-sum-nleach\n")
                     #_.write("CM-count,row,col,yearly-avg-tavg\n")
 
             with open(path_to_row_file, 'a') as _:
@@ -161,9 +161,7 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
                                     data["TraDef-avg"],
                                     data["NDef-avg"],
                                     data["crop-sum-nfert"],
-                                    data["crop-sum-nleach"],
-                                    data["yearly-avg-tavg"],
-                                    data["yearly-sum-precip"]
+                                    data["crop-sum-nleach"]
                                     #data["Stage-harv"]
                                 ]
                                 writer.writerow(row_)
