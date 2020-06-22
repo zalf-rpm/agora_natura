@@ -116,7 +116,7 @@
 			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WR"] },
 			  {
 				"type": "NDemandFertilization",
-				"days": 120,
+				"days": 55,
 				"after": "Sowing",
 				"N-demand": [50.0, "kg"],
 				"depth": [0.9, "m"],

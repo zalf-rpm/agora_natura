@@ -78,22 +78,22 @@
 			"worksteps": [
 				{ "date": "0000-08-26", "type": "Sowing", "crop": ["ref", "crops", "WRa"] },
 				{
-					"type": "MineralFertilization",
+					"type": "NDemandFertilization",
 					"days": 1,
 					"after": "Sowing",
 					"amount": [55.0, "kg N"],
 					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				  },
 				  {
-					"type": "MineralFertilization",
-					"days": 120,
+					"type": "NDemandFertilization",
+					"days": 60,
 					"after": "Sowing",
 					"amount": [75.0, "kg N"],
 					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				  },
 				  {
-					"type": "MineralFertilization",
-					"days": 150,
+					"type": "NDemandFertilization",
+					"days": 120,
 					"after": "Sowing",
 					"amount": [40.0, "kg N"],
 					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
@@ -105,25 +105,28 @@
 			"worksteps": [
 				{ "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
 				{
-				  "type": "MineralFertilization",
-				  "days": 1,
-				  "after": "Sowing",
-				  "amount": [40.0, "kg N"],
-				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+					"type": "NDemandFertilization",
+					"days": 59,
+					"after": "Sowing",
+					"N-demand": [40.0, "kg"],
+					"depth": [0.3, "m"],
+					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
 				{
-				  "type": "MineralFertilization",
-				  "days": 120,
-				  "after": "Sowing",
-				  "amount": [80.0, "kg N"],
-				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+					"type": "NDemandFertilization",
+					"days": 120,
+					"after": "Sowing",
+					"N-demand": [80.0, "kg"],
+					"depth": [0.9, "m"],
+					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
 				{
-				  "type": "MineralFertilization",
-				  "days": 150,
-				  "after": "Sowing",
-				  "amount": [40.0, "kg N"],
-				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+					"type": "NDemandFertilization",
+					"days": 150,
+					"after": "Sowing",
+					"N-demand": [40.0, "kg"],
+					"depth": [0.9, "m"],
+					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
 			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
 			]
@@ -132,25 +135,28 @@
 			"worksteps": [
 				{ "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
 				{
-				  "type": "MineralFertilization",
-				  "days": 1,
-				  "after": "Sowing",
-				  "amount": [40.0, "kg N"],
-				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+					"type": "NDemandFertilization",
+					"days": 59,
+					"after": "Sowing",
+					"N-demand": [40.0, "kg"],
+					"depth": [0.3, "m"],
+					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
 				{
-				  "type": "MineralFertilization",
-				  "days": 120,
-				  "after": "Sowing",
-				  "amount": [80.0, "kg N"],
-				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+					"type": "NDemandFertilization",
+					"days": 120,
+					"after": "Sowing",
+					"N-demand": [80.0, "kg"],
+					"depth": [0.9, "m"],
+					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
 				{
-				  "type": "MineralFertilization",
-				  "days": 150,
-				  "after": "Sowing",
-				  "amount": [40.0, "kg N"],
-				  "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+					"type": "NDemandFertilization",
+					"days": 150,
+					"after": "Sowing",
+					"N-demand": [40.0, "kg"],
+					"depth": [0.9, "m"],
+					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
 			  { "date": "0001-08-20", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
 			]
