@@ -82,7 +82,7 @@
 				"type": "NDemandFertilization",
 				"days": 30,
 				"after": "Sowing",
-				"N-demand": [110.0, "kg"],
+				"N-demand": [105.0, "kg"],
 				"depth": [0.9, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
@@ -104,7 +104,7 @@
 				"type": "NDemandFertilization",
 				"days": 30,
 				"after": "Sowing",
-				"N-demand": [110.0, "kg"],
+				"N-demand": [105.0, "kg"],
 				"depth": [0.9, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
