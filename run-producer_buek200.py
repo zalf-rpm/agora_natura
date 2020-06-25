@@ -373,11 +373,11 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                         workstep_copy = worksteps_copy[k]
                         if workstep["type"] == "NDemandFertilization":
                             if type(workstep["N-demand"]) == list:
-                                #workstep["N-demand"][0] = workstep_copy["N-demand"][0] * rNfactor
-                                workstep["N-demand"][0] = workstep_copy["N-demand"][0] 
+                                workstep["N-demand"][0] = workstep_copy["N-demand"][0] * rNfactor
+                                #workstep["N-demand"][0] = workstep_copy["N-demand"][0] 
                             elif type(workstep["N-demand"]) == float:
-                                #workstep["N-demand"] = workstep_copy["N-demand"] * rNfactor
-                                workstep["N-demand"][0] = workstep_copy["N-demand"][0] 
+                                workstep["N-demand"] = workstep_copy["N-demand"] * rNfactor
+                                #workstep["N-demand"][0] = workstep_copy["N-demand"][0] 
                     
                     # set external seed/harvest dates
                     if seed_harvest_cs:
