@@ -89,7 +89,7 @@
 			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] },
 			  {
 				"type": "OrganicFertilization",
-				"days": 30,
+				"days": 1,
 				"after": "Harvest",
 				"amount": [30000, "kg N"],
 				"parameters": ["include-from-file", "organic-fertilisers/CADLM.json"],
@@ -119,7 +119,7 @@
 			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] },
 			  {
 				"type": "OrganicFertilization",
-				"days": 30,
+				"days": 1,
 				"after": "Harvest",
 				"amount": [30000, "kg N"],
 				"parameters": ["include-from-file", "organic-fertilisers/CADLM.json"],

@@ -131,7 +131,15 @@
 					"depth": [0.9, "m"],
 					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
-			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
+			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] },
+			  {
+				"type": "OrganicFertilization",
+				"days": 1,
+				"after": "Harvest",
+				"amount": [30000, "kg N"],
+				"parameters": ["include-from-file", "organic-fertilisers/CADLM.json"],
+				"incorporation": true
+			  }		
 			]
 		  },
 		  {
@@ -161,7 +169,15 @@
 					"depth": [0.9, "m"],
 					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 				},
-			  { "date": "0001-08-20", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
+			  { "date": "0001-08-20", "type": "Harvest", "crop": ["ref", "crops", "WW"] },
+			  {
+				"type": "OrganicFertilization",
+				"days": 1,
+				"after": "Harvest",
+				"amount": [30000, "kg N"],
+				"parameters": ["include-from-file", "organic-fertilisers/CADLM.json"],
+				"incorporation": true
+			  }		
 			]
 		  }
 	  ],
