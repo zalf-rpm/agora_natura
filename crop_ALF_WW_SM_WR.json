@@ -57,7 +57,42 @@
 				}
 			},
 			"residueParams": ["include-from-file", "crop-residues/wheat.json"]
-        },
+		},
+		"WR": {
+			"is-winter-crop": true,
+			"cropParams": {
+				"species": {
+					"=": ["include-from-file", "crops/rye.json"],
+					"TransitionStageLeafExp": 2
+				},
+				"cultivar": {
+					"=": ["include-from-file", "crops/rye/winter-rye.json"],
+					"OrganIdsForSecondaryYield": [
+						{
+							"organId": 2,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 3,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 4,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 0.15
+						}
+					],
+					"EarlyRefLeafExp": 8,
+					"RefLeafExp": 16
+				}
+			},
+			"residueParams": ["include-from-file", "crop-residues/rye.json"]
+		},
         "ALF": {
 			"is-winter-crop": false,
 			"cropParams": {
@@ -74,61 +109,9 @@
 	}, 	
 
 	"cropRotation": [
-		{
-			"worksteps": [
-			  { "date": "0000-05-04", "type": "Sowing", "crop": ["ref", "crops", "SM"] }, 
-			  {
-				"type": "NDemandFertilization",
-				"days": 1,
-				"after": "Sowing",		
-				"N-demand": [55.0, "kg"],
-				"depth": [0.3, "m"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			},
-			{
-				"type": "NDemandFertilization",
-				"days": 30,
-				"after": "Sowing",
-				"N-demand": [55.0, "kg"],
-				"depth": [0.9, "m"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			},
-			{ "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }			
-			]
-		  },
 		  {
 			"worksteps": [
-			  { "date": "0000-05-06", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
-			  {
-				"type": "NDemandFertilization",
-				"days": 1,
-				"after": "Sowing",		
-				"N-demand": [55.0, "kg"],
-				"depth": [0.3, "m"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			},
-			{
-				"type": "NDemandFertilization",
-				"days": 30,
-				"after": "Sowing",
-				"N-demand": [55.0, "kg"],
-				"depth": [0.9, "m"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			},
-			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
-			]
-		  },
-		  {
-			"worksteps": [
-				{"date": "0000-03-06", "type": "Sowing", "crop": ["ref", "crops", "ALF"] },	
-				{
-					"type": "NDemandFertilization",	
-					"days": 1,
-					"after": "Sowing",
-					"N-demand": [30.0, "kg"],
-					"depth": [0.3, "m"],
-					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-				},					
+				{"date": "0000-03-06", "type": "Sowing", "crop": ["ref", "crops", "ALF"] },				
 				{
 					"date": "0000-07-01", 
 					"type": "Cutting",
@@ -262,9 +245,43 @@
 				{
 					"worksteps": [
 					  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
+					  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
+					]
+				  },
+				{
+					"worksteps": [
+					  { "date": "0000-05-06", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
 					  {
 						"type": "NDemandFertilization",
-						"days": 59,
+						"days": 1,
+						"after": "Sowing",		
+						"N-demand": [55.0, "kg"],
+						"depth": [0.3, "m"],
+						"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+					},
+					{
+						"type": "NDemandFertilization",
+						"days": 30,
+						"after": "Sowing",
+						"N-demand": [55.0, "kg"],
+						"depth": [0.9, "m"],
+						"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+					},
+					  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
+					]
+				  },
+				  {
+					"worksteps": [
+					  { "date": "0000-05-06", "type": "Sowing", "crop": ["ref", "crops", "WR"] },	
+					  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "WR"] }
+					]
+				  },
+				  {
+					"worksteps": [
+					  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
+					  {
+						"type": "NDemandFertilization",
+						"days": 60,
 						"after": "Sowing",
 						"N-demand": [20.0, "kg"],
 						"depth": [0.3, "m"],
@@ -288,7 +305,65 @@
 					},
 					  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
 					]
-				  }
+				  },	
+				  {
+					"worksteps": [
+					  { "date": "0000-05-06", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
+					  {
+						"type": "NDemandFertilization",
+						"days": 1,
+						"after": "Sowing",		
+						"N-demand": [55.0, "kg"],
+						"depth": [0.3, "m"],
+						"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+					},
+					{
+						"type": "NDemandFertilization",
+						"days": 30,
+						"after": "Sowing",
+						"N-demand": [55.0, "kg"],
+						"depth": [0.9, "m"],
+						"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+					},
+					  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
+					]
+				  },
+				  {
+					"worksteps": [
+					  { "date": "0000-05-06", "type": "Sowing", "crop": ["ref", "crops", "WR"] },	
+					  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "WR"] }
+					]
+				  },
+				  {
+					"worksteps": [
+					  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
+					  {
+						"type": "NDemandFertilization",
+						"days": 60,
+						"after": "Sowing",
+						"N-demand": [20.0, "kg"],
+						"depth": [0.3, "m"],
+						"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+					},
+					{
+						"type": "NDemandFertilization",
+						"days": 120,
+						"after": "Sowing",
+						"N-demand": [40.0, "kg"],
+						"depth": [0.9, "m"],
+						"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+					},
+					{
+						"type": "NDemandFertilization",
+						"days": 150,
+						"after": "Sowing",
+						"N-demand": [20.0, "kg"],
+						"depth": [0.9, "m"],
+						"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+					},
+					  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
+					]
+				  }		
 			]
 		}
 	  ],
