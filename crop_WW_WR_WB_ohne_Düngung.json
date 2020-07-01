@@ -123,7 +123,7 @@
 		  },
 		{
 			"worksteps": [
-				{ "date": "0000-09-10", "type": "Sowing", "crop": ["ref", "crops", "WB"] },
+			{ "date": "0000-09-10", "type": "Sowing", "crop": ["ref", "crops", "WB"] },
 			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WB"] }
 			]
 		  }

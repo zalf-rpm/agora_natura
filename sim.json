@@ -9,9 +9,14 @@
         "no-of-climate-file-header-lines": 1,
         "csv-separator": "\t",
         "header-to-acd-names": {
+			"Date": "iso-date",
+			"TempMin": "tmin",
+			"TempMean": "tavg",
+			"TempMax": "tmax",
             "Precipitation": "precip",
             "RelHumCalc": ["relhumid", "*", 100.0],
-            "Radiation": ["globrad", "/", 1000.0]
+			"Radiation": ["globrad", "/", 1000.0],
+			"Windspeed": "windspeed"
         }
     },
 	
