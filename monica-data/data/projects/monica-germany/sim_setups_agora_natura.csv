@@ -1,6 +1,6 @@
 run-id,crop-ids,sim.json,crop.json,site.json,climate_data,climate_model,climate_scenario,climate_region,start_year,end_year,groundwater-level,impenetrable-layer,elevation,slope,latitude,sowing-date,harvest-date,landcover,fertilization,NitrogenResponseOn,irrigation,WaterDeficitResponseOn,EmergenceMoistureControlOn,EmergenceFloodingControlOn,LeafExtensionModifier,CO2,O3
 1,SM_SM_WW,sim.json,crop_SM_SM_WW.json,site.json,dwd,,,germany_ubn_1901-2018_unzipped,1980,2018,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,fixed,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,360,
-1,SM_SM_WW2,sim.json,crop_SM_SM_WW.json,site.json,dwd,,,germany_ubn_1901-2018_unzipped,1980,2018,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,fixed,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,360,
+1,SM_SM_WW2,sim.json,crop_SM_SM_WW.json,site.json,dwd,,,germany_ubn_1901-2018_unzipped,2016,2018,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,fixed,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,360,
 2,SM_SM_WR,sim.json,crop_SM_SM_WR.json,site.json,dwd,,,germany_ubn_1901-2018_unzipped,1980,2018,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,fixed,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,360,
 3,WRa_WW_WW,sim.json,crop_WRa_WW_WW.json,site.json,dwd,,,germany_ubn_1901-2018_unzipped,1980,2018,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,fixed,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,360,
 4,WRa_WR_WB,sim.json,crop_WRa_WR_WB.json,site.json,dwd,,,germany_ubn_1901-2018_unzipped,1980,2018,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,fixed,FALSE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,360,
