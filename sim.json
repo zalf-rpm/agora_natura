@@ -83,13 +83,14 @@
 				["NDef|NDef-avg", "AVG"],
 				["NFert|crop-sum-nfert", "SUM"],
 				["NLeach|crop-sum-nleach", "SUM"],
-				["Nmin|Nmin-sum", "SUM"],
 				["Stage|Stage-harv", "LAST"]
 			],
 			"yearly", [
 				["Year|CM-count", "FIRST"],
 				["Year", "FIRST"],
 				["NLeach|yearly-sum-nleach", "SUM"],
+				["Precip|yearly-sum-precip", "SUM"],
+				["Tavg|yearly-avg-temp", "AVG"],
 				["SOC|SOC_upper_soil_layer ", [1, 3, "SUM"]],
 				["SOC|SOC_lower_soil_layer ", [4, 20, "SUM"]]
 			]
