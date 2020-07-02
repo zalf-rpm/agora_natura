@@ -75,8 +75,7 @@
 				"type": "MineralFertilization",
 				"days": 1,
 				"after": "Sowing",		
-				"N-demand": [110.0, "kg"],
-				"depth": [0.3, "m"],
+				"amount": [110.0, "kg"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
 			{ "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
@@ -89,8 +88,7 @@
 				"type": "MineralFertilization",
 				"days": 1,
 				"after": "Sowing",		
-				"N-demand": [110.0, "kg"],
-				"depth": [0.3, "m"],
+				"amount": [110.0, "kg"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
 			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
@@ -101,7 +99,7 @@
 			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
 			  {
 				"type": "OrganicFertilization",
-				"days": 1,
+				"days": 120,
 				"after": "Sowing",
 				"amount": [30000, "kg N"],
 				"parameters": ["include-from-file", "organic-fertilisers/CADLM.json"],
