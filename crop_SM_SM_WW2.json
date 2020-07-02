@@ -79,7 +79,7 @@
 				"depth": [0.3, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
-			{ "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] },
+			{ "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
 			]
 		  },
 		  {
