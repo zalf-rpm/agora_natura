@@ -99,9 +99,9 @@
 			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
 			  {
 				"type": "OrganicFertilization",
-				"days": 120,
+				"days": 30,
 				"after": "Sowing",
-				"amount": [30000, "kg N"],
+				"amount": [30000, "kg"],
 				"parameters": ["include-from-file", "organic-fertilisers/CADLM.json"],
 				"incorporation": true
 			  },			
