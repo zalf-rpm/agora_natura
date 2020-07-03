@@ -105,7 +105,7 @@
 	"fert-params": {
 		"AN": ["include-from-file", "mineral-fertilisers/AN.json"],
 		"urea": ["include-from-file", "mineral-fertilisers/U.json"],
-		"org_fert": ["include-from-file", "organic-fertilisers/CADLM.json"]
+		"org_fert": ["include-from-file", "organic-fertilisers/CAM.json"]
 	}, 	
 
 	"cropRotation": [
