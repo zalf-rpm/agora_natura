@@ -244,8 +244,8 @@
 				{"date": "0002-08-10", "type": "Harvest", "crop": ["ref", "crops", "ALF"] },
 				{
 					"worksteps": [
-					  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
-					  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
+					  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WR"] },
+					  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WR"] }
 					]
 				  },
 				{
@@ -272,7 +272,7 @@
 				  },
 				  {
 					"worksteps": [
-					  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
+					  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WR"] },
 					  {
 						"type": "NDemandFertilization",
 						"days": 60,
@@ -297,7 +297,7 @@
 						"depth": [0.9, "m"],
 						"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 					},
-					  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
+					  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WR"] }
 					]
 				  },	
 				  {
@@ -324,7 +324,7 @@
 				  },
 				  {
 					"worksteps": [
-					  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
+					  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WR"] },
 					  {
 						"type": "NDemandFertilization",
 						"days": 60,
@@ -349,7 +349,7 @@
 						"depth": [0.9, "m"],
 						"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 					},
-					  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
+					  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WR"] }
 					]
 				  }		
 			]
