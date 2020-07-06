@@ -1,0 +1,2 @@
+climate.station,lat,long,crop,avg.sowing.doy,X..values.sowing,avg.harvest.doy,X..values.harvest,earliest.sowing.doy,latest.sowing.doy,earliest.harvest.doy,latest.harvest.doy
+3,50.7827,6.0941,ALF,66,4,223,NA,274,288,214,217
