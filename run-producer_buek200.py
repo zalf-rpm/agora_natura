@@ -114,6 +114,7 @@ DATA_GRID_SLOPE = "germany/slope_1000_gk5.asc"
 DATA_GRID_LAND_USE = "germany/corine2006_1000_gk5.asc"
 DATA_GRID_SOIL = "germany/BUEK200_1000_gk5.asc"
 DATA_GRID_RNFACTOR = "germany/rNfactor_1000_gk5.asc"
+DATA_GRID_ORGRNFACTOR = "germany/orgrNfactor_1000_gk5.asc"
 TEMPLATE_PATH_LATLON = "{path_to_climate_dir}{climate_data}/csvs/latlon-to-rowcol.json"
 TEMPLATE_PATH_HARVEST = "{path_to_projects_dir}{project_folder}ILR_SEED_HARVEST_doys_{crop_id}.csv"
 TEMPLATE_PATH_CLIMATE_CSV = "{climate_data}/csvs/{climate_model_folder}{climate_scenario_folder}{climate_region}/row-{crow}/col-{ccol}.csv"
@@ -230,6 +231,13 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
 
     # rNfactor data
     path_to_rnf_grid = paths["path-to-data-dir"] + DATA_GRID_RNFACTOR
+    rnf_meta, _ = Mrunlib.read_header(path_to_rnf_grid)
+    rnf_grid = np.loadtxt(path_to_rnf_grid, dtype=float, skiprows=6)
+    rnf_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(rnf_grid, rnf_meta)
+    print("read: ", path_to_rnf_grid)
+
+    # orgrNfactor data
+    path_to_rnf_grid = paths["path-to-data-dir"] + DATA_GRID_ORGRNFACTOR
     rnf_meta, _ = Mrunlib.read_header(path_to_rnf_grid)
     rnf_grid = np.loadtxt(path_to_rnf_grid, dtype=float, skiprows=6)
     rnf_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(rnf_grid, rnf_meta)
@@ -355,6 +363,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                         continue
 
                 rNfactor = rnf_gk5_interpolate(sr_gk5, sh_gk5)
+                orgrNfactor = rnf_gk5_interpolate(sr_gk5, sh_gk5)
                 height_nn = dem_gk5_interpolate(sr_gk5, sh_gk5)
                 slope = slope_gk5_interpolate(sr_gk5, sh_gk5)
 
@@ -383,21 +392,21 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                         workstep_copy = worksteps_copy[k]
                         if workstep["type"] == "MineralFertilization":
                             if type(workstep["amount"]) == list:
-                                #workstep["amount"][0] = workstep_copy["amount"][0] * rNfactor
-                                workstep["amount"][0] = workstep_copy["amount"][0] 
+                                workstep["amount"][0] = workstep_copy["amount"][0] * rNfactor
+                                #workstep["amount"][0] = workstep_copy["amount"][0] 
                             elif type(workstep["amount"]) == float:
-                                #workstep["amount"] = workstep_copy["amount"] * rNfactor
-                                workstep["amount"][0] = workstep_copy["amount"][0]  
+                                workstep["amount"] = workstep_copy["amount"] * rNfactor
+                                #workstep["amount"][0] = workstep_copy["amount"][0]  
 
                     for k, workstep in enumerate(worksteps):
                         workstep_copy = worksteps_copy[k]
                         if workstep["type"] == "OrganicFertilization":
                             if type(workstep["amount"]) == list:
-                                #workstep["amount"][0] = workstep_copy["amount"][0] * rNfactor
-                                workstep["amount"][0] = workstep_copy["amount"][0] 
+                                workstep["amount"][0] = workstep_copy["amount"][0] * orgrNfactor
+                                #workstep["amount"][0] = workstep_copy["amount"][0] 
                             elif type(workstep["amount"]) == float:
-                                #workstep["amount"] = workstep_copy["amount"] * rNfactor
-                                workstep["amount"][0] = workstep_copy["amount"][0]  
+                                workstep["amount"] = workstep_copy["amount"] * orgrNfactor
+                                #workstep["amount"][0] = workstep_copy["amount"][0]  
                     
                     # set external seed/harvest dates
                     if seed_harvest_cs:
