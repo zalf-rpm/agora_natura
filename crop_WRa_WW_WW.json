@@ -136,7 +136,7 @@
 				"type": "OrganicFertilization",
 				"days": 1,
 				"after": "Harvest",
-				"amount": [30000, "kg N"],
+				"amount": [15000, "kg N"],
 				"parameters": ["include-from-file", "organic-fertilisers/CAM.json"],
 				"incorporation": true
 			  }		
@@ -174,7 +174,7 @@
 				"type": "OrganicFertilization",
 				"days": 1,
 				"after": "Harvest",
-				"amount": [30000, "kg N"],
+				"amount": [15000, "kg N"],
 				"parameters": ["include-from-file", "organic-fertilisers/CAM.json"],
 				"incorporation": true
 			  }		
