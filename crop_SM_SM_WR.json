@@ -119,7 +119,7 @@
 			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] },
 			  {
 				"type": "OrganicFertilization",
-				"days": 0,
+				"days": 1,
 				"after": "Harvest",
 				"amount": [15000, "kg"],
 				"parameters": ["include-from-file", "organic-fertilisers/CAM.json"],
