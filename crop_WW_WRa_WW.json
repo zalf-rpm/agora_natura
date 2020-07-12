@@ -76,6 +76,36 @@
 	"cropRotation": [
 		{
 			"worksteps": [
+				{ "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
+				{
+					"type": "NDemandFertilization",
+					"days": 60,
+					"after": "Sowing",
+					"N-demand": [40.0, "kg"],
+					"depth": [0.3, "m"],
+					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+				},
+				{
+					"type": "NDemandFertilization",
+					"days": 120,
+					"after": "Sowing",
+					"N-demand": [80.0, "kg"],
+					"depth": [0.9, "m"],
+					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+				},
+				{
+					"type": "NDemandFertilization",
+					"days": 150,
+					"after": "Sowing",
+					"N-demand": [40.0, "kg"],
+					"depth": [0.9, "m"],
+					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+				},
+			  { "date": "0001-08-20", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
+			]
+		  },
+		{
+			"worksteps": [
 				{ "date": "0000-08-26", "type": "Sowing", "crop": ["ref", "crops", "WRa"] },
 				{
 					"type": "NDemandFertilization",
@@ -140,36 +170,6 @@
 				"parameters": ["include-from-file", "organic-fertilisers/CAM.json"],
 				"incorporation": true
 			  }		
-			]
-		  },
-		  {
-			"worksteps": [
-				{ "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
-				{
-					"type": "NDemandFertilization",
-					"days": 60,
-					"after": "Sowing",
-					"N-demand": [40.0, "kg"],
-					"depth": [0.3, "m"],
-					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-				},
-				{
-					"type": "NDemandFertilization",
-					"days": 120,
-					"after": "Sowing",
-					"N-demand": [80.0, "kg"],
-					"depth": [0.9, "m"],
-					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-				},
-				{
-					"type": "NDemandFertilization",
-					"days": 150,
-					"after": "Sowing",
-					"N-demand": [40.0, "kg"],
-					"depth": [0.9, "m"],
-					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-				},
-			  { "date": "0001-08-20", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
 			]
 		  }
 	  ],
