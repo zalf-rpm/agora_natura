@@ -387,25 +387,32 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                             elif type(workstep["N-demand"]) == float:
                                 workstep["N-demand"] = workstep_copy["N-demand"] * rNfactor
                                 #workstep["N-demand"][0] = workstep_copy["N-demand"][0]
-
-                    for k, workstep in enumerate(worksteps):
-                        workstep_copy = worksteps_copy[k]
-                        if workstep["type"] == "MineralFertilization":
-                            if type(workstep["amount"]) == list:
-                                workstep["amount"][0] = workstep_copy["amount"][0] * rNfactor
-                                #workstep["amount"][0] = workstep_copy["amount"][0] 
-                            elif type(workstep["amount"]) == float:
-                                workstep["amount"] = workstep_copy["amount"] * rNfactor
-                                #workstep["amount"][0] = workstep_copy["amount"][0]  
-
-                    for k, workstep in enumerate(worksteps):
-                        workstep_copy = worksteps_copy[k]
-                        if workstep["type"] == "OrganicFertilization":
+                        elif workstep["type"] == "OrganicFertilization":
                             if type(workstep["amount"]) == list:
                                 workstep["amount"][0] = workstep_copy["amount"][0] * orgrNfactor
                                 #workstep["amount"][0] = workstep_copy["amount"][0] 
                             elif type(workstep["amount"]) == float:
                                 workstep["amount"] = workstep_copy["amount"] * orgrNfactor
+                                #workstep["amount"][0] = workstep_copy["amount"][0]  
+
+                    #for k, workstep in enumerate(worksteps):
+                    #    workstep_copy = worksteps_copy[k]
+                    #    if workstep["type"] == "MineralFertilization":
+                    #        if type(workstep["amount"]) == list:
+                    #            workstep["amount"][0] = workstep_copy["amount"][0] * rNfactor
+                    #            #workstep["amount"][0] = workstep_copy["amount"][0] 
+                    #        elif type(workstep["amount"]) == float:
+                    #            workstep["amount"] = workstep_copy["amount"] * rNfactor
+                    #            #workstep["amount"][0] = workstep_copy["amount"][0]  
+
+                    #for k, workstep in enumerate(worksteps):
+                    #    workstep_copy = worksteps_copy[k]
+                    #    if workstep["type"] == "OrganicFertilization":
+                    #        if type(workstep["amount"]) == list:
+                    #            workstep["amount"][0] = workstep_copy["amount"][0] * orgrNfactor
+                    #            #workstep["amount"][0] = workstep_copy["amount"][0] 
+                    #        elif type(workstep["amount"]) == float:
+                    #            workstep["amount"] = workstep_copy["amount"] * orgrNfactor
                                 #workstep["amount"][0] = workstep_copy["amount"][0]  
                     
                     # set external seed/harvest dates
