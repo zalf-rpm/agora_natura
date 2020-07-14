@@ -128,15 +128,7 @@
 				"depth": [0.9, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
-			  { "date": "0000-09-23", "type": "Harvest", "crop": ["ref", "crops", "SM"] },
-			  {
-				"type": "OrganicFertilization",
-				"days": 1,
-				"after": "Harvest",
-				"amount": [15000, "kg"],
-				"parameters": ["include-from-file", "organic-fertilisers/CAM.json"],
-				"incorporation": true
-			  }		
+			  { "date": "0000-09-23", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
 			]
 		  },		
 		{
@@ -158,15 +150,7 @@
 				"depth": [0.9, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
-			  { "date": "0001-07-29", "type": "Harvest", "crop": ["ref", "crops", "WW"] },
-			  {
-				"type": "OrganicFertilization",
-				"days": 1,
-				"after": "Harvest",
-				"amount": [15000, "kg"],
-				"parameters": ["include-from-file", "organic-fertilisers/CAM.json"],
-				"incorporation": true
-			  }			
+			  { "date": "0001-07-29", "type": "Harvest", "crop": ["ref", "crops", "WW"] }	
 			]
 		  },
 		{
@@ -188,15 +172,7 @@
 				"depth": [0.9, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
-			  { "date": "0000-09-23", "type": "Harvest", "crop": ["ref", "crops", "SM"] },
-			  {
-				"type": "OrganicFertilization",
-				"days": 1,
-				"after": "Harvest",
-				"amount": [15000, "kg"],
-				"parameters": ["include-from-file", "organic-fertilisers/CAM.json"],
-				"incorporation": true
-			  }			
+			  { "date": "0000-09-23", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
 			]
 		  },
 		{
@@ -218,18 +194,10 @@
 				"depth": [0.9, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
-			  { "date": "0001-07-29", "type": "Harvest", "crop": ["ref", "crops", "WW"] },
-			  {
-				"type": "OrganicFertilization",
-				"days": 1,
-				"after": "Harvest",
-				"amount": [15000, "kg"],
-				"parameters": ["include-from-file", "organic-fertilisers/CAM.json"],
-				"incorporation": true
-			  }				
+			  { "date": "0001-07-29", "type": "Harvest", "crop": ["ref", "crops", "WW"] }		
 			]
 		  },
-	  {
+	  	{
 		"worksteps": [
 			{"date": "0000-02-06", "type": "Sowing", "crop": ["ref", "crops", "ALF"] },		
 			{
