@@ -1,0 +1,137 @@
+  {
+	"crops": {
+		"WW": {
+			"is-winter-crop": true,
+			"cropParams": {
+				"species": {
+					"=": ["include-from-file", "projects/sustag/wheat.json"],
+					"TransitionStageLeafExp": 2
+				},
+				"cultivar": {
+					"=": ["include-from-file", "projects/sustag/winter-wheat.json"],
+					"OrganIdsForSecondaryYield": [
+						{
+							"organId": 2,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 3,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 4,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 0.15
+						}
+					],
+					"EarlyRefLeafExp": 8,
+					"RefLeafExp": 16
+				}
+			},
+			"residueParams": ["include-from-file", "crop-residues/wheat.json"]
+		},	
+		"WR": {
+			"is-winter-crop": true,
+			"cropParams": {
+				"species": {
+					"=": ["include-from-file", "crops/rye.json"],
+					"TransitionStageLeafExp": 2
+				},
+				"cultivar": {
+					"=": ["include-from-file", "crops/rye/winter-rye.json"],
+					"OrganIdsForSecondaryYield": [
+						{
+							"organId": 2,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 3,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 4,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 0.15
+						}
+					],
+					"EarlyRefLeafExp": 8,
+					"RefLeafExp": 16
+				}
+			},
+			"residueParams": ["include-from-file", "crop-residues/rye.json"]
+		},
+		"WB": {
+			"is-winter-crop": true,
+			"cropParams": {
+				"species": ["include-from-file", "projects/sustag/barley.json"],
+				"cultivar": {
+					"=": ["include-from-file", "projects/sustag/winter-barley.json"],
+					"OrganIdsForSecondaryYield": [
+							{
+								"organId": 2,
+								"type": "YieldComponent",
+								"yieldDryMatter": 0.86,
+								"yieldPercentage": 1
+							},
+							{
+								"organId": 3,
+								"type": "YieldComponent",
+								"yieldDryMatter": 0.86,
+								"yieldPercentage": 1
+							},
+							{
+								"organId": 4,
+								"type": "YieldComponent",
+								"yieldDryMatter": 0.86,
+								"yieldPercentage": 0.15
+							}
+					]
+				}
+			},
+			"residueParams": ["include-from-file", "crop-residues/barley.json"]
+		}	
+	},
+	
+	"fert-params": {
+		"AN": ["include-from-file", "mineral-fertilisers/AN.json"],
+		"urea": ["include-from-file", "mineral-fertilisers/U.json"],
+		"org_fert": ["include-from-file", "organic-fertilisers/CAM.json"]
+	}, 	
+
+	"cropRotation": [
+		{
+			"worksteps": [
+				{ "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WR"] },
+			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WR"] }
+			]
+		  },
+		{
+			"worksteps": [
+			{ "date": "0000-09-10", "type": "Sowing", "crop": ["ref", "crops", "WB"] },
+			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WB"] }
+			]
+		  },
+		  {
+			"worksteps": [
+			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
+			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
+			]
+		  }
+	  ],
+	
+	  "CropParameters": {
+		"DEFAULT": ["include-from-file", "general/crop.json"]
+	  }
+	}
+
+
