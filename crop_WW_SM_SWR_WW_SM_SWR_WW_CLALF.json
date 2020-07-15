@@ -57,7 +57,8 @@
 				}
 			},
 			"residueParams": ["include-from-file", "crop-residues/wheat.json"]
-        },
+		},
+		
         "CLALF": {
 			"is-winter-crop": false,
 			"is-perennial-crop": true,
@@ -66,8 +67,18 @@
 				"cultivar":  ["include-from-file", "crops/alfalfa-clover-grass-ley-mix/.json"]
 			},
 			"residueParams": ["include-from-file", "crop-residues/clover-grass-ley.json"]
+		},
+		"SWR": {
+			"is-winter-crop": false,
+			"is-perennial-crop": true,
+			"cropParams": {
+				"species":   ["include-from-file", "crops/rye.json"],
+				"cultivar":  ["include-from-file", "crops/rye/silage-winter-rye.json"]
+			},
+			"residueParams": ["include-from-file", "crop-residues/rye.json"]
 		}
 	},
+	
 	"fert-params": {
 		"AN": ["include-from-file", "mineral-fertilisers/AN.json"],
 		"urea": ["include-from-file", "mineral-fertilisers/U.json"],
