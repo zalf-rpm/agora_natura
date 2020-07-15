@@ -97,7 +97,7 @@
 						"Fruit": [0, "%"]	
 					}
 				},	
-				{"date": "0001-08-10", "type": "Harvest", "crop": ["ref", "crops", "ALF"] }
+				{"date": "0003-08-10", "type": "Harvest", "crop": ["ref", "crops", "ALF"] }
 			]
         },
         {
