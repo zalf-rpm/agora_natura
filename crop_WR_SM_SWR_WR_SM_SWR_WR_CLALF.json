@@ -61,12 +61,8 @@
 		"SWR": {
 			"is-winter-crop": true,
 			"cropParams": {
-				"species": {
-					"=": ["include-from-file", "crops/rye.json"],
-					"TransitionStageLeafExp": 2
-				},
-				"cultivar": {
-					"=": ["include-from-file", "crops/rye/silage-winter-rye.json"]
+				"species": ["include-from-file", "crops/rye.json"],
+				"cultivar": ["include-from-file", "crops/rye/silage-winter-rye.json"]
 				}
 			},
 			"residueParams": ["include-from-file", "crop-residues/rye.json"]
