@@ -61,10 +61,10 @@
         "ALF": {
 			"is-winter-crop": false,
 			"cropParams": {
-				"species":   ["include-from-file", "crops/alfalfa.json"],
-				"cultivar":  ["include-from-file", "crops/alfalfa/.json"]
+				"species":   ["include-from-file", "crops/alfalfa-clover-grass-ley-mix.json"],
+				"cultivar":  ["include-from-file", "crops/alfalfa-clover-grass-ley-mix/.json"]
 			},
-			"residueParams": ["include-from-file", "crop-residues/alfalfa.json"]
+			"residueParams": ["include-from-file", "crop-residues/clover-grass-ley.json"]
 		}
 	},
 	"fert-params": {
