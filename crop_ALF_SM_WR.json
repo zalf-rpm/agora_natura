@@ -23,15 +23,15 @@
 			},
 			"residueParams": ["include-from-file", "crop-residues/maize.json"]
 		},
-		"WW": {
+		"WR": {
 			"is-winter-crop": true,
 			"cropParams": {
 				"species": {
-					"=": ["include-from-file", "projects/sustag/wheat.json"],
+					"=": ["include-from-file", "crops/rye.json"],
 					"TransitionStageLeafExp": 2
 				},
 				"cultivar": {
-					"=": ["include-from-file", "projects/sustag/winter-wheat.json"],
+					"=": ["include-from-file", "crops/rye/winter-rye.json"],
 					"OrganIdsForSecondaryYield": [
 						{
 							"organId": 2,
@@ -56,7 +56,7 @@
 					"RefLeafExp": 16
 				}
 			},
-			"residueParams": ["include-from-file", "crop-residues/wheat.json"]
+			"residueParams": ["include-from-file", "crop-residues/rye.json"]
         },
         "ALF": {
 			"is-winter-crop": false,
