@@ -60,9 +60,10 @@
         },
         "CLALF": {
 			"is-winter-crop": false,
+			"is-perennial-crop": true,
 			"cropParams": {
-				"species":   ["include-from-file", "projects/sattgruen/crops/clover-grass-ley.json"],
-				"cultivar":  ["include-from-file", "projects/sattgruen/crops/clover-grass-ley/.json"]
+				"species":   ["include-from-file", "crops/alfalfa-clover-grass-ley-mix.json"],
+				"cultivar":  ["include-from-file", "crops/alfalfa-clover-grass-ley-mix/.json"]
 			},
 			"residueParams": ["include-from-file", "crop-residues/clover-grass-ley.json"]
 		}
