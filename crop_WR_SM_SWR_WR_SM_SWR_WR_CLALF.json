@@ -109,15 +109,7 @@
 				"depth": [0.9, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
-			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] },
-			  {
-				"type": "OrganicFertilization",
-				"days": 1,
-				"after": "Harvest",
-				"amount": [15000, "kg"],
-				"parameters": ["include-from-file", "organic-fertilisers/CAM.json"],
-				"incorporation": true
-			  }			
+			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
 			]
 		  },
 		  {
@@ -153,15 +145,7 @@
 				"depth": [0.9, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
-			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WR"] },
-			  {
-				"type": "OrganicFertilization",
-				"days": 1,
-				"after": "Harvest",
-				"amount": [15000, "kg"],
-				"parameters": ["include-from-file", "organic-fertilisers/CAM.json"],
-				"incorporation": true
-			  }			
+			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WR"] },		
 			]
 		  },
 		  {
@@ -183,15 +167,7 @@
 				"depth": [0.9, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
-			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] },
-			  {
-				"type": "OrganicFertilization",
-				"days": 1,
-				"after": "Harvest",
-				"amount": [15000, "kg"],
-				"parameters": ["include-from-file", "organic-fertilisers/CAM.json"],
-				"incorporation": true
-			  }			
+			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }	
 			]
 		  },
 		  {
@@ -227,15 +203,7 @@
 				"depth": [0.9, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
-			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WR"] },
-			  {
-				"type": "OrganicFertilization",
-				"days": 1,
-				"after": "Harvest",
-				"amount": [15000, "kg"],
-				"parameters": ["include-from-file", "organic-fertilisers/CAM.json"],
-				"incorporation": true
-			  }			
+			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WR"] }		
 			]
 		  },
 		  {

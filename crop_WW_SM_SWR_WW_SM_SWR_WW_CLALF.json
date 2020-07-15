@@ -111,23 +111,9 @@
 				"depth": [0.9, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
-			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] },
-			  {
-				"type": "OrganicFertilization",
-				"days": 1,
-				"after": "Harvest",
-				"amount": [15000, "kg"],
-				"parameters": ["include-from-file", "organic-fertilisers/CAM.json"],
-				"incorporation": true
-			  }			
+			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }		
 			]
 		  },
-		  {
-			"worksteps": [
-			  { "date": "0000-09-25", "type": "Sowing", "crop": ["ref", "crops", "SWR"] },
-			  { "date": "0001-07-29", "type": "Harvest", "crop": ["ref", "crops", "SWR"] }
-			]
-          },
           {
 			"worksteps": [
 			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
@@ -155,15 +141,7 @@
 				"depth": [0.9, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
-			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] },
-			  {
-				"type": "OrganicFertilization",
-				"days": 1,
-				"after": "Harvest",
-				"amount": [15000, "kg"],
-				"parameters": ["include-from-file", "organic-fertilisers/CAM.json"],
-				"incorporation": true
-			  }			
+			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }	
 			]
 		  },
 		  {
@@ -185,23 +163,9 @@
 				"depth": [0.9, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
-			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] },
-			  {
-				"type": "OrganicFertilization",
-				"days": 1,
-				"after": "Harvest",
-				"amount": [15000, "kg"],
-				"parameters": ["include-from-file", "organic-fertilisers/CAM.json"],
-				"incorporation": true
-			  }			
+			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }		
 			]
 		  },
-		  {
-			"worksteps": [
-			  { "date": "0000-09-25", "type": "Sowing", "crop": ["ref", "crops", "SWR"] },
-			  { "date": "0001-07-29", "type": "Harvest", "crop": ["ref", "crops", "SWR"] }
-			]
-          },
           {
 			"worksteps": [
 			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
@@ -229,15 +193,7 @@
 				"depth": [0.9, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
-			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] },
-			  {
-				"type": "OrganicFertilization",
-				"days": 1,
-				"after": "Harvest",
-				"amount": [15000, "kg"],
-				"parameters": ["include-from-file", "organic-fertilisers/CAM.json"],
-				"incorporation": true
-			  }			
+			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }		
 			]
 		  },
 		  {
