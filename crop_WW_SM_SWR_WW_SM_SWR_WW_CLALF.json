@@ -110,6 +110,12 @@
 				"incorporation": true
 			  }			
 			]
+		  },
+		  {
+			"worksteps": [
+			  { "date": "0000-09-25", "type": "Sowing", "crop": ["ref", "crops", "SWR"] },
+			  { "date": "0001-07-29", "type": "Harvest", "crop": ["ref", "crops", "SWR"] }
+			]
           },
           {
 			"worksteps": [
@@ -177,6 +183,12 @@
 				"parameters": ["include-from-file", "organic-fertilisers/CAM.json"],
 				"incorporation": true
 			  }			
+			]
+		  },
+		  {
+			"worksteps": [
+			  { "date": "0000-09-25", "type": "Sowing", "crop": ["ref", "crops", "SWR"] },
+			  { "date": "0001-07-29", "type": "Harvest", "crop": ["ref", "crops", "SWR"] }
 			]
           },
           {
