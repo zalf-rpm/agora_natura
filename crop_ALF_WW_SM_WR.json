@@ -99,7 +99,7 @@
 				"species":   ["include-from-file", "crops/alfalfa.json"],
 				"cultivar":  ["include-from-file", "crops/alfalfa/.json"]
 			},
-			"residueParams": ["include-from-file", "crop-residues/clover-grass-ley.json"]
+			"residueParams": ["include-from-file", "crop-residues/alfalfa.json"]
 		}
 	},
 	"fert-params": {
