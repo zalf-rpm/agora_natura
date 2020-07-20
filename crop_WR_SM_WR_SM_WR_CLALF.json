@@ -22,7 +22,7 @@
 				}
 			},
 			"residueParams": ["include-from-file", "crop-residues/maize.json"]
-		},
+		},	
 		"WR": {
 			"is-winter-crop": true,
 			"cropParams": {
@@ -58,6 +58,7 @@
 			},
 			"residueParams": ["include-from-file", "crop-residues/rye.json"]
 		},
+		
         "CLALF": {
 			"is-winter-crop": false,
 			"is-perennial-crop": true,
@@ -77,6 +78,7 @@
 			"residueParams": ["include-from-file", "crop-residues/rye.json"]
 		}
 	},
+	
 	"fert-params": {
 		"AN": ["include-from-file", "mineral-fertilisers/AN.json"],
 		"urea": ["include-from-file", "mineral-fertilisers/U.json"],
@@ -109,7 +111,7 @@
 				"depth": [0.9, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
-			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }
+			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }		
 			]
 		  },
           {
@@ -139,7 +141,7 @@
 				"depth": [0.9, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
-			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WR"] },		
+			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WR"] }	
 			]
 		  },
 		  {
@@ -161,7 +163,7 @@
 				"depth": [0.9, "m"],
 				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
 			},
-			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }	
+			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }		
 			]
 		  },
           {
@@ -196,7 +198,7 @@
 		  },
 		  {
 			"worksteps": [
-				{"date": "0000-02-06", "type": "Sowing", "crop": ["ref", "crops", "CLALF"] },	
+				{"date": "0000-02-06", "type": "Sowing", "crop": ["ref", "crops", "CLALF"] },				
 				{
 					"date": "0000-05-15", 
 					"type": "Cutting",
