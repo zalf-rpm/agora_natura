@@ -110,8 +110,7 @@ PROJECT_FOLDER = "monica-germany/"
 DATA_SOIL_DB = "germany/buek200.sqlite"
 DATA_GRID_HEIGHT = "germany/dem_1000_gk5.asc" 
 DATA_GRID_SLOPE = "germany/slope_1000_gk5.asc"
-#DATA_GRID_LAND_USE = "germany/CropLandcoverMap_DE2016_resampled_1000.asc"
-DATA_GRID_LAND_USE = "germany/corine2012_1000_gk5.asc"
+DATA_GRID_LAND_USE = "germany/CropLandcoverMap_1000_gk5.asc"
 DATA_GRID_SOIL = "germany/BUEK200_1000_gk5.asc"
 DATA_GRID_RNFACTOR = "germany/rNfactor_1000_gk5.asc"
 DATA_GRID_ORGRNFACTOR = "germany/orgrNfactor_1000_gk5.asc"
@@ -359,7 +358,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                 # check if current grid cell is used for agriculture                
                 if setup["landcover"]:
                     corine_id = corine_gk5_interpolate(sr_gk5, sh_gk5)
-                    if corine_id not in [12,18]:
+                    if corine_id not in [2,3,4]:
                         continue
 
                 rNfactor = rnf_gk5_interpolate(sr_gk5, sh_gk5)

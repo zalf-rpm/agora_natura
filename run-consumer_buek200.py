@@ -72,7 +72,7 @@ PATHS = {
 DEFAULT_HOST = "login01.cluster.zalf.de" # "localhost" 
 DEFAULT_PORT = "7780"
 TEMPLATE_SOIL_PATH = "{local_path_to_data_dir}germany/BUEK200_1000_gk5.asc"
-TEMPLATE_CORINE_PATH = "{local_path_to_data_dir}germany/corine2012_1000_gk5.asc"
+TEMPLATE_CORINE_PATH = "{local_path_to_data_dir}germany/CropLandcoverMap_1000_gk5.asc"
 #TEMPLATE_SOIL_PATH = "{local_path_to_data_dir}germany/BUEK250_1000_gk5.asc"
 #DATA_SOIL_DB = "germany/buek200.sqlite"
 USE_CORINE = True
@@ -381,7 +381,7 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
 
                 # check if current grid cell is used for agriculture                
                 corine_id = corine_gk5_interpolate(sr_gk5, sh_gk5)
-                if  corine_id not in [12,18]:
+                if corine_id not in [2,3,4]:
                     soil_grid_template[srow, scol] = -9999
 
         print("filtered through CORINE")
