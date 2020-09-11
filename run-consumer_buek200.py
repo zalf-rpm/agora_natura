@@ -375,7 +375,7 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
                 if soil_id == -9999:
                     continue
 
-                get coordinate of clostest climate element of real soil-cell
+                #get coordinate of clostest climate element of real soil-cell
                 sh_gk5 = yllcorner + (scellsize / 2) + (srows - srow - 1) * scellsize
                 sr_gk5 = xllcorner + (scellsize / 2) + scol * scellsize
 
