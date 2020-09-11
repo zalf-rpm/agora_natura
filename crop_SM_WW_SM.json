@@ -3,6 +3,8 @@
 		"SM": {
 			"cropParams": {
 				"species": ["include-from-file", "projects/sustag/maize.json"],
+				"FieldConditionModifier":0.9
+			},
 				"cultivar": {
 					"=": ["include-from-file", "projects/sustag/silage-maize.json"],
 					"OrganIdsForSecondaryYield": [
