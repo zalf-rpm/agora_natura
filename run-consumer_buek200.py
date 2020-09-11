@@ -72,10 +72,10 @@ PATHS = {
 DEFAULT_HOST = "login01.cluster.zalf.de" # "localhost" 
 DEFAULT_PORT = "7780"
 TEMPLATE_SOIL_PATH = "{local_path_to_data_dir}germany/BUEK200_1000_gk5.asc"
-#TEMPLATE_CORINE_PATH = "{local_path_to_data_dir}germany/corine2006_1000_gk5.asc"
+TEMPLATE_CORINE_PATH = "{local_path_to_data_dir}germany/corine2012_1000_gk5.asc"
 #TEMPLATE_SOIL_PATH = "{local_path_to_data_dir}germany/BUEK250_1000_gk5.asc"
 #DATA_SOIL_DB = "germany/buek200.sqlite"
-#USE_CORINE = True
+USE_CORINE = True
 
 def create_output(result):
     "create output structure for single run"
@@ -356,35 +356,35 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
     #            else:
     #                unknown_soil_ids[soil_id] = False
     
-    #if USE_CORINE:
-        #path_to_corine_grid = TEMPLATE_CORINE_PATH.format(local_path_to_data_dir=paths["path-to-data-dir"])
-        #corine_meta, _ = Mrunlib.read_header(path_to_corine_grid)
-        #corine_grid = np.loadtxt(path_to_corine_grid, dtype=int, skiprows=6)
-        #corine_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(corine_grid, corine_meta)
+    if USE_CORINE:
+        path_to_corine_grid = TEMPLATE_CORINE_PATH.format(local_path_to_data_dir=paths["path-to-data-dir"])
+        corine_meta, _ = Mrunlib.read_header(path_to_corine_grid)
+        corine_grid = np.loadtxt(path_to_corine_grid, dtype=int, skiprows=6)
+        corine_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(corine_grid, corine_meta)
 
-        #scols = int(soil_metadata["ncols"])
-        #srows = int(soil_metadata["nrows"])
-        #scellsize = int(soil_metadata["cellsize"])
-        #xllcorner = int(soil_metadata["xllcorner"])
-        #yllcorner = int(soil_metadata["yllcorner"])
+        scols = int(soil_metadata["ncols"])
+        srows = int(soil_metadata["nrows"])
+        scellsize = int(soil_metadata["cellsize"])
+        xllcorner = int(soil_metadata["xllcorner"])
+        yllcorner = int(soil_metadata["yllcorner"])
 
-        #for srow in range(0, srows):
+        for srow in range(0, srows):
             #print(srow)
-           # for scol in range(0, scols):
-             #   soil_id = soil_grid_template[srow, scol]
-               # if soil_id == -9999:
-                   # continue
+            for scol in range(0, scols):
+                soil_id = soil_grid_template[srow, scol]
+                if soil_id == -9999:
+                    continue
 
-                #get coordinate of clostest climate element of real soil-cell
-                #sh_gk5 = yllcorner + (scellsize / 2) + (srows - srow - 1) * scellsize
-                #sr_gk5 = xllcorner + (scellsize / 2) + scol * scellsize
+                get coordinate of clostest climate element of real soil-cell
+                sh_gk5 = yllcorner + (scellsize / 2) + (srows - srow - 1) * scellsize
+                sr_gk5 = xllcorner + (scellsize / 2) + scol * scellsize
 
                 # check if current grid cell is used for agriculture                
-                #corine_id = corine_gk5_interpolate(sr_gk5, sh_gk5)
-                #if corine_id not in [200, 210, 211, 212, 240, 241, 242, 243, 244]:
-                   # soil_grid_template[srow, scol] = -9999
+                corine_id = corine_gk5_interpolate(sr_gk5, sh_gk5)
+                if  corine_id not in [12,18]:
+                    soil_grid_template[srow, scol] = -9999
 
-        #print("filtered through CORINE")
+        print("filtered through CORINE")
 
     #set all data values to one, to count them later
     soil_grid_template[soil_grid_template != -9999] = 1
