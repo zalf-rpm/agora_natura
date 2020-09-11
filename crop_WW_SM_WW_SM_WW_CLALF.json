@@ -74,6 +74,7 @@
 		"SWR": {
 			"is-winter-crop": false,
 			"is-perennial-crop": true,
+			"can-be-skipped": true,
 			"cropParams": {
 				"species":   ["include-from-file", "crops/rye.json"],
 				"cultivar":  ["include-from-file", "crops/rye/silage-winter-rye.json"]
