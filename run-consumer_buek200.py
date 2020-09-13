@@ -75,7 +75,7 @@ TEMPLATE_SOIL_PATH = "{local_path_to_data_dir}germany/BUEK200_1000_gk5.asc"
 TEMPLATE_CORINE_PATH = "{local_path_to_data_dir}germany/CropLandcoverMap_1000_gk5.asc"
 #TEMPLATE_SOIL_PATH = "{local_path_to_data_dir}germany/BUEK250_1000_gk5.asc"
 #DATA_SOIL_DB = "germany/buek200.sqlite"
-USE_CORINE = True
+USE_CORINE = False
 
 def create_output(result):
     "create output structure for single run"
