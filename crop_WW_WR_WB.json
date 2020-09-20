@@ -73,10 +73,9 @@
 		"WB": {
 			"is-winter-crop": true,
 			"cropParams": {
-				"species": {
-					"=": ["include-from-file", "crops/sustag/barley.json"],
-					"TransitionStageLeafExp": 2
-				},
+				"=": ["include-from-file", "projects/sustag/barley.json"],
+			"FieldConditionModifier":1.2
+		},
 				"cultivar": {
 					"=": ["include-from-file", "projects/sustag/winter-barley.json"],
 					"OrganIdsForSecondaryYield": [
@@ -108,81 +107,25 @@
 	"fert-params": {
 		"AN": ["include-from-file", "mineral-fertilisers/AN.json"],
 		"urea": ["include-from-file", "mineral-fertilisers/U.json"],
-		"org_fert": ["include-from-file", "organic-fertilisers/CADLM.json"]
+		"org_fert": ["include-from-file", "organic-fertilisers/CAM.json"]
 	}, 	
 
 	"cropRotation": [
 		{
 			"worksteps": [
 			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WW"] },
-			  {
-				"type": "NDemandFertilization",
-				"days": 60,
-				"after": "Sowing",
-				"N-demand": [20.0, "kg"],
-				"depth": [0.3, "m"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			},
-			{
-				"type": "NDemandFertilization",
-				"days": 120,
-				"after": "Sowing",
-				"N-demand": [40.0, "kg"],
-				"depth": [0.9, "m"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			},
-			{
-				"type": "NDemandFertilization",
-				"days": 150,
-				"after": "Sowing",
-				"N-demand": [20.0, "kg"],
-				"depth": [0.9, "m"],
-				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-			},
 			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }
 			]
 		  },
 		{
 			"worksteps": [
 				{ "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WR"] },
-				{
-					"type": "NDemandFertilization",
-					"days": 55,
-					"after": "Sowing",
-					"N-demand": [25.0, "kg"],
-					"depth": [0.9, "m"],
-					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-				},
-				{
-					"type": "NDemandFertilization",
-					"days": 150,
-					"after": "Sowing",
-					"N-demand": [40.0, "kg"],
-					"depth": [0.9, "m"],
-					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-				},
 			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WR"] }
 			]
 		  },
 		{
 			"worksteps": [
-				{ "date": "0000-09-10", "type": "Sowing", "crop": ["ref", "crops", "WB"] },
-				{
-					"type": "NDemandFertilization",
-					"days": 55,
-					"after": "Sowing",
-					"N-demand": [25.0, "kg"],
-					"depth": [0.9, "m"],
-					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-				  },
-				  {
-					"type": "NDemandFertilizatio",
-					"days": 150,
-					"after": "Sowing",
-					"N-demand": [45.0, "kg"],
-					"depth": [0.9, "m"],
-					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-				  },
+			{ "date": "0000-09-10", "type": "Sowing", "crop": ["ref", "crops", "WB"] },
 			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WB"] }
 			]
 		  }
