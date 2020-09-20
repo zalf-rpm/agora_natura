@@ -4,7 +4,7 @@
 			"is-winter-crop": true,
 			"cropParams": {
 				"species": {
-					"=": ["include-from-file", "projects/sustag/wheat.json"],
+					"=": ["include-from-file", "crops/wheat.json"],
 					"TransitionStageLeafExp": 2
 				},
 				"cultivar": {

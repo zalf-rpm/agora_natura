@@ -74,9 +74,9 @@
 			"is-winter-crop": true,
 			"cropParams": {
 				"species": {
-					"=": ["include-from-file", "projects/sustag/barley.json"],
-				"FieldConditionModifier":1.2
-			},
+					"=": ["include-from-file", "crops/sustag/barley.json"],
+					"TransitionStageLeafExp": 2
+				},
 				"cultivar": {
 					"=": ["include-from-file", "projects/sustag/winter-barley.json"],
 					"OrganIdsForSecondaryYield": [
