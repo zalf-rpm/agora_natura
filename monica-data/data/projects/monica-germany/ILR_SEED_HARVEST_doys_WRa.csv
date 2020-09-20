@@ -1,4 +1,4 @@
-climate.station,lat.y,long.y,crop.y,avg.sowing.doy.y,X..values.sowing.y,avg.harvest.doy.y,X..values.harvest.y,earliest.sowing.doy.y,latest.sowing.doy.y,earliest.harvest.doy.y,latest.harvest.doy.y
+climate.station,lat,long,crop,avg.sowing.doy,X..values.sowing,avg.harvest.doy,X..values.harvest,earliest.sowing.doy,latest.sowing.doy,earliest.harvest.doy,latest.harvest.doy
 3,50.7827,6.0941,WRa,242,7,202,7,230,247,185,220
 98,51.189,8.4671,WRa,236,5,214,8,235,239,205,226
 140,52.6861,11.4272,WRa,235,16,204,16,229,242,197,231
