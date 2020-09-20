@@ -71,11 +71,11 @@
 			"residueParams": ["include-from-file", "crop-residues/rye.json"]
 		},
 		"WB": {
-			"is-winter-crop": true,
 			"cropParams": {
-				"=": ["include-from-file", "projects/sustag/barley.json"],
-			"FieldConditionModifier":1.2
-		},
+				"species": {
+					"=": ["include-from-file", "projects/sustag/barley.json"],
+				"FieldConditionModifier":1.2
+			},
 				"cultivar": {
 					"=": ["include-from-file", "projects/sustag/winter-barley.json"],
 					"OrganIdsForSecondaryYield": [
