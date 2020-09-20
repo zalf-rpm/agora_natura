@@ -8,7 +8,7 @@
 					"TransitionStageLeafExp": 2
 				},
 				"cultivar": {
-					"=": ["include-from-file", "projects/sustag/winter-wheat.json"],
+					"=": ["include-from-file", "crops/wheat/winter-wheat.json"],
 					"OrganIdsForSecondaryYield": [
 						{
 							"organId": 2,
