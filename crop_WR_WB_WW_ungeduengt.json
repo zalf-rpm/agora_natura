@@ -74,7 +74,7 @@
 			"is-winter-crop": true,
 			"cropParams": {
 				"species": {
-					"=": ["include-from-file", "projects/sustag/maize.json"],
+					"=": ["include-from-file", "projects/sustag/barley.json"],
 				"FieldConditionModifier":1.2
 			},
 				"cultivar": {
