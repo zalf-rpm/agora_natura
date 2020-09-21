@@ -5,7 +5,8 @@
 			"cropParams": {
 				"species": {
 					"=": ["include-from-file", "crops/wheat.json"],
-					"TransitionStageLeafExp": 2
+					"TransitionStageLeafExp": 2,
+					"FieldConditionModifier":0.9
 				},
 				"cultivar": {
 					"=": ["include-from-file", "crops/wheat/winter-wheat.json"],
