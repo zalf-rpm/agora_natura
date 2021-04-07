@@ -72,7 +72,7 @@
 			"residueParams": ["include-from-file", "crop-residues/clover-grass-ley.json"]
 		},
 		"SWR": {
-			"is-winter-crop": false,
+			"is-winter-crop": true,
 			"is-perennial-crop": true,
 			"can-be-skipped": true,
 			"cropParams": {
