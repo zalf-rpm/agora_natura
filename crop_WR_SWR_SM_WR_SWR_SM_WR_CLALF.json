@@ -74,7 +74,7 @@
 		},
 		"SWR": {
 			"is-winter-crop": true,
-			"is-perennial-crop": true,
+			"is-perennial-crop": false,
 			"can-be-skipped": true,
 			"cropParams": {
 				"species":   ["include-from-file", "crops/rye.json"],
