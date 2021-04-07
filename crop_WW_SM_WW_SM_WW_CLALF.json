@@ -63,7 +63,7 @@
 		},
 		
         "CLALF": {
-			"is-winter-crop": false,
+			"is-winter-crop": true,
 			"is-perennial-crop": true,
 			"cropParams": {
 				"species":   ["include-from-file", "crops/alfalfa-clover-grass-ley-mix.json"],
@@ -193,90 +193,6 @@
 		  {
 			"worksteps": [
 				{"date": "0000-03-30", "type": "Sowing", "crop": ["ref", "crops", "CLALF"] },				
-				{
-					"date": "0000-06-06", 
-					"type": "Cutting",
-					"organs": {
-						"Leaf": [0.8, "m2 m-2", "left"],
-						"Shoot": [50, "kg ha-1", "left"],
-						"Fruit": [0, "kg ha-1", "cut"]
-					},
-					"export": {
-						"Leaf": [100, "%"],
-						"Shoot": [100, "%"],
-						"Fruit": [0, "%"]	
-					}
-				},	
-				{
-					"date": "0000-08-01", 
-					"type": "Cutting",
-					"organs": {
-						"Leaf": [0.8, "m2 m-2", "left"],
-						"Shoot": [50, "kg ha-1", "left"],
-						"Fruit": [0, "kg ha-1", "cut"]
-					},
-					"export": {
-						"Leaf": [100, "%"],
-						"Shoot": [100, "%"],
-						"Fruit": [0, "%"]	
-					}
-				},						
-				{
-					"date": "0001-06-06", 
-					"type": "Cutting",
-					"organs": {
-						"Leaf": [0.8, "m2 m-2", "left"],
-						"Shoot": [50, "kg ha-1", "left"],
-						"Fruit": [0, "kg ha-1", "cut"]
-					},
-					"export": {
-						"Leaf": [100, "%"],
-						"Shoot": [100, "%"],
-						"Fruit": [0, "%"]	
-					}
-				},	
-				{
-					"date": "0001-08-01", 
-					"type": "Cutting",
-					"organs": {
-						"Leaf": [0.8, "m2 m-2", "left"],
-						"Shoot": [50, "kg ha-1", "left"],
-						"Fruit": [0, "kg ha-1", "cut"]
-					},
-					"export": {
-						"Leaf": [100, "%"],
-						"Shoot": [100, "%"],
-						"Fruit": [0, "%"]	
-					}
-				},											
-				{
-					"date": "0002-06-06", 
-					"type": "Cutting",
-					"organs": {
-						"Leaf": [0.8, "m2 m-2", "left"],
-						"Shoot": [50, "kg ha-1", "left"],
-						"Fruit": [0, "kg ha-1", "cut"]
-					},
-					"export": {
-						"Leaf": [100, "%"],
-						"Shoot": [100, "%"],
-						"Fruit": [0, "%"]	
-					}
-				},	
-				{
-					"date": "0002-08-01", 
-					"type": "Cutting",
-					"organs": {
-						"Leaf": [0.8, "m2 m-2", "left"],
-						"Shoot": [50, "kg ha-1", "left"],
-						"Fruit": [0, "kg ha-1", "cut"]
-					},
-					"export": {
-						"Leaf": [100, "%"],
-						"Shoot": [100, "%"],
-						"Fruit": [0, "%"]	
-					}
-				},	
 				{"date": "0002-08-21", "type": "Harvest", "crop": ["ref", "crops", "CLALF"] }
 			]
 		}
