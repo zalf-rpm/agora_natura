@@ -61,10 +61,9 @@
 			},
 			"residueParams": ["include-from-file", "crop-residues/wheat.json"]
 		},
-		
         "CLALF": {
 			"is-perennial-crop": true,
-			"cropParams": {
+			"perennialCropParams": {
 				"species":   ["include-from-file", "crops/alfalfa-clover-grass-ley-mix.json"],
 				"cultivar":  ["include-from-file", "crops/alfalfa-clover-grass-ley-mix/.json"]
 			},
