@@ -60,14 +60,6 @@
 				}
 			},
 			"residueParams": ["include-from-file", "crop-residues/wheat.json"]
-		},
-        "CLALF": {
-			"is-perennial-crop": true,
-			"perennialCropParams": {
-				"species":   ["include-from-file", "crops/alfalfa-clover-grass-ley-mix.json"],
-				"cultivar":  ["include-from-file", "crops/alfalfa-clover-grass-ley-mix/.json"]
-			},
-			"residueParams": ["include-from-file", "crop-residues/clover-grass-ley.json"]
 		}
 	},
 	
@@ -187,13 +179,7 @@
 			},
 			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WW"] }		
 			]
-		  },
-		  {
-			"worksteps": [
-				{"date": "0000-03-30", "type": "Sowing", "crop": ["ref", "crops", "CLALF"] },				
-				{"date": "0000-08-21", "type": "Harvest", "crop": ["ref", "crops", "CLALF"] }
-			]
-		}
+		  }
 	  ],
 	
 	  "CropParameters": {
