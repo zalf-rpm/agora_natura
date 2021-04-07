@@ -63,7 +63,6 @@
 		},
 		
         "CLALF": {
-			"is-winter-crop": true,
 			"is-perennial-crop": true,
 			"cropParams": {
 				"species":   ["include-from-file", "crops/alfalfa-clover-grass-ley-mix.json"],
