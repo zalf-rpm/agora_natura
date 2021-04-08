@@ -156,12 +156,6 @@
 		  },
 		  {
 			"worksteps": [
-			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "SWR"] },
-			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "SWR"] }	
-			]
-		  },
-		  {
-			"worksteps": [
 			  { "date": "0000-05-04", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
 			  {
 				"type": "NDemandFertilization",
@@ -214,9 +208,9 @@
 		  },
 		  {
 			"worksteps": [
-				{"date": "0000-02-06", "type": "Sowing", "crop": ["ref", "crops", "CLALF"] },				
+				{"date": "0000-03-30", "type": "Sowing", "crop": ["ref", "crops", "CLALF"] },				
 				{
-					"date": "0000-05-15", 
+					"date": "0000-06-06", 
 					"type": "Cutting",
 					"organs": {
 						"Leaf": [0.8, "m2 m-2", "left"],
@@ -230,7 +224,7 @@
 					}
 				},	
 				{
-					"date": "0000-06-15", 
+					"date": "0000-08-01", 
 					"type": "Cutting",
 					"organs": {
 						"Leaf": [0.8, "m2 m-2", "left"],
@@ -242,23 +236,9 @@
 						"Shoot": [100, "%"],
 						"Fruit": [0, "%"]	
 					}
-				},
+				},								
 				{
-					"date": "0000-07-15", 
-					"type": "Cutting",
-					"organs": {
-						"Leaf": [0.8, "m2 m-2", "left"],
-						"Shoot": [50, "kg ha-1", "left"],
-						"Fruit": [0, "kg ha-1", "cut"]
-					},
-					"export": {
-						"Leaf": [100, "%"],
-						"Shoot": [100, "%"],
-						"Fruit": [0, "%"]	
-					}
-				},										
-				{
-					"date": "0001-05-15", 
+					"date": "0001-06-06", 
 					"type": "Cutting",
 					"organs": {
 						"Leaf": [0.8, "m2 m-2", "left"],
@@ -272,7 +252,21 @@
 					}
 				},	
 				{
-					"date": "0001-06-15", 
+					"date": "0001-08-01", 
+					"type": "Cutting",
+					"organs": {
+						"Leaf": [0.8, "m2 m-2", "left"],
+						"Shoot": [50, "kg ha-1", "left"],
+						"Fruit": [0, "kg ha-1", "cut"]
+					},
+					"export": {
+						"Leaf": [100, "%"],
+						"Shoot": [100, "%"],
+						"Fruit": [0, "%"]	
+					}
+				},								
+				{
+					"date": "0002-06-06", 
 					"type": "Cutting",
 					"organs": {
 						"Leaf": [0.8, "m2 m-2", "left"],
@@ -286,21 +280,7 @@
 					}
 				},	
 				{
-					"date": "0001-07-15", 
-					"type": "Cutting",
-					"organs": {
-						"Leaf": [0.8, "m2 m-2", "left"],
-						"Shoot": [50, "kg ha-1", "left"],
-						"Fruit": [0, "kg ha-1", "cut"]
-					},
-					"export": {
-						"Leaf": [100, "%"],
-						"Shoot": [100, "%"],
-						"Fruit": [0, "%"]	
-					}
-				},											
-				{
-					"date": "0002-05-15", 
+					"date": "0002-08-01", 
 					"type": "Cutting",
 					"organs": {
 						"Leaf": [0.8, "m2 m-2", "left"],
@@ -313,35 +293,7 @@
 						"Fruit": [0, "%"]	
 					}
 				},	
-				{
-					"date": "0002-06-15", 
-					"type": "Cutting",
-					"organs": {
-						"Leaf": [0.8, "m2 m-2", "left"],
-						"Shoot": [50, "kg ha-1", "left"],
-						"Fruit": [0, "kg ha-1", "cut"]
-					},
-					"export": {
-						"Leaf": [100, "%"],
-						"Shoot": [100, "%"],
-						"Fruit": [0, "%"]	
-					}
-				},	
-				{
-					"date": "0002-07-15", 
-					"type": "Cutting",
-					"organs": {
-						"Leaf": [0.8, "m2 m-2", "left"],
-						"Shoot": [50, "kg ha-1", "left"],
-						"Fruit": [0, "kg ha-1", "cut"]
-					},
-					"export": {
-						"Leaf": [100, "%"],
-						"Shoot": [100, "%"],
-						"Fruit": [0, "%"]	
-					}
-				},	
-				{"date": "0002-08-10", "type": "Harvest", "crop": ["ref", "crops", "CLALF"] }
+				{"date": "0002-08-20", "type": "Harvest", "crop": ["ref", "crops", "CLALF"] }
 			]
 		}
 	  ],
