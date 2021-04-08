@@ -272,7 +272,7 @@
 						"Fruit": [0, "%"]	
 					}
 				},	
-				{"date": "0002-08-20", "type": "Harvest", "crop": ["ref", "crops", "CLALF"] }
+				{"date": "0002-08-10", "type": "Harvest", "crop": ["ref", "crops", "CLALF"] }
 			]
 		}
 	  ],
