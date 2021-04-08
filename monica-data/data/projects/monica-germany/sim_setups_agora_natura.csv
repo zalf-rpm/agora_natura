@@ -16,3 +16,4 @@ run-id,crop-ids,sim.json,crop.json,site.json,climate_data,climate_model,climate_
 15,WR_WB_WW,sim.json,crop_WR_WB_WW.json,site.json,dwd,,,germany_ubn_1901-2018_unzipped,1980,2019,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,fixed,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,360,
 16,WB_WW_WR,sim.json,crop_WB_WW_WR.json,site.json,dwd,,,germany_ubn_1901-2018_unzipped,1980,2019,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,fixed,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,360,
 17,CLALF_WW_SWR_SM_WW_SWR_SM_WW,sim.json,crop_CLALF_WW_SWR_SM_WW_SWR_SM_WW.json,site.json,dwd,,,germany_ubn_1901-2018_unzipped,1980,2019,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,fixed,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,360,
+18,CLALF_WR_SWR_SM_WR_SWR_SM_WR,sim.json,crop_CLALF_WR_SWR_SM_WR_SWR_SM_WR.json,site.json,dwd,,,germany_ubn_1901-2018_unzipped,1980,2019,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,fixed,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,360,

@@ -1,0 +1,337 @@
+  {
+	"crops": {
+        "CLALF": {
+			"is-winter-crop": false,
+			"is-perennial-crop": true,
+			"cropParams": {
+				"species":   ["include-from-file", "crops/alfalfa-clover-grass-ley-mix.json"],
+				"cultivar":  ["include-from-file", "crops/alfalfa-clover-grass-ley-mix/.json"]
+			},
+			"residueParams": ["include-from-file", "crop-residues/clover-grass-ley.json"]
+        },
+        "SWR": {
+            "is-winter-crop": true,
+            "can-be-skipped": true,
+            "cropParams": {
+                "species":   ["include-from-file", "crops/rye.json"],
+                "cultivar":  ["include-from-file", "crops/rye/silage-winter-rye.json"]
+            },
+            "residueParams": ["include-from-file", "crop-residues/rye.json"]
+        },
+		"SM": {
+			"cropParams": {
+				"species": {
+					"=": ["include-from-file", "projects/sustag/maize.json"],
+				"FieldConditionModifier":0.95
+			},
+				"cultivar": {
+					"=": ["include-from-file", "projects/sustag/silage-maize.json"],
+					"OrganIdsForSecondaryYield": [
+						{
+							"organId": 2,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.32,
+							"yieldPercentage": 0.1
+						},
+						{
+							"organId": 3,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.32,
+							"yieldPercentage": 0.1
+						}
+					]
+				}
+			},
+			"residueParams": ["include-from-file", "crop-residues/maize.json"]
+		},
+		"WR": {
+			"is-winter-crop": true,
+			"cropParams": {
+				"species": {
+					"=": ["include-from-file", "crops/rye.json"],
+					"TransitionStageLeafExp": 2,
+					"FieldConditionModifier":0.7
+				},
+				"cultivar": {
+					"=": ["include-from-file", "crops/rye/winter-rye.json"],
+					"OrganIdsForSecondaryYield": [
+						{
+							"organId": 2,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 3,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 1
+						},
+						{
+							"organId": 4,
+							"type": "YieldComponent",
+							"yieldDryMatter": 0.86,
+							"yieldPercentage": 0.15
+						}
+					],
+					"EarlyRefLeafExp": 8,
+					"RefLeafExp": 16
+				}
+			},
+			"residueParams": ["include-from-file", "crop-residues/rye.json"]
+		}
+	},
+	
+	"fert-params": {
+		"AN": ["include-from-file", "mineral-fertilisers/AN.json"],
+		"urea": ["include-from-file", "mineral-fertilisers/U.json"],
+		"org_fert": ["include-from-file", "organic-fertilisers/CAM.json"]
+	}, 	
+
+	"cropRotation": [
+        {
+			"worksteps": [
+				{"date": "0000-02-06", "type": "Sowing", "crop": ["ref", "crops", "CLALF"] },				
+				{
+					"date": "0000-05-15", 
+					"type": "Cutting",
+					"organs": {
+						"Leaf": [0.8, "m2 m-2", "left"],
+						"Shoot": [50, "kg ha-1", "left"],
+						"Fruit": [0, "kg ha-1", "cut"]
+					},
+					"export": {
+						"Leaf": [100, "%"],
+						"Shoot": [100, "%"],
+						"Fruit": [0, "%"]	
+					}
+				},	
+				{
+					"date": "0000-06-15", 
+					"type": "Cutting",
+					"organs": {
+						"Leaf": [0.8, "m2 m-2", "left"],
+						"Shoot": [50, "kg ha-1", "left"],
+						"Fruit": [0, "kg ha-1", "cut"]
+					},
+					"export": {
+						"Leaf": [100, "%"],
+						"Shoot": [100, "%"],
+						"Fruit": [0, "%"]	
+					}
+				},
+				{
+					"date": "0000-07-15", 
+					"type": "Cutting",
+					"organs": {
+						"Leaf": [0.8, "m2 m-2", "left"],
+						"Shoot": [50, "kg ha-1", "left"],
+						"Fruit": [0, "kg ha-1", "cut"]
+					},
+					"export": {
+						"Leaf": [100, "%"],
+						"Shoot": [100, "%"],
+						"Fruit": [0, "%"]	
+					}
+				},										
+				{
+					"date": "0001-05-15", 
+					"type": "Cutting",
+					"organs": {
+						"Leaf": [0.8, "m2 m-2", "left"],
+						"Shoot": [50, "kg ha-1", "left"],
+						"Fruit": [0, "kg ha-1", "cut"]
+					},
+					"export": {
+						"Leaf": [100, "%"],
+						"Shoot": [100, "%"],
+						"Fruit": [0, "%"]	
+					}
+				},	
+				{
+					"date": "0001-06-15", 
+					"type": "Cutting",
+					"organs": {
+						"Leaf": [0.8, "m2 m-2", "left"],
+						"Shoot": [50, "kg ha-1", "left"],
+						"Fruit": [0, "kg ha-1", "cut"]
+					},
+					"export": {
+						"Leaf": [100, "%"],
+						"Shoot": [100, "%"],
+						"Fruit": [0, "%"]	
+					}
+				},	
+				{
+					"date": "0001-07-15", 
+					"type": "Cutting",
+					"organs": {
+						"Leaf": [0.8, "m2 m-2", "left"],
+						"Shoot": [50, "kg ha-1", "left"],
+						"Fruit": [0, "kg ha-1", "cut"]
+					},
+					"export": {
+						"Leaf": [100, "%"],
+						"Shoot": [100, "%"],
+						"Fruit": [0, "%"]	
+					}
+				},											
+				{
+					"date": "0002-05-15", 
+					"type": "Cutting",
+					"organs": {
+						"Leaf": [0.8, "m2 m-2", "left"],
+						"Shoot": [50, "kg ha-1", "left"],
+						"Fruit": [0, "kg ha-1", "cut"]
+					},
+					"export": {
+						"Leaf": [100, "%"],
+						"Shoot": [100, "%"],
+						"Fruit": [0, "%"]	
+					}
+				},	
+				{
+					"date": "0002-06-15", 
+					"type": "Cutting",
+					"organs": {
+						"Leaf": [0.8, "m2 m-2", "left"],
+						"Shoot": [50, "kg ha-1", "left"],
+						"Fruit": [0, "kg ha-1", "cut"]
+					},
+					"export": {
+						"Leaf": [100, "%"],
+						"Shoot": [100, "%"],
+						"Fruit": [0, "%"]	
+					}
+				},	
+				{
+					"date": "0002-07-15", 
+					"type": "Cutting",
+					"organs": {
+						"Leaf": [0.8, "m2 m-2", "left"],
+						"Shoot": [50, "kg ha-1", "left"],
+						"Fruit": [0, "kg ha-1", "cut"]
+					},
+					"export": {
+						"Leaf": [100, "%"],
+						"Shoot": [100, "%"],
+						"Fruit": [0, "%"]	
+					}
+				},	
+				{"date": "0002-08-10", "type": "Harvest", "crop": ["ref", "crops", "CLALF"] }
+			]
+		},
+		{
+			"worksteps": [
+			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WR"] },
+			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WR"] }		
+			]
+		  },
+          {
+			"worksteps": [
+			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "SWR"] },
+			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "SWR"] }	
+			]
+		  },
+		  {
+			"worksteps": [
+			  { "date": "0000-05-04", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
+			  {
+				"type": "NDemandFertilization",
+				"days": 1,
+				"after": "Sowing",		
+				"N-demand": [55.0, "kg"],
+				"depth": [0.3, "m"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			},
+			{
+				"type": "NDemandFertilization",
+				"days": 30,
+				"after": "Sowing",
+				"N-demand": [50.0, "kg"],
+				"depth": [0.9, "m"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			},
+			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }		
+			]
+		  },
+		  {
+			"worksteps": [
+			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WR"] },
+			  {
+				"type": "NDemandFertilization",
+				"days": 55,
+				"after": "Sowing",
+				"N-demand": [25.0, "kg"],
+				"depth": [0.9, "m"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			},
+			{
+				"type": "NDemandFertilization",
+				"days": 150,
+				"after": "Sowing",
+				"N-demand": [40.0, "kg"],
+				"depth": [0.9, "m"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			},
+			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WR"] }		
+			]
+		  },
+          {
+			"worksteps": [
+			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "SWR"] },
+			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "SWR"] }	
+			]
+		  },
+		  {
+			"worksteps": [
+			  { "date": "0000-05-04", "type": "Sowing", "crop": ["ref", "crops", "SM"] },
+			  {
+				"type": "NDemandFertilization",
+				"days": 1,
+				"after": "Sowing",		
+				"N-demand": [50.0, "kg"],
+				"depth": [0.3, "m"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			},
+			{
+				"type": "NDemandFertilization",
+				"days": 30,
+				"after": "Sowing",
+				"N-demand": [50.0, "kg"],
+				"depth": [0.9, "m"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			},
+			  { "date": "0000-09-15", "type": "Harvest", "crop": ["ref", "crops", "SM"] }		
+			]
+		  },
+		  {
+			"worksteps": [
+			  { "date": "0000-10-01", "type": "Sowing", "crop": ["ref", "crops", "WR"] },
+			  {
+				"type": "NDemandFertilization",
+				"days": 55,
+				"after": "Sowing",
+				"N-demand": [25.0, "kg"],
+				"depth": [0.9, "m"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			},
+			{
+				"type": "NDemandFertilization",
+				"days": 150,
+				"after": "Sowing",
+				"N-demand": [40.0, "kg"],
+				"depth": [0.9, "m"],
+				"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+			},
+			  { "date": "0001-09-05", "type": "Harvest", "crop": ["ref", "crops", "WR"] }		
+			]
+		  }  
+	  ],
+	
+	  "CropParameters": {
+		"DEFAULT": ["include-from-file", "general/crop.json"]
+	  }
+	}
+
+
