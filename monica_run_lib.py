@@ -152,7 +152,8 @@ def create_seed_harvest_geoGrid_interpolator_and_read_data(path_to_csv_file, wor
             ilr_seed_harvest_data[crop_id]["data"][cs]["latest-sowing-date"] = "0000-{:02d}-{:02d}".format(lsd.month, lsd.day)
 
             digit = 1 if is_wintercrop else 0
-
+            if crop_id == 'CLALF': digit = 2
+            
             hdoy = int(float(row[6]))
             ilr_seed_harvest_data[crop_id]["data"][cs]["harvest-doy"] = hdoy
             hd = base_date + timedelta(days = hdoy - 1)
