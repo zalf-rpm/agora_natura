@@ -89,7 +89,7 @@
 	}, 	
 
 	"cropRotation": [
-		{
+        {
 			"worksteps": [
 				{"date": "0000-02-06", "type": "Sowing", "crop": ["ref", "crops", "CLALF"] },				
 				{
