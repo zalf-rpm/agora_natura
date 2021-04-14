@@ -21,7 +21,15 @@
 	"cropRotation": [
 			{
 				"worksteps": [
-					{"date": "0000-02-06", "type": "Sowing", "crop": ["ref", "crops", "CLALF"] },				
+					{"date": "0000-02-06", "type": "Sowing", "crop": ["ref", "crops", "CLALF"] },	
+                    {
+                        "type": "NDemandFertilization",
+                        "days": 1,
+                        "after": "Sowing",
+                        "N-demand": [50.0, "kg"],
+                        "depth": [0.9, "m"],
+                        "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+                    },			
 					{
 						"date": "0000-06-06", 
 						"type": "Cutting",
