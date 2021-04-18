@@ -19,104 +19,52 @@
 	}, 	
 
 	"cropRotation": [
-			{
-				"worksteps": [
-					{"date": "0000-02-06", "type": "Sowing", "crop": ["ref", "crops", "CLALF"] },	
-                    {
-                        "type": "NDemandFertilization",
-                        "days": 1,
-                        "after": "Sowing",
-                        "N-demand": [50.0, "kg"],
-                        "depth": [0.9, "m"],
-                        "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
-                    },			
-					{
-						"date": "0000-06-06", 
-						"type": "Cutting",
-						"organs": {
-							"Leaf": [0.8, "m2 m-2", "left"],
-							"Shoot": [50, "kg ha-1", "left"],
-							"Fruit": [0, "kg ha-1", "cut"]
-						},
-						"export": {
-							"Leaf": [100, "%"],
-							"Shoot": [100, "%"],
-							"Fruit": [0, "%"]	
-						}
-					},	
-					{
-						"date": "0000-08-01", 
-						"type": "Cutting",
-						"organs": {
-							"Leaf": [0.8, "m2 m-2", "left"],
-							"Shoot": [50, "kg ha-1", "left"],
-							"Fruit": [0, "kg ha-1", "cut"]
-						},
-						"export": {
-							"Leaf": [100, "%"],
-							"Shoot": [100, "%"],
-							"Fruit": [0, "%"]	
-						}
-					},						
-					{
-						"date": "0001-06-06", 
-						"type": "Cutting",
-						"organs": {
-							"Leaf": [0.8, "m2 m-2", "left"],
-							"Shoot": [50, "kg ha-1", "left"],
-							"Fruit": [0, "kg ha-1", "cut"]
-						},
-						"export": {
-							"Leaf": [100, "%"],
-							"Shoot": [100, "%"],
-							"Fruit": [0, "%"]	
-						}
-					},	
-					{
-						"date": "0001-08-01", 
-						"type": "Cutting",
-						"organs": {
-							"Leaf": [0.8, "m2 m-2", "left"],
-							"Shoot": [50, "kg ha-1", "left"],
-							"Fruit": [0, "kg ha-1", "cut"]
-						},
-						"export": {
-							"Leaf": [100, "%"],
-							"Shoot": [100, "%"],
-							"Fruit": [0, "%"]	
-						}
-					},											
-					{
-						"date": "0002-06-06", 
-						"type": "Cutting",
-						"organs": {
-							"Leaf": [0.8, "m2 m-2", "left"],
-							"Shoot": [50, "kg ha-1", "left"],
-							"Fruit": [0, "kg ha-1", "cut"]
-						},
-						"export": {
-							"Leaf": [100, "%"],
-							"Shoot": [100, "%"],
-							"Fruit": [0, "%"]	
-						}
-					},	
-					{
-						"date": "0002-08-01", 
-						"type": "Cutting",
-						"organs": {
-							"Leaf": [0.8, "m2 m-2", "left"],
-							"Shoot": [50, "kg ha-1", "left"],
-							"Fruit": [0, "kg ha-1", "cut"]
-						},
-						"export": {
-							"Leaf": [100, "%"],
-							"Shoot": [100, "%"],
-							"Fruit": [0, "%"]	
-						}
-					},	
-					{"date": "0002-08-10", "type": "Harvest", "crop": ["ref", "crops", "CLALF"] }
-				]
-			}
+		{
+			"worksteps": [
+				{"date": "XXXX-02-06", "type": "Sowing", "crop": ["ref", "crops", "CLALF"] },
+				{
+					"type": "NDemandFertilization",
+					"days": 1,
+					"after": "Sowing",
+					"N-demand": [50.0, "kg"],
+					"depth": [0.9, "m"],
+					"partition": ["include-from-file", "mineral-fertilisers/AN.json"]
+				}
+			]
+		},
+		{
+			"worksteps": [			
+				{
+					"date": "0000-06-06", 
+					"type": "Cutting",
+					"organs": {
+						"Leaf": [0.5, "m2 m-2", "left"],
+						"Shoot": [100, "kg ha-1", "left"],
+						"Fruit": [0, "kg ha-1", "cut"]
+					},
+					"export": {
+						"Leaf": [100, "%"],
+						"Shoot": [100, "%"],
+						"Fruit": [0, "%"]	
+					}
+				},	
+				{
+					"date": "0000-08-01", 
+					"type": "Cutting",
+					"organs": {
+						"Leaf": [0.5, "m2 m-2", "left"],
+						"Shoot": [100, "kg ha-1", "left"],
+						"Fruit": [0, "kg ha-1", "cut"]
+					},
+					"export": {
+						"Leaf": [100, "%"],
+						"Shoot": [100, "%"],
+						"Fruit": [0, "%"]	
+					}
+				},			
+				{ "date": "0000-12-28", "type": "SetValue", "var": "Stage", "value": 2}
+			]
+		}
 	  ],
 	
 	  "CropParameters": {
