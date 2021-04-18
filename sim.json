@@ -91,9 +91,7 @@
 				["NLeach|yearly-sum-nleach", "SUM"],
 				["SOC|SOC-upper-soil-layer", [1, 3, "SUM"], "SUM"],
 				["SOC|SOC-lower-soil-layer", [4, 20, "SUM"], "SUM"],
-				["sumExportedCutBiomass|SumExportedCutBiomass-last", "LAST"],
-				["Precip|yearly-sum-precip", "SUM"],
-				["Tavg|yearly-avg-temp", "AVG"]
+				["sumExportedCutBiomass|SumExportedCutBiomass-last", "LAST"]
 			]
 		],
 

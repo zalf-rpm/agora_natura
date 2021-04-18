@@ -189,8 +189,6 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
         "SOC-upper-soil-layer": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         "SOC-lower-soil-layer": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         "SumExportedCutBiomass-last": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
-        "yearly-sum-precip": {"data" : make_dict_nparr(), "cast-to": "int"},
-        "yearly-avg-temp": {"data" : make_dict_nparr(), "cast-to": "int"},
      #   "Ra-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
      #   "Rh-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
      #   "G-iso": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},

@@ -31,9 +31,8 @@
                         "partition": ["include-from-file", "mineral-fertilisers/AN.json"]
                     },					
 					{
+						"date": "0000-06-06", 
 						"type": "Cutting",
-						"days": 96,
-                        "after": "Sowing",
 						"organs": {
 							"Leaf": [0.8, "m2 m-2", "left"],
 							"Shoot": [50, "kg ha-1", "left"],
@@ -46,9 +45,8 @@
 						}
 					},	
 					{
+						"date": "0000-08-01", 
 						"type": "Cutting",
-						"days": 121,
-                        "after": "Sowing",
 						"organs": {
 							"Leaf": [0.8, "m2 m-2", "left"],
 							"Shoot": [50, "kg ha-1", "left"],
@@ -61,9 +59,8 @@
 						}
 					},						
 					{
+						"date": "0001-06-06", 
 						"type": "Cutting",
-						"days": 461,
-                        "after": "Sowing",
 						"organs": {
 							"Leaf": [0.8, "m2 m-2", "left"],
 							"Shoot": [50, "kg ha-1", "left"],
@@ -75,10 +72,9 @@
 							"Fruit": [0, "%"]	
 						}
 					},	
-					{ 
+					{
+						"date": "0001-08-01", 
 						"type": "Cutting",
-						"days": 486,
-                        "after": "Sowing",
 						"organs": {
 							"Leaf": [0.8, "m2 m-2", "left"],
 							"Shoot": [50, "kg ha-1", "left"],
@@ -91,9 +87,8 @@
 						}
 					},											
 					{
+						"date": "0002-06-06", 
 						"type": "Cutting",
-						"days": 826,
-                        "after": "Sowing",
 						"organs": {
 							"Leaf": [0.8, "m2 m-2", "left"],
 							"Shoot": [50, "kg ha-1", "left"],
@@ -106,9 +101,8 @@
 						}
 					},	
 					{
+						"date": "0002-08-01", 
 						"type": "Cutting",
-						"days": 851,
-                        "after": "Sowing",
 						"organs": {
 							"Leaf": [0.8, "m2 m-2", "left"],
 							"Shoot": [50, "kg ha-1", "left"],
