@@ -287,6 +287,8 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
         # read template crop.json
         with open(setup.get("crop.json", config["crop.json"])) as _:
             crop_json = json.load(_)
+
+        crop_json["CropParameters"]["__enable_vernalisation_factor_fix__"] = setup["use_vernalisation_fix"] if "use_vernalisation_fix" in setup else False
         
         # create environment template from json templates
         env_template = monica_io3.create_env_json_from_json_config({
