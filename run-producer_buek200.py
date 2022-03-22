@@ -93,8 +93,16 @@ PATHS = {
         "path-debug-write-folder": "./debug-out/",
     },
     "container": {
+        "include-file-base-path": "./monica-data/data/params/", # path to monica-parameters
+        "path-to-climate-dir": "/run/user/1000/gvfs/sftp:host=login01.cluster.zalf.de,user=rpm/beegfs/common/data/climate/", # mounted path to archive or hard drive with climate data
+        "monica-path-to-climate-dir": "/monica_data/climate-data/", # mounted path to archive accessable by monica executable
+        "path-to-data-dir": "./monica-data/data/", # mounted path to archive or hard drive with data
+        "path-to-projects-dir": "./monica-data/data/projects/",
+        "path-debug-write-folder": "./debug-out/",
+    },
+    "container_old": {
         "include-file-base-path": "/home/monica-parameters/", # monica parameter location in docker image
-        "monica-path-to-climate-dir": "/monica_data/climate-data/",  # mounted path to archive on cluster docker image 
+        "monica-path-to-climate-dir": "/monica_data/climate-data/",  # mounted path to archive on cluster docker image
         "path-to-climate-dir": "/monica_data/climate-data/", # needs to be mounted there
         "path-to-data-dir": "/monica_data/data/", # needs to be mounted there
         "path-to-projects-dir": "/monica_data/project/", # needs to be mounted there
