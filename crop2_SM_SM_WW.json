@@ -1,4 +1,4 @@
-  {
+{
 	"crops": {
 		"SM": {
 			"cropParams": {
@@ -175,5 +175,3 @@
 		"DEFAULT": ["include-from-file", "general/crop.json"]
 	  }
 	}
-
-
