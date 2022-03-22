@@ -635,7 +635,6 @@ def create_env_json_from_json_config(crop_site_sim):
     env["cropRotation"] = cropj.get("cropRotation", None)
     env["cropRotations"] = cropj.get("cropRotations", None)
     env["events"] = simj["output"]["events"]
-    env["outputs"] = {"obj-outputs?": simj["output"].get("obj-outputs?", False)}
 
     env["pathToClimateCSV"] = simj["climate.csv"]
     env["csvViaHeaderOptions"] = simj["climate.csv-options"]
