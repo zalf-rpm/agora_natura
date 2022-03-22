@@ -203,7 +203,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
     #transforms geospatial coordinates from one coordinate reference system to another
     # transform wgs84 into gk5
     # wgs84 = Proj(init="epsg:4326") #proj4 -> (World Geodetic System 1984 https://epsg.io/4326)
-    wgs94 = CRS.from_epsg(4326)
+    wgs84 = CRS.from_epsg(4326)
     # gk5 = Proj(init=GEO_TARGET_GRID)
     gk5 = CRS.from_epsg(31469)
 
