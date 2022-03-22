@@ -30,7 +30,7 @@ import zmq
 import sqlite3
 import sqlite3 as cas_sq3
 import numpy as np
-from pyproj import Proj, transform
+from pyproj import CRS, transform
 
 import monica_io3
 import soil_io3
@@ -202,8 +202,10 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
 
     #transforms geospatial coordinates from one coordinate reference system to another
     # transform wgs84 into gk5
-    wgs84 = Proj(init="epsg:4326") #proj4 -> (World Geodetic System 1984 https://epsg.io/4326)
-    gk5 = Proj(init=GEO_TARGET_GRID) 
+    # wgs84 = Proj(init="epsg:4326") #proj4 -> (World Geodetic System 1984 https://epsg.io/4326)
+    wgs94 = CRS.from_epsg(4326)
+    # gk5 = Proj(init=GEO_TARGET_GRID)
+    gk5 = CRS.from_epsg(31469)
 
     # dictionary key = cropId value = [interpolate,  data dictionary, is-winter-crop]
     ilr_seed_harvest_data = defaultdict(lambda: {"interpolate": None, "data": defaultdict(dict), "is-winter-crop": None})
