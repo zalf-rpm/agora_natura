@@ -95,7 +95,7 @@ PATHS = {
     "container": {
         "include-file-base-path": "./monica-data/data/params/", # path to monica-parameters
         "path-to-climate-dir": "/run/user/1000/gvfs/sftp:host=login01.cluster.zalf.de,user=rpm/beegfs/common/data/climate/", # mounted path to archive or hard drive with climate data
-        "monica-path-to-climate-dir": "/monica_data/climate-data/", # mounted path to archive accessable by monica executable
+        "monica-path-to-climate-dir": "/data/", # mounted path to archive accessable by monica executable
         "path-to-data-dir": "./monica-data/data/", # mounted path to archive or hard drive with data
         "path-to-projects-dir": "./monica-data/data/projects/",
         "path-debug-write-folder": "./debug-out/",
@@ -110,7 +110,7 @@ PATHS = {
     },
     "remoteProducer-remoteMonica": {
         "include-file-base-path": "./monica-data/data/params/", # path to monica-parameters
-        "path-to-climate-dir": "/run/user/1000/gvfs/sftp:host=login01.cluster.zalf.de,user=rpm/beegfs/common/data/climate/", # mounted path to archive or hard drive with climate data
+        "path-to-climate-dir": "/data/", #"/run/user/1000/gvfs/sftp:host=login01.cluster.zalf.de,user=rpm/beegfs/common/data/climate/", # mounted path to archive or hard drive with climate data
         "monica-path-to-climate-dir": "/monica_data/climate-data/", # mounted path to archive accessable by monica executable
         "path-to-data-dir": "./monica-data/data/", # mounted path to archive or hard drive with data
         "path-to-projects-dir": "./monica-data/data/projects/",
