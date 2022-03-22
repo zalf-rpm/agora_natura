@@ -69,6 +69,14 @@ PATHS = {
         "path-to-projects-dir": "C:/Users/hampf/Documents/GitHub/agora_natura/monica-data/data/projects/", # mounted path to archive or hard drive with project data 
         "path-debug-write-folder": "./debug-out/",
     },
+    "cj-local-remote": {
+        "include-file-base-path": "./monica-data/data/params/", # path to monica-parameters
+        "path-to-climate-dir": "/run/user/1000/gvfs/sftp:host=login01.cluster.zalf.de,user=rpm/beegfs/common/data/climate/", # mounted path to archive or hard drive with climate data
+        "monica-path-to-climate-dir": "/monica_data/climate-data/", # mounted path to archive accessable by monica executable
+        "path-to-data-dir": "./monica-data/data/", # mounted path to archive or hard drive with data
+        "path-to-projects-dir": "./monica-data/data/projects/",
+        "path-debug-write-folder": "./debug-out/",
+    },
     "mbm-local-remote": {
         "include-file-base-path": "C:/Users/berg.ZALF-AD/GitHub/monica-parameters/", # path to monica-parameters
         "path-to-climate-dir": "W:/FOR/FPM/data/climate/", # mounted path to archive or hard drive with climate data 
@@ -139,7 +147,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
     #config_and_no_data_socket = context.socket(zmq.PUSH)
 
     config = {
-        "mode": "ah-local-remote",
+        "mode": "cj-local-remote",
         "server-port": server["port"] if server["port"] else DEFAULT_PORT,
         "server": server["server"] if server["server"] else DEFAULT_HOST,
         "start-row": "0", 
