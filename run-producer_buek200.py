@@ -134,16 +134,16 @@ RUN_SETUP = "[2]"
 SETUP_FILE = "sim_setups_agora_natura.csv"
 PROJECT_FOLDER = "monica-germany/"
 DATA_SOIL_DB = "germany/buek200.sqlite"
-DATA_GRID_HEIGHT = "germany/dem_1000_gk5.asc" 
-DATA_GRID_SLOPE = "germany/slope_1000_gk5.asc"
-DATA_GRID_LAND_USE = "germany/landuse_1000_gk5.asc"
-DATA_GRID_SOIL = "germany/BUEK200_1000_gk5.asc"
-DATA_GRID_RNFACTOR = "germany/rNfactor_1000_gk5.asc"
-DATA_GRID_ORGRNFACTOR = "germany/orgrNfactor_1000_gk5.asc"
+DATA_GRID_HEIGHT = "germany/dem_1000_25832_etrs89-utm32n.asc" #"germany/dem_1000_gk5.asc"
+DATA_GRID_SLOPE = "germany/slope_1000_25832_etrs89-utm32n.asc" #"germany/slope_1000_gk5.asc"
+DATA_GRID_LAND_USE = "germany/landuse_1000_25832_etrs89-utm32n.asc" #"germany/landuse_1000_gk5.asc"
+DATA_GRID_SOIL = "germany/buek200_1000_25832_etrs89-utm32n.asc" #"germany/BUEK200_1000_gk5.asc"
+DATA_GRID_RNFACTOR = "germany/rNfactor_1000_25832_etrs89-utm32n.asc" #"germany/rNfactor_1000_gk5.asc"
+DATA_GRID_ORGRNFACTOR = "germany/orgrNfactor_1000_25832_etrs89-utm32n.asc" #"germany/orgrNfactor_1000_gk5.asc"
 TEMPLATE_PATH_LATLON = "{path_to_climate_dir}{climate_data}/csvs/latlon-to-rowcol.json"
 TEMPLATE_PATH_HARVEST = "{path_to_projects_dir}{project_folder}ILR_SEED_HARVEST_doys_{crop_id}.csv"
 TEMPLATE_PATH_CLIMATE_CSV = "{climate_data}/csvs/{climate_model_folder}{climate_scenario_folder}{climate_region}/row-{crow}/col-{ccol}.csv"
-GEO_TARGET_GRID="epsg:31469" #proj4 -> 3-degree gauss-kruger zone 5 (=Germany) https://epsg.io/5835 ###https://epsg.io/31469
+GEO_TARGET_GRID = "epsg:25832" #"epsg:31469" #proj4 -> 3-degree gauss-kruger zone 5 (=Germany) https://epsg.io/5835 ###https://epsg.io/31469
 
 DEBUG_DONOT_SEND = False
 DEBUG_WRITE = True
@@ -205,7 +205,8 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
     # wgs84 = Proj(init="epsg:4326") #proj4 -> (World Geodetic System 1984 https://epsg.io/4326)
     wgs84 = CRS.from_epsg(4326)
     # gk5 = Proj(init=GEO_TARGET_GRID)
-    gk5 = CRS.from_epsg(31469)
+    # gk5 = CRS.from_epsg(31469)
+    utm32 = CRS.from_epsg(25832)
 
     # dictionary key = cropId value = [interpolate,  data dictionary, is-winter-crop]
     ilr_seed_harvest_data = defaultdict(lambda: {"interpolate": None, "data": defaultdict(dict), "is-winter-crop": None})
@@ -221,7 +222,9 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
             #read seed/harvest dates for each crop_id
             path_harvest = TEMPLATE_PATH_HARVEST.format(path_to_projects_dir=paths["path-to-projects-dir"], project_folder=PROJECT_FOLDER, crop_id=crop_id)
             print("created seed harvest gk5 interpolator and read data: ", path_harvest)
-            Mrunlib.create_seed_harvest_geoGrid_interpolator_and_read_data(path_harvest, wgs84, gk5, ilr_seed_harvest_data)
+            # Mrunlib.create_seed_harvest_geoGrid_interpolator_and_read_data(path_harvest, wgs84, gk5, ilr_seed_harvest_data)
+            Mrunlib.create_seed_harvest_geoGrid_interpolator_and_read_data(path_harvest, wgs84, utm32,
+                                                                           ilr_seed_harvest_data)
         except IOError:
             print("Couldn't read file:", paths["path-to-projects-dir"] + PROJECT_FOLDER + "ILR_SEED_HARVEST_doys_" + crop_id + ".csv")
             continue
@@ -233,21 +236,24 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
     path_to_dem_grid = paths["path-to-data-dir"] + DATA_GRID_HEIGHT 
     dem_metadata, _ = Mrunlib.read_header(path_to_dem_grid)
     dem_grid = np.loadtxt(path_to_dem_grid, dtype=int, skiprows=6)
-    dem_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(dem_grid, dem_metadata)
+    # dem_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(dem_grid, dem_metadata)
+    dem_utm32_interpolate = Mrunlib.create_ascii_grid_interpolator(dem_grid, dem_metadata)
     print("read: ", path_to_dem_grid)
     
     # slope data
     path_to_slope_grid = paths["path-to-data-dir"] + DATA_GRID_SLOPE
     slope_metadata, _ = Mrunlib.read_header(path_to_slope_grid)
     slope_grid = np.loadtxt(path_to_slope_grid, dtype=float, skiprows=6)
-    slope_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(slope_grid, slope_metadata)
+    # slope_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(slope_grid, slope_metadata)
+    slope_utm32_interpolate = Mrunlib.create_ascii_grid_interpolator(slope_grid, slope_metadata)
     print("read: ", path_to_slope_grid)
 
     # land use data
     path_to_corine_grid = paths["path-to-data-dir"] + DATA_GRID_LAND_USE
     corine_meta, _ = Mrunlib.read_header(path_to_corine_grid)
     corine_grid = np.loadtxt(path_to_corine_grid, dtype=int, skiprows=6)
-    corine_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(corine_grid, corine_meta)
+    # corine_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(corine_grid, corine_meta)
+    corine_utm32_interpolate = Mrunlib.create_ascii_grid_interpolator(corine_grid, corine_meta)
     print("read: ", path_to_corine_grid)
 
     # soil data
@@ -260,25 +266,31 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
     path_to_rnf_grid = paths["path-to-data-dir"] + DATA_GRID_RNFACTOR
     rnf_meta, _ = Mrunlib.read_header(path_to_rnf_grid)
     rnf_grid = np.loadtxt(path_to_rnf_grid, dtype=float, skiprows=6)
-    rnf_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(rnf_grid, rnf_meta)
+    # rnf_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(rnf_grid, rnf_meta)
+    rnf_utm32_interpolate = Mrunlib.create_ascii_grid_interpolator(rnf_grid, rnf_meta)
     print("read: ", path_to_rnf_grid)
 
     # orgrNfactor data
     path_to_orgrnf_grid = paths["path-to-data-dir"] + DATA_GRID_ORGRNFACTOR
     orgrnf_meta, _ = Mrunlib.read_header(path_to_orgrnf_grid)
     orgrnf_grid = np.loadtxt(path_to_orgrnf_grid, dtype=float, skiprows=6)
-    orgrnf_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(orgrnf_grid, orgrnf_meta)
+    # orgrnf_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(orgrnf_grid, orgrnf_meta)
+    orgrnf_utm32_interpolate = Mrunlib.create_ascii_grid_interpolator(orgrnf_grid, orgrnf_meta)
     print("read: ", path_to_orgrnf_grid)
 
     cdict = {}
-    climate_data_to_gk5_interpolator = {}
+    # climate_data_to_gk5_interpolator = {}
+    climate_data_to_utm32_interpolator = {}
     for run_id in run_setups:
         setup = setups[run_id]
         climate_data = setup["climate_data"]
-        if not climate_data in climate_data_to_gk5_interpolator:
+        # if not climate_data in climate_data_to_gk5_interpolator:
+        if not climate_data in climate_data_to_utm32_interpolator:
             # path to latlon-to-rowcol.json
             path = TEMPLATE_PATH_LATLON.format(path_to_climate_dir=paths["path-to-climate-dir"], climate_data=climate_data)
-            climate_data_to_gk5_interpolator[climate_data] = Mrunlib.create_climate_geoGrid_interpolator_from_json_file(path, wgs84, gk5, cdict)
+            # climate_data_to_gk5_interpolator[climate_data] = Mrunlib.create_climate_geoGrid_interpolator_from_json_file(path, wgs84, gk5, cdict)
+            climate_data_to_utm32_interpolator[climate_data] = Mrunlib.create_climate_geoGrid_interpolator_from_json_file(
+                path, wgs84, utm32, cdict)
             print("created climate_data to gk5 interpolator: ", path)
 
     sent_env_count = 1
@@ -380,21 +392,29 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                     continue
                 
                 #get coordinate of clostest climate element of real soil-cell
-                sh_gk5 = yllcorner + (scellsize / 2) + (srows - srow - 1) * scellsize
-                sr_gk5 = xllcorner + (scellsize / 2) + scol * scellsize
+                # sh_gk5 = yllcorner + (scellsize / 2) + (srows - srow - 1) * scellsize
+                # sr_gk5 = xllcorner + (scellsize / 2) + scol * scellsize
+                sh_utm32 = yllcorner + (scellsize / 2) + (srows - srow - 1) * scellsize
+                sr_utm32 = xllcorner + (scellsize / 2) + scol * scellsize
                 #inter = crow/ccol encoded into integer
-                crow, ccol = climate_data_to_gk5_interpolator[climate_data](sr_gk5, sh_gk5)
+                # crow, ccol = climate_data_to_gk5_interpolator[climate_data](sr_gk5, sh_gk5)
+                crow, ccol = climate_data_to_utm32_interpolator[climate_data](sr_utm32, sh_utm32)
 
                 # check if current grid cell is used for agriculture                
                 if setup["landcover"]:
-                    corine_id = corine_gk5_interpolate(sr_gk5, sh_gk5)
+                    # corine_id = corine_gk5_interpolate(sr_gk5, sh_gk5)
+                    corine_id = corine_utm32_interpolate(sr_utm32, sh_utm32)
                     if corine_id not in [2,3,4]:
                         continue
 
-                rNfactor = rnf_gk5_interpolate(sr_gk5, sh_gk5)
-                orgrNfactor = rnf_gk5_interpolate(sr_gk5, sh_gk5)
-                height_nn = dem_gk5_interpolate(sr_gk5, sh_gk5)
-                slope = slope_gk5_interpolate(sr_gk5, sh_gk5)
+                # rNfactor = rnf_gk5_interpolate(sr_gk5, sh_gk5)
+                # orgrNfactor = rnf_gk5_interpolate(sr_gk5, sh_gk5)
+                # height_nn = dem_gk5_interpolate(sr_gk5, sh_gk5)
+                # slope = slope_gk5_interpolate(sr_gk5, sh_gk5)
+                rNfactor = rnf_utm32_interpolate(sr_utm32, sh_utm32)
+                orgrNfactor = rnf_utm32_interpolate(sr_utm32, sh_utm32)
+                height_nn = dem_utm32_interpolate(sr_utm32, sh_utm32)
+                slope = slope_utm32_interpolate(sr_utm32, sh_utm32)
 
                 for i, crop_id in enumerate(crop_ids):
 
@@ -402,7 +422,8 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                     worksteps_copy = crop_rotation_copy[i]["worksteps"]
 
                     ilr_interpolate = ilr_seed_harvest_data[crop_id]["interpolate"]
-                    seed_harvest_cs = ilr_interpolate(sr_gk5, sh_gk5) if ilr_interpolate else None
+                    # seed_harvest_cs = ilr_interpolate(sr_gk5, sh_gk5) if ilr_interpolate else None
+                    seed_harvest_cs = ilr_interpolate(sr_utm32, sh_utm32) if ilr_interpolate else None
 
                     print("scol:", scol, "crow/col:", (crow, ccol), "crop_id:", crop_id, "soil_id:", soil_id, "height_nn:", height_nn, "slope:", slope, "seed_harvest_cs:", seed_harvest_cs)
 
