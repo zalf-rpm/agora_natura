@@ -5,6 +5,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="scripts" />
+    <orderEntry type="module" module-name="klimertrag" />
   </component>
   <component name="PyDocumentationSettings">
     <option name="format" value="PLAIN" />

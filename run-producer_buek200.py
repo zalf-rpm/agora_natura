@@ -235,7 +235,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
     # height data for germany
     path_to_dem_grid = paths["path-to-data-dir"] + DATA_GRID_HEIGHT 
     dem_metadata, _ = Mrunlib.read_header(path_to_dem_grid)
-    dem_grid = np.loadtxt(path_to_dem_grid, dtype=int, skiprows=6)
+    dem_grid = np.loadtxt(path_to_dem_grid, dtype=float, skiprows=6)
     # dem_gk5_interpolate = Mrunlib.create_ascii_grid_interpolator(dem_grid, dem_metadata)
     dem_utm32_interpolate = Mrunlib.create_ascii_grid_interpolator(dem_grid, dem_metadata)
     print("read: ", path_to_dem_grid)
