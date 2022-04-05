@@ -380,17 +380,6 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                 if soil_id == -9999:
                     continue
 
-                if soil_id in soil_id_cache:
-                    sp_json = soil_id_cache[soil_id]
-                else:
-                    sp_json = soil_io3.soil_parameters(soil_db_con, soil_id)
-                    soil_id_cache[soil_id] = sp_json
-
-                if len(sp_json) == 0:
-                    print("row/col:", srow, "/", scol, "has unknown soil_id:", soil_id)
-                    #unknown_soil_ids.add(soil_id)
-                    continue
-                
                 #get coordinate of clostest climate element of real soil-cell
                 # sh_gk5 = yllcorner + (scellsize / 2) + (srows - srow - 1) * scellsize
                 # sr_gk5 = xllcorner + (scellsize / 2) + scol * scellsize
@@ -400,6 +389,27 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                 # crow, ccol = climate_data_to_gk5_interpolator[climate_data](sr_gk5, sh_gk5)
                 crow, ccol = climate_data_to_utm32_interpolator[climate_data](sr_utm32, sh_utm32)
 
+                if soil_id in soil_id_cache:
+                    sp_json = soil_id_cache[soil_id]
+                else:
+                    sp_json = soil_io3.soil_parameters(soil_db_con, soil_id)
+                    soil_id_cache[soil_id] = sp_json
+
+                if len(sp_json) == 0:
+                    print("row/col:", srow, "/", scol, "has unknown soil_id:", soil_id)
+                    env_template["customId"] = {
+                        "setup_id": setup_id,
+                        "srow": srow, "scol": scol,
+                        "crow": int(crow), "ccol": int(ccol),
+                        "soil_id": soil_id,
+                        "nodata": True
+                    }
+                    socket.send_json(env_template)
+                    # print("sent nodata env ", sent_env_count, " customId: ", env_template["customId"])
+                    sent_env_count += 1
+                    #unknown_soil_ids.add(soil_id)
+                    continue
+                
                 # check if current grid cell is used for agriculture                
                 if setup["landcover"]:
                     # corine_id = corine_gk5_interpolate(sr_gk5, sh_gk5)
