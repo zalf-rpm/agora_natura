@@ -390,7 +390,7 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
                 sr = xllcorner + (scellsize / 2) + scol * scellsize
 
                 # check if current grid cell is used for agriculture                
-                lur, luh = landuse_transformer(sh, sr)
+                lur, luh = landuse_transformer.transform(sh, sr)
                 landuse_id = landuse_interpolate(lur, luh)
                 if landuse_id not in [2,3,4]:
                     soil_grid_template[srow, scol] = -9999
