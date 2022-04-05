@@ -173,7 +173,7 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
 
     make_dict_nparr = lambda: defaultdict(lambda: np.full((ncols,), -9999, dtype=np.float))
 
-    output_grids = {
+    output_grids_parked = {
      #   "Globrad-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         #"SowDOY": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
         #"HarvDOY": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
@@ -193,6 +193,10 @@ def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, pat
      #   "Rh-sum": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
      #   "G-iso": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
      #   "G-mono": {"data" : make_dict_nparr(), "cast-to": "float", "digits": 1},
+    }
+
+    output_grids = {
+        "Yield": {"data": make_dict_nparr(), "cast-to": "float", "digits": 1}
     }
 
     cmc_to_crop = {}
