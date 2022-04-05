@@ -50,9 +50,9 @@ PATHS = {
         "path-to-csv-output-dir": "C:/Users/hampf/Documents/GitHub/agora_natura/csv-out/"
     },
     "mbm-local-remote": {
-        "path-to-data-dir": "C:/Users/berg.ZALF-AD/GitHub/agora_natura/monica-data/data/",
-        "path-to-output-dir": "C:/Users/berg.ZALF-AD/GitHub/agora_natura/out/",
-        "path-to-csv-output-dir": "C:/Users/berg.ZALF-AD/GitHub/agora_natura/csv-out/"
+        "path-to-data-dir": "/home/berg/GitHub/agora_natura/monica-data/data/",
+        "path-to-output-dir": "/home/berg/GitHub/agora_natura/out/",
+        "path-to-csv-output-dir": "/home/berg/GitHub/agora_natura/csv-out/"
     },
     "hpc-remote": {
         "path-to-data-dir": "/beegfs/hampf/Github/agora_natura/monica-data/data/",
@@ -319,7 +319,7 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
     "collect data from workers"
 
     config = {
-        "mode": "ah-local-remote",
+        "mode": "mbm-local-remote",
         "port": server["port"] if server["port"] else DEFAULT_PORT,
         "server": server["server"] if server["server"] else DEFAULT_HOST, 
         "start-row": "0",
@@ -373,7 +373,7 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
         path_to_landuse_grid = TEMPLATE_LANDUSE_PATH.format(local_path_to_data_dir=paths["path-to-data-dir"])
         landuse_epsg_code = int(path_to_landuse_grid.split("/")[-1].split("_")[2])
         landuse_crs = CRS.from_epsg(landuse_epsg_code)
-        landuse_transformer = Transformer.from_crs(soil_crs, landuse_crs)
+        landuse_transformer = Transformer.from_crs(soil_crs, landuse_crs, always_xy=True)
         landuse_meta, _ = Mrunlib.read_header(path_to_landuse_grid)
         landuse_grid = np.loadtxt(path_to_landuse_grid, dtype=int, skiprows=6)
         landuse_interpolate = Mrunlib.create_ascii_grid_interpolator(landuse_grid, landuse_meta)
@@ -390,7 +390,7 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
                 sr = xllcorner + (scellsize / 2) + scol * scellsize
 
                 # check if current grid cell is used for agriculture                
-                lur, luh = landuse_transformer.transform(sh, sr)
+                lur, luh = landuse_transformer.transform(sr, sh)
                 landuse_id = landuse_interpolate(lur, luh)
                 if landuse_id not in [2,3,4]:
                     soil_grid_template[srow, scol] = -9999

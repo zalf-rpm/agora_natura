@@ -78,8 +78,8 @@ PATHS = {
         "path-debug-write-folder": "./debug-out/",
     },
     "mbm-local-remote": {
-        "include-file-base-path": "C:/Users/berg.ZALF-AD/GitHub/monica-parameters/", # path to monica-parameters
-        "path-to-climate-dir": "W:/FOR/FPM/data/climate/", # mounted path to archive or hard drive with climate data 
+        "include-file-base-path": "/home/berg/GitHub/monica-parameters/", # path to monica-parameters
+        "path-to-climate-dir": "/run/user/1000/gvfs/sftp:host=login01.cluster.zalf.de,user=rpm/beegfs/common/data/climate/", # mounted path to archive or hard drive with climate data 
         "monica-path-to-climate-dir": "/monica_data/climate-data/", # mounted path to archive accessable by monica executable
         "path-to-data-dir": "./monica-data/data/", # mounted path to archive or hard drive with data 
         "path-to-projects-dir": "./monica-data/data/projects/",
@@ -165,7 +165,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
     #config_and_no_data_socket = context.socket(zmq.PUSH)
 
     config = {
-        "mode": "cj-local-remote",
+        "mode": "mbm-local-remote",
         "server-port": server["port"] if server["port"] else DEFAULT_PORT,
         "server": server["server"] if server["server"] else DEFAULT_HOST,
         "start-row": "0", 
@@ -294,7 +294,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
             print("created climate_data to gk5 interpolator: ", path)
 
     sent_env_count = 1
-    start_time = time.clock()
+    start_time = time.perf_counter()
 
     listOfClimateFiles = set()
     # run calculations for each setup
@@ -302,7 +302,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
 
         if setup_id not in setups:
             continue
-        start_setup_time = time.clock()      
+        start_setup_time = time.perf_counter()      
 
         setup = setups[setup_id]
         climate_data = setup["climate_data"]
@@ -637,7 +637,8 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                     "setup_id": setup_id,
                     "srow": srow, "scol": scol,
                     "crow": int(crow), "ccol": int(ccol),
-                    "soil_id": soil_id
+                    "soil_id": soil_id,
+                    "nodata": False
                 }
 
                 if not DEBUG_DONOT_SEND :
@@ -663,10 +664,10 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
             #print("unknown_soil_ids:", unknown_soil_ids)
 
             #print("crows/cols:", crows_cols)
-        stop_setup_time = time.clock()
+        stop_setup_time = time.perf_counter()
         print("Setup ", (sent_env_count-1), " envs took ", (stop_setup_time - start_setup_time), " seconds")
 
-    stop_time = time.clock()
+    stop_time = time.perf_counter()
 
     # write summary of used json files
     if DEBUG_WRITE_CLIMATE:
