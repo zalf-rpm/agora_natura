@@ -71,8 +71,8 @@
 				["CM-count", "FIRST"],
 				["Crop", "LAST"],
 				["Yield|Yield-last", "LAST"]
-		],
-
+		]
+	],
 		"__events": [
 			"crop", [
 				["CM-count", "FIRST"],
