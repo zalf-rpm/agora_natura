@@ -71,6 +71,7 @@
 		"events": [
 			"crop", [
 				["CM-count", "FIRST"],
+				["Year", "LAST"],
 				["Crop", "LAST"],
 				["Yield|Yield-last", "LAST"]
 		]
