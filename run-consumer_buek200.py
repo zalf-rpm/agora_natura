@@ -73,7 +73,7 @@ PATHS = {
 DEFAULT_HOST = "login01.cluster.zalf.de" # "localhost" 
 DEFAULT_PORT = "7780"
 TEMPLATE_SOIL_PATH = "{local_path_to_data_dir}germany/buek200_1000_25832_etrs89-utm32n.asc"
-TEMPLATE_LANDUSE_PATH = "{local_path_to_data_dir}germany/landuse_1000_31469_gk5.asc"
+TEMPLATE_LANDUSE_PATH = "{local_path_to_data_dir}germany/landuse_1000_25832_etrs89-utm32n.asc"
 USE_LANDUSE = True
 
 def create_output(msg):
