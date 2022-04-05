@@ -363,6 +363,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
         scellsize = int(soil_metadata["cellsize"])
         xllcorner = int(soil_metadata["xllcorner"])
         yllcorner = int(soil_metadata["yllcorner"])
+        nodata_value = int(soil_metadata["nodata_value"])
 
         #unknown_soil_ids = set()
         soil_id_cache = {}
@@ -377,7 +378,7 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
 
             for scol in range(0, scols):
                 soil_id = int(soil_grid[srow, scol])
-                if soil_id == -9999:
+                if soil_id == nodata_value:
                     continue
 
                 #get coordinate of clostest climate element of real soil-cell
@@ -388,6 +389,13 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                 #inter = crow/ccol encoded into integer
                 # crow, ccol = climate_data_to_gk5_interpolator[climate_data](sr_gk5, sh_gk5)
                 crow, ccol = climate_data_to_utm32_interpolator[climate_data](sr_utm32, sh_utm32)
+
+                # check if current grid cell is used for agriculture                
+                if setup["landcover"]:
+                    # corine_id = corine_gk5_interpolate(sr_gk5, sh_gk5)
+                    corine_id = corine_utm32_interpolate(sr_utm32, sh_utm32)
+                    if corine_id not in [2,3,4]:
+                        continue
 
                 if soil_id in soil_id_cache:
                     sp_json = soil_id_cache[soil_id]
@@ -410,13 +418,6 @@ def run_producer(server = {"server": None, "port": None}, shared_id = None):
                     #unknown_soil_ids.add(soil_id)
                     continue
                 
-                # check if current grid cell is used for agriculture                
-                if setup["landcover"]:
-                    # corine_id = corine_gk5_interpolate(sr_gk5, sh_gk5)
-                    corine_id = corine_utm32_interpolate(sr_utm32, sh_utm32)
-                    if corine_id not in [2,3,4]:
-                        continue
-
                 # rNfactor = rnf_gk5_interpolate(sr_gk5, sh_gk5)
                 # orgrNfactor = rnf_gk5_interpolate(sr_gk5, sh_gk5)
                 # height_nn = dem_gk5_interpolate(sr_gk5, sh_gk5)

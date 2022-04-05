@@ -382,7 +382,7 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
             #print(srow)
             for scol in range(0, scols):
                 soil_id = soil_grid_template[srow, scol]
-                if soil_id == -9999:
+                if soil_id == nodata_value:
                     continue
 
                 #get coordinate of clostest climate element of real soil-cell
@@ -393,9 +393,9 @@ def run_consumer(leave_after_finished_run = True, server = {"server": None, "por
                 lur, luh = landuse_transformer.transform(sr, sh)
                 landuse_id = landuse_interpolate(lur, luh)
                 if landuse_id not in [2,3,4]:
-                    soil_grid_template[srow, scol] = -9999
+                    soil_grid_template[srow, scol] = nodata_value
 
-        print("filtered through CORINE")
+        print("filtered through landuse")
 
     #set all data values to one, to count them later
     soil_grid_template[soil_grid_template != nodata_value] = 1
