@@ -142,7 +142,7 @@ def create_output_no_object_outputs(result):
 def write_row_to_grids(row_col_data, row, ncols, header, path_to_output_dir, path_to_csv_output_dir, setup_id):
     "write grids row by row"
     
-    if row in row_col_data:
+    if False and row in row_col_data:
         is_data_row = len(list(filter(lambda x: x != -9999, row_col_data[row].values()))) > 0
         if is_data_row:
             path_to_row_file = path_to_csv_output_dir + "row-" + str(row) + ".csv" 
