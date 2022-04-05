@@ -97,7 +97,7 @@ def create_output(msg):
 
     return cm_count_to_vals
 
-def create_output_non_object_outputs(result):
+def create_output_no_object_outputs(result):
     "create output structure for single run"
 
     cm_count_to_vals = defaultdict(dict)

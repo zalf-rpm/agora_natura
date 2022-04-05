@@ -34,7 +34,7 @@
 			"csv-separator": ","
 		},
 
-		"obj-outputs?": false,
+		"obj-outputs?": true,
 
 		"events parked": [
 			"Sowing", [
