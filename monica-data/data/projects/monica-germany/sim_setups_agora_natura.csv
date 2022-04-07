@@ -21,5 +21,6 @@ run-id,crop-ids,sim.json,crop.json,site.json,climate_data,climate_model,climate_
 20,CLALF,sim.json,crop_CLALF_2cuts.json,site.json,dwd,,,germany_ubn_1901-2018_unzipped,1980,2019,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,fixed,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,360,,true
 21,CLALF,sim.json,crop_CLALF_3cuts.json,site.json,dwd,,,germany_ubn_1901-2018_unzipped,1980,2019,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,fixed,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,360,,true
 22,CLALF,sim.json,crop_CLALF_4cuts.json,site.json,dwd,,,germany_ubn_1901-2018_unzipped,1980,2019,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,fixed,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,360,,true
+23,CLALF,sim.json,crop_yearly.json,site.json,dwd,,,germany_ubn_1901-2018_unzipped,1980,2019,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,fixed,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,360,,true
 101,SM_SM_WW,sim.json,crop2_SM_SM_WW.json,site.json,dwd,,,germany_ubn_1901-2018_unzipped,1980,2019,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,fixed,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,360,,true
 120,CLALF,sim.json,crop_CLALF.json,site.json,dwd,,,germany_ubn_1901-2018_unzipped,1980,2019,FALSE,FALSE,TRUE,TRUE,TRUE,fixed,fixed,TRUE,FALSE,TRUE,FALSE,TRUE,FALSE,FALSE,FALSE,360,,true
