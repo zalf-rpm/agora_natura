@@ -63,7 +63,7 @@
 					]
 				}
 			},
-			"residueParams": ["include-from-file", "crop-residues/rape.json"]
+			"residueParams": ["include-from-file", "crops/residues/rape.json"]
 		}
 	},
 	

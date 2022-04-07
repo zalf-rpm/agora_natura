@@ -31,7 +31,7 @@
 					]
 				}
 			},
-			"residueParams": ["include-from-file", "crop-residues/barley.json"]
+			"residueParams": ["include-from-file", "crops/residues/barley.json"]
 		}		
 	},
 	

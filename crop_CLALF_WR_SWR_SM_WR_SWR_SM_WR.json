@@ -5,9 +5,9 @@
 			"is-perennial-crop": true,
 			"cropParams": {
 				"species":   ["include-from-file", "crops/species/alfalfa-clover-grass-ley-mix.json"],
-				"cultivar":  ["include-from-file", "crops/cultivars/alfalfa-clover-grass-ley-mix/.json"]
+				"cultivar":  ["include-from-file", "crops/cultivars/alfalfa-clover-grass-ley-mix.json"]
 			},
-			"residueParams": ["include-from-file", "crop/residues/clover-grass-ley.json"]
+			"residueParams": ["include-from-file", "crops/residues/clover-grass-ley.json"]
         },
         "SWR": {
             "is-winter-crop": true,

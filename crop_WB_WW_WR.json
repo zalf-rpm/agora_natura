@@ -69,7 +69,7 @@
 					"RefLeafExp": 16
 				}
 			},
-			"residueParams": ["include-from-file", "crop-residues/rye.json"]
+			"residueParams": ["include-from-file", "crops/residues/rye.json"]
 		},
 		"WB": {
 			"is-winter-crop": true,
@@ -102,7 +102,7 @@
 					]
 				}
 			},
-			"residueParams": ["include-from-file", "crop-residues/barley.json"]
+			"residueParams": ["include-from-file", "crops/residues/barley.json"]
 		}	
 	},
 	

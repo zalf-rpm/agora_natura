@@ -34,7 +34,7 @@
 					"RefLeafExp": 16
 				}
 			},
-			"residueParams": ["include-from-file", "crop-residues/rye.json"]
+			"residueParams": ["include-from-file", "crops/residues/rye.json"]
 		}
 	},
 	
