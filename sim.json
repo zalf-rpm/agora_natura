@@ -68,7 +68,7 @@
 			
 		],
 
-		"events": [
+		"__events": [
 			"crop", [
 				["CM-count", "FIRST"],
 				["Year", "LAST"],
@@ -76,7 +76,7 @@
 				["Yield", "LAST"]
 		]
 	],
-		"__events": [
+		"events": [
 			"crop", [
 				["CM-count", "FIRST"],
 				["Crop", "LAST"],
