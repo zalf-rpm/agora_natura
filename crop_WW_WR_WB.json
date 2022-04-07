@@ -4,11 +4,11 @@
 			"is-winter-crop": true,
 			"cropParams": {
 				"species": {
-					"=": ["include-from-file", "projects/sustag/wheat.json"],
+					"=": ["include-from-file", "crops/species/wheat.json"],
 					"TransitionStageLeafExp": 2
 				},
 				"cultivar": {
-					"=": ["include-from-file", "projects/sustag/winter-wheat.json"],
+					"=": ["include-from-file", "crops/cultivars/winter-wheat_bs_dwd_pheno.json"],
 					"OrganIdsForSecondaryYield": [
 						{
 							"organId": 2,
@@ -33,18 +33,18 @@
 					"RefLeafExp": 16
 				}
 			},
-			"residueParams": ["include-from-file", "crop-residues/wheat.json"]
+			"residueParams": ["include-from-file", "crops/residues/wheat.json"]
 		},	
 		"WR": {
 			"is-winter-crop": true,
 			"cropParams": {
 				"species": {
-					"=": ["include-from-file", "crops/rye.json"],
+					"=": ["include-from-file", "crops/species/rye.json"],
 					"TransitionStageLeafExp": 2,
 					"FieldConditionModifier":0.7
 				},
 				"cultivar": {
-					"=": ["include-from-file", "crops/rye/winter-rye.json"],
+					"=": ["include-from-file", "crops/cultivars/winter-rye_hhf_dwd_pheno.json"],
 					"OrganIdsForSecondaryYield": [
 						{
 							"organId": 2,
@@ -72,13 +72,14 @@
 			"residueParams": ["include-from-file", "crop-residues/rye.json"]
 		},
 		"WB": {
+			"is-winter-crop": true,
 			"cropParams": {
 				"species": {
-					"=": ["include-from-file", "projects/sustag/barley.json"],
+					"=": ["include-from-file", "crops/species/barley.json"],
 				"FieldConditionModifier":1.2
 			},
 				"cultivar": {
-					"=": ["include-from-file", "projects/sustag/winter-barley.json"],
+					"=": ["include-from-file", "crops/cultivars/winter-barley_bs_dwd_pheno.json"],
 					"OrganIdsForSecondaryYield": [
 							{
 								"organId": 2,
@@ -102,7 +103,7 @@
 				}
 			},
 			"residueParams": ["include-from-file", "crop-residues/barley.json"]
-		}	
+		}
 	},
 	
 	"fert-params": {

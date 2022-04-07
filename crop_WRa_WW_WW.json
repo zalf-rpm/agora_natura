@@ -4,11 +4,11 @@
 			"is-winter-crop": true,
 			"cropParams": {
 				"species": {
-					"=": ["include-from-file", "projects/sustag/wheat.json"],
+					"=": ["include-from-file", "crops/species/wheat.json"],
 					"TransitionStageLeafExp": 2
 				},
 				"cultivar": {
-					"=": ["include-from-file", "projects/sustag/winter-wheat.json"],
+					"=": ["include-from-file", "crops/cultivars/winter-wheat_bs_dwd_pheno.json"],
 					"OrganIdsForSecondaryYield": [
 						{
 							"organId": 2,
@@ -33,14 +33,14 @@
 					"RefLeafExp": 16
 				}
 			},
-			"residueParams": ["include-from-file", "crop-residues/wheat.json"]
+			"residueParams": ["include-from-file", "crops/residues/wheat.json"]
 		},
 		"WRa": {
 			"is-winter-crop": true,
 			"cropParams": {
-				"species": ["include-from-file", "projects/sustag/rape.json"],
+				"species": ["include-from-file", "crops/species/rape.json"],
 				"cultivar": {
-					"=": ["include-from-file", "projects/sustag/winter-rape.json"],
+					"=": ["include-from-file", "crops/cultivars/winter-rape_dwd_pheno.json"],
 					"OrganIdsForSecondaryYield": [
 						{
 							"organId": 2,

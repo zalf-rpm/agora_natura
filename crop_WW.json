@@ -1,41 +1,38 @@
   {
-	"crops": {
-		"WW": {
-			"is-winter-crop": true,
-			"cropParams": {
-				"species": {
-					"=": ["include-from-file", "crops/wheat.json"],
-					"TransitionStageLeafExp": 2,
-					"FieldConditionModifier":0.9
-				},
-				"cultivar": {
-					"=": ["include-from-file", "crops/wheat/winter-wheat.json"],
-					"OrganIdsForSecondaryYield": [
-						{
-							"organId": 2,
-							"type": "YieldComponent",
-							"yieldDryMatter": 0.86,
-							"yieldPercentage": 1
-						},
-						{
-							"organId": 3,
-							"type": "YieldComponent",
-							"yieldDryMatter": 0.86,
-							"yieldPercentage": 1
-						},
-						{
-							"organId": 4,
-							"type": "YieldComponent",
-							"yieldDryMatter": 0.86,
-							"yieldPercentage": 0.15
-						}
-					],
-					"EarlyRefLeafExp": 8,
-					"RefLeafExp": 16
-				}
+	"WW": {
+		"is-winter-crop": true,
+		"cropParams": {
+			"species": {
+				"=": ["include-from-file", "crops/species/wheat.json"],
+				"TransitionStageLeafExp": 2
 			},
-			"residueParams": ["include-from-file", "crop-residues/wheat.json"]
-		}
+			"cultivar": {
+				"=": ["include-from-file", "crops/cultivars/winter-wheat_bs_dwd_pheno.json"],
+				"OrganIdsForSecondaryYield": [
+					{
+						"organId": 2,
+						"type": "YieldComponent",
+						"yieldDryMatter": 0.86,
+						"yieldPercentage": 1
+					},
+					{
+						"organId": 3,
+						"type": "YieldComponent",
+						"yieldDryMatter": 0.86,
+						"yieldPercentage": 1
+					},
+					{
+						"organId": 4,
+						"type": "YieldComponent",
+						"yieldDryMatter": 0.86,
+						"yieldPercentage": 0.15
+					}
+				],
+				"EarlyRefLeafExp": 8,
+				"RefLeafExp": 16
+			}
+		},
+		"residueParams": ["include-from-file", "crops/residues/wheat.json"]
 	},
 	
 	

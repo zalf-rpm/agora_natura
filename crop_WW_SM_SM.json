@@ -3,11 +3,11 @@
 		"SM": {
 			"cropParams": {
 				"species": {
-					"=": ["include-from-file", "projects/sustag/maize.json"],
+					"=": ["include-from-file", "crops/species/maize.json"],
 				"FieldConditionModifier":0.95
 			},
 				"cultivar": {
-					"=": ["include-from-file", "projects/sustag/silage-maize.json"],
+					"=": ["include-from-file", "crops/cultivars/silage-maize_bs_dwd_pheno.json"],
 					"OrganIdsForSecondaryYield": [
 						{
 							"organId": 2,
@@ -24,17 +24,17 @@
 					]
 				}
 			},
-			"residueParams": ["include-from-file", "crop-residues/maize.json"]
+			"residueParams": ["include-from-file", "crops/residues/maize.json"]
 		},
 		"WW": {
 			"is-winter-crop": true,
 			"cropParams": {
 				"species": {
-					"=": ["include-from-file", "projects/sustag/wheat.json"],
+					"=": ["include-from-file", "crops/species/wheat.json"],
 					"TransitionStageLeafExp": 2
 				},
 				"cultivar": {
-					"=": ["include-from-file", "projects/sustag/winter-wheat.json"],
+					"=": ["include-from-file", "crops/cultivars/winter-wheat_bs_dwd_pheno.json"],
 					"OrganIdsForSecondaryYield": [
 						{
 							"organId": 2,
@@ -59,7 +59,7 @@
 					"RefLeafExp": 16
 				}
 			},
-			"residueParams": ["include-from-file", "crop-residues/wheat.json"]
+			"residueParams": ["include-from-file", "crops/residues/wheat.json"]
 		}
 	},
 	

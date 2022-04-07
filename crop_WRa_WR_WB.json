@@ -3,9 +3,9 @@
 		"WRa": {
 			"is-winter-crop": true,
 			"cropParams": {
-				"species": ["include-from-file", "projects/sustag/rape.json"],
+				"species": ["include-from-file", "crops/species/rape.json"],
 				"cultivar": {
-					"=": ["include-from-file", "projects/sustag/winter-rape.json"],
+					"=": ["include-from-file", "crops/cultivars/winter-rape_dwd_pheno.json"],
 					"OrganIdsForSecondaryYield": [
 						{
 							"organId": 2,
@@ -34,12 +34,12 @@
 			"is-winter-crop": true,
 			"cropParams": {
 				"species": {
-					"=": ["include-from-file", "crops/rye.json"],
+					"=": ["include-from-file", "crops/species/rye.json"],
 					"TransitionStageLeafExp": 2,
 					"FieldConditionModifier":0.7
 				},
 				"cultivar": {
-					"=": ["include-from-file", "crops/rye/winter-rye.json"],
+					"=": ["include-from-file", "crops/cultivars/winter-rye_hhf_dwd_pheno.json"],
 					"OrganIdsForSecondaryYield": [
 						{
 							"organId": 2,
@@ -70,11 +70,11 @@
 			"is-winter-crop": true,
 			"cropParams": {
 				"species": {
-					"=": ["include-from-file", "projects/sustag/barley.json"],
+					"=": ["include-from-file", "crops/species/barley.json"],
 				"FieldConditionModifier":1.2
 			},
 				"cultivar": {
-					"=": ["include-from-file", "projects/sustag/winter-barley.json"],
+					"=": ["include-from-file", "crops/cultivars/winter-barley_bs_dwd_pheno.json"],
 					"OrganIdsForSecondaryYield": [
 							{
 								"organId": 2,

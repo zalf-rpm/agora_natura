@@ -4,11 +4,11 @@
 			"is-winter-crop": true,
 			"cropParams": {
 				"species": {
-					"=": ["include-from-file", "projects/sustag/barley.json"],
+					"=": ["include-from-file", "crops/species/barley.json"],
 				"FieldConditionModifier":1.2
 			},
 				"cultivar": {
-					"=": ["include-from-file", "projects/sustag/winter-barley.json"],
+					"=": ["include-from-file", "crops/cultivars/winter-barley_bs_dwd_pheno.json"],
 					"OrganIdsForSecondaryYield": [
 							{
 								"organId": 2,
@@ -32,7 +32,7 @@
 				}
 			},
 			"residueParams": ["include-from-file", "crop-residues/barley.json"]
-		}	
+		}		
 	},
 	
 	"fert-params": {
